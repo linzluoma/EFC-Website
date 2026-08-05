@@ -9,7 +9,6 @@ Preserved entries:
 Paste this entire file into the Weebly Embed Code block on the Shows page.
 The EPK can continue reading .efc-show, .efc-date, .efc-venue, and .efc-city.
 -->
-
 <style>
 #schedule-data,
 #schedule-data * {
@@ -401,106 +400,25 @@ The EPK can continue reading .efc-show, .efc-date, .efc-venue, and .efc-city.
     }
 }
 </style>
-
 <div id="schedule-data">
-
-    <div class="efc-schedule-tabs" role="tablist" aria-label="Show schedule sections">
-        <button
-            type="button"
-            class="efc-schedule-tab active"
-            data-tab="upcomingPanel"
-            role="tab"
-            aria-selected="true">
+<div aria-label="Show schedule sections" class="efc-schedule-tabs" role="tablist">
+<button aria-selected="true" class="efc-schedule-tab active" data-tab="upcomingPanel" role="tab" type="button">
             Upcoming Shows
         </button>
-
-        <button
-            type="button"
-            class="efc-schedule-tab"
-            data-tab="pastPanel"
-            role="tab"
-            aria-selected="false">
+<button aria-selected="false" class="efc-schedule-tab" data-tab="pastPanel" role="tab" type="button">
             Past Shows
         </button>
-    </div>
-
-    <section id="upcomingPanel" class="efc-panel active" role="tabpanel">
-        <div class="efc-scroll">
 </div>
-    </section>
-
-    <section id="pastPanel" class="efc-panel" role="tabpanel">
-        <div class="efc-scroll">
+<section class="efc-panel active" id="upcomingPanel" role="tabpanel">
+<div class="efc-scroll" id="upcomingShows">
 </div>
-    </section>
-
-
+</section>
+<section class="efc-panel" id="pastPanel" role="tabpanel">
+<div class="efc-scroll" id="pastShows">
+</div>
+</section>
 <script src="shows-data.js"></script>
 <script src="schedule.js"></script>
 </div>
 
-<script>
-(function () {
-    const schedule = document.getElementById("schedule-data");
-    if (!schedule) return;
 
-    const tabs = schedule.querySelectorAll(".efc-schedule-tab");
-    const panels = schedule.querySelectorAll(".efc-panel");
-
-    tabs.forEach(function (button) {
-        button.addEventListener("click", function () {
-            const targetId = button.getAttribute("data-tab");
-
-            tabs.forEach(function (tab) {
-                const isActive = tab === button;
-                tab.classList.toggle("active", isActive);
-                tab.setAttribute("aria-selected", isActive ? "true" : "false");
-            });
-
-            panels.forEach(function (panel) {
-                panel.classList.toggle("active", panel.id === targetId);
-            });
-        });
-    });
-})();
-
-// Automatically update tab counts
-(function(){
-function updateTabCounts(){
-var upcoming=document.querySelectorAll("#upcomingPanel .efc-show").length;
-var past=document.querySelectorAll("#pastPanel .efc-show").length;
-document.querySelectorAll(".efc-schedule-tab").forEach(function(tab){
-var key=(tab.dataset.tab||"").toLowerCase();
-var label=tab.textContent.replace(/\s*\(\d+\)\s*$/,"").trim();
-if(key==="upcoming"){tab.textContent=label+" ("+upcoming+")";}
-else if(key==="past"){tab.textContent=label+" ("+past+")";}
-});
-}
-if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",updateTabCounts);}
-else{updateTabCounts();}
-})();
-
-</script>
-
-<script>
-(function(){
-  function updateCounts(){
-    var up=document.querySelectorAll('#upcomingPanel .efc-show').length;
-    var past=document.querySelectorAll('#pastPanel .efc-show').length;
-    document.querySelectorAll('.efc-schedule-tab').forEach(function(tab){
-      var key=(tab.getAttribute('data-tab')||'');
-      var base=tab.textContent.replace(/\s*\(\d+\)\s*$/,'').trim();
-      if(key==='upcomingPanel'){
-        tab.textContent=base+' ('+up+')';
-      }else if(key==='pastPanel'){
-        tab.textContent=base+' ('+past+')';
-      }
-    });
-  }
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',updateCounts);
-  }else{
-    updateCounts();
-  }
-})();
-</script>
