@@ -1,0 +1,5075 @@
+<!--
+Electric Flower Co. Master Tour Schedule
+Generated from the uploaded schedule source.
+
+Preserved entries:
+- 12 upcoming shows
+- 242 past shows
+
+Paste this entire file into the Weebly Embed Code block on the Shows page.
+The EPK can continue reading .efc-show, .efc-date, .efc-venue, and .efc-city.
+-->
+
+<style>
+#schedule-data,
+#schedule-data * {
+    box-sizing: border-box;
+}
+
+/* NOTE: Full browser width now depends on the surrounding Weebly theme container.
+   This widget already uses the full width available to it. */
+#schedule-data {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    padding: 0 28px;
+    color: inherit;
+    font: inherit;
+    overflow-x: hidden;
+}
+
+/* Tabs */
+
+.efc-schedule-tabs {
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+    margin: 0 0 24px;
+    border-bottom: 1px solid rgba(127,127,127,.22);
+}
+
+.efc-schedule-tab {
+    appearance: none;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 12px 0;
+    margin-bottom: -1px;
+    opacity: .58;
+    transition: opacity .2s ease, border-color .2s ease;
+}
+
+.efc-schedule-tab:hover,
+.efc-schedule-tab:focus-visible {
+    opacity: 1;
+}
+
+.efc-schedule-tab.active {
+    opacity: 1;
+    border-bottom-color: currentColor;
+}
+
+/* Panels and scrolling */
+
+.efc-panel {
+    display: none;
+}
+
+.efc-panel.active {
+    display: block;
+}
+
+.efc-scroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(127,127,127,.35) transparent;
+}
+
+#upcomingPanel .efc-scroll {
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+}
+
+#pastPanel .efc-scroll {
+    max-height: 680px;
+}
+
+.efc-scroll::-webkit-scrollbar {
+    width: 9px;
+}
+
+.efc-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.efc-scroll::-webkit-scrollbar-thumb {
+    background: rgba(127,127,127,.28);
+    border-radius: 999px;
+}
+
+/* Desktop show rows */
+
+.efc-show {
+    display: grid;
+    grid-template-columns:
+        90px
+        minmax(0, 1fr)
+        minmax(170px, 200px)
+        auto;
+    grid-template-areas: "date main location action";
+    gap: 28px;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(127,127,127,.12);
+}
+
+.efc-show:first-child {
+    border-top: 1px solid rgba(127,127,127,.18);
+}
+
+.efc-date {
+    grid-area: date;
+    display: grid;
+    justify-items: start;
+    align-content: center;
+    min-width: 0;
+    line-height: 1;
+}
+
+.efc-month {
+    margin-bottom: 3px;
+    font-size: .72em;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    opacity: .65;
+}
+
+.efc-day {
+    font-size: 2.05em;
+    font-weight: 700;
+    letter-spacing: -.04em;
+    line-height: .95;
+}
+
+.efc-year {
+    margin-top: 5px;
+    font-size: .68em;
+    opacity: .46;
+}
+
+.efc-main {
+    grid-area: main;
+    min-width: 0;
+}
+
+.efc-venue {
+    color: inherit;
+    font: inherit;
+    font-size: 1.16em;
+    font-weight: 700;
+    line-height: 1.35;
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
+.efc-location {
+    grid-area: location;
+    min-width: 0;
+    line-height: 1.4;
+}
+
+.efc-city {
+    color: inherit;
+    font: inherit;
+    font-size: .96em;
+    opacity: .78;
+    overflow-wrap: break-word;
+}
+
+.efc-time {
+    margin-top: 4px;
+    font-size: .82em;
+    line-height: 1.35;
+    opacity: .52;
+}
+
+.efc-action {
+    grid-area: action;
+    min-width: 0;
+    text-align: right;
+}
+
+.efc-action:empty {
+    display: block;
+}
+
+.efc-action a {
+    display: inline-block;
+    padding: 8px 15px;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    color: inherit;
+    font: inherit;
+    font-size: .86em;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color .2s ease, color .2s ease;
+}
+
+.efc-action a:hover,
+.efc-action a:focus-visible {
+    background: currentColor;
+    color: white;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) and (min-width: 701px) {
+    #schedule-data {
+        padding: 0 22px;
+    }
+
+    .efc-show {
+        grid-template-columns:
+            74px
+            minmax(0, 1fr)
+            minmax(150px, 180px);
+        grid-template-areas:
+            "date main location"
+            "date action action";
+        gap: 18px 22px;
+    }
+
+    .efc-action {
+        text-align: left;
+    }
+
+    .efc-action:empty {
+        display: none;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+    #schedule-data {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 16px;
+    }
+
+    .efc-schedule-tabs {
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 28px;
+    }
+
+    .efc-schedule-tab {
+        padding: 13px 0;
+        font-size: 1em;
+        white-space: nowrap;
+    }
+
+    .efc-scroll {
+        width: 100%;
+        padding-right: 0;
+        overflow-x: hidden;
+    }
+
+    #pastPanel .efc-scroll {
+        max-height: 620px;
+        padding-right: 7px;
+    }
+
+    .efc-show {
+        grid-template-columns: 64px minmax(0, 1fr);
+        grid-template-areas:
+            "date main"
+            "date location"
+            "date action";
+        column-gap: 18px;
+        row-gap: 0;
+        align-items: start;
+        padding: 20px 0;
+    }
+
+    .efc-date {
+        justify-items: center;
+        align-content: start;
+        width: 64px;
+        text-align: center;
+    }
+
+    .efc-month {
+        margin-bottom: 4px;
+        font-size: .7em;
+        letter-spacing: .18em;
+    }
+
+    .efc-day {
+        font-size: 2.15em;
+        line-height: .95;
+    }
+
+    .efc-year {
+        display: none;
+    }
+
+    .efc-main {
+        width: 100%;
+        min-width: 0;
+        padding-top: 1px;
+    }
+
+    .efc-venue {
+        width: 100%;
+        margin: 0;
+        font-size: 1.17em;
+        font-weight: 700;
+        line-height: 1.32;
+        text-align: left;
+        word-break: normal;
+        overflow-wrap: break-word;
+        hyphens: none;
+    }
+
+    .efc-location {
+        width: 100%;
+        min-width: 0;
+        margin-top: 7px;
+        text-align: left;
+    }
+
+    .efc-city {
+        display: block;
+        font-size: .98em;
+        line-height: 1.35;
+        opacity: .72;
+    }
+
+    .efc-time {
+        display: block;
+        margin-top: 3px;
+        font-size: .88em;
+        line-height: 1.35;
+        opacity: .55;
+    }
+
+    .efc-action {
+        width: 100%;
+        margin-top: 12px;
+        text-align: left;
+    }
+
+    .efc-action:empty {
+        display: none;
+    }
+
+    .efc-action a {
+        padding: 9px 15px;
+        font-size: .88em;
+        white-space: normal;
+    }
+}
+
+/* Extra-small phones */
+
+@media (max-width: 380px) {
+    #schedule-data {
+        padding: 0 12px;
+    }
+
+    .efc-schedule-tabs {
+        gap: 20px;
+    }
+
+    .efc-show {
+        grid-template-columns: 58px minmax(0, 1fr);
+        column-gap: 14px;
+    }
+
+    .efc-date {
+        width: 58px;
+    }
+
+    .efc-day {
+        font-size: 2em;
+    }
+
+    .efc-venue {
+        font-size: 1.1em;
+    }
+}
+</style>
+
+<div id="schedule-data">
+
+    <div class="efc-schedule-tabs" role="tablist" aria-label="Show schedule sections">
+        <button
+            type="button"
+            class="efc-schedule-tab active"
+            data-tab="upcomingPanel"
+            role="tab"
+            aria-selected="true">
+            Upcoming Shows
+        </button>
+
+        <button
+            type="button"
+            class="efc-schedule-tab"
+            data-tab="pastPanel"
+            role="tab"
+            aria-selected="false">
+            Past Shows
+        </button>
+    </div>
+
+    <section id="upcomingPanel" class="efc-panel active" role="tabpanel">
+        <div class="efc-scroll">
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 7, 2026 (9:00p-12:00a)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">07</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Gun Lake Casino</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Wayland, MI</div>
+        <div class="efc-time">9:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 8, 2026 (9:00p-12:30a)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">08</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">H.O.M.E. at The B.O.B.</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Rapids, MI</div>
+        <div class="efc-time">9:00p-12:30a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 13, 2026 (7:00p-9:00p)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">13</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Summer Concert Series @ McClintock Park</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Laingsburg, MI</div>
+        <div class="efc-time">7:00p-9:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 22, 2026 (7:00p-9:30p)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">22</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Short's Brewing Company</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Bellaire, MI</div>
+        <div class="efc-time">7:00p-9:30p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 29, 2026 (8:00p-11:00p)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">29</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Commodore's Ball at Pentwater Yacht Club</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Pentwater, MI</div>
+        <div class="efc-time">8:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 4, 2026 (5:00p-7:00p)">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">04</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Event at Congregation Shaarey Zedek</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Southfield, MI</div>
+        <div class="efc-time">5:00p-7:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 25, 2026 (6:00p-10:00p)">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">25</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Oktoberfest @ Original Gravity Brewing Co</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Milan, MI</div>
+        <div class="efc-time">6:00p-10:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Oct 2, 2026 (6:00p-11:00p)">
+        <div class="efc-month">OCT</div>
+        <div class="efc-day">02</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Score</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Rapids, MI</div>
+        <div class="efc-time">6:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Oct 3, 2026">
+        <div class="efc-month">OCT</div>
+        <div class="efc-day">03</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Wedding at Treetops Resort</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Gaylord, MI</div>
+        
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Oct 9, 2026 (8:30p-12a)">
+        <div class="efc-month">OCT</div>
+        <div class="efc-day">09</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Pinckney, MI</div>
+        <div class="efc-time">8:30p-12a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Oct 17, 2026 (8:00p-11:00p)">
+        <div class="efc-month">OCT</div>
+        <div class="efc-day">17</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Irish Pub</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Lansing, MI</div>
+        <div class="efc-time">8:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Nov 7, 2026 (7:00p-11:00p)">
+        <div class="efc-month">NOV</div>
+        <div class="efc-day">07</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Burr Oak Dance Club</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Burr Oak, MI</div>
+        <div class="efc-time">7:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+        </div>
+    </section>
+
+    <section id="pastPanel" class="efc-panel" role="tabpanel">
+        <div class="efc-scroll">
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 1, 2026 (9:00p-12:30p)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">01</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Kirby House</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Haven, MI</div>
+        <div class="efc-time">9:00p-12:30p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 30, 2026 (7:00p-10:00p)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">30</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Fireside Grill</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Novi, MI</div>
+        <div class="efc-time">7:00p-10:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 25, 2026 (6:00p-9:00p)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">25</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Men's Invitational at Warwick Hills Country Club</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Granc Blanc, MI</div>
+        <div class="efc-time">6:00p-9:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 22, 2026 (6:30p-8:30p)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">22</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Cascades Summer Concert Series</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Jackson, MI</div>
+        <div class="efc-time">6:30p-8:30p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 18, 2026 (9:00p-1:00a)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">18</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Horns Gaslight Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Mackinac Island, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 17, 2026 (9:00p-1:00a)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">17</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Horns Gaslight Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Mackinac Island, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 9, 2026 (7:00p-9:00p)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">09</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Tunes by the Tridge</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Midland, MI</div>
+        <div class="efc-time">7:00p-9:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 4, 2026 (8:00p-12:00a)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">04</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Turtle Lake Resort</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Union City, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 3, 2026 (6:00p-10:00p)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">03</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">N42 Bar &amp; Grill @ MacRay Harbor</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Harrison Twp, MI</div>
+        <div class="efc-time">6:00p-10:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 19, 2026">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">19</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Party</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Ann Arbor, MI</div>
+        
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 13, 2026 (9:00p-12:30p)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">13</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">H.O.M.E. at The B.O.B.</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Rapids, MI</div>
+        <div class="efc-time">9:00p-12:30p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 12, 2026 (7:00p-11:00p)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">12</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Silver Lake Chicken Shack</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Mears, MI</div>
+        <div class="efc-time">7:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 6, 2026 (7:00p-9:30p)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">06</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Short's Brewing Company</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Bellaire, MI</div>
+        <div class="efc-time">7:00p-9:30p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 5, 2026 (6:00p-9:00p)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">05</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Original Gravity Brewing Co</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Milan, MI</div>
+        <div class="efc-time">6:00p-9:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 30, 2026 (8:00p-11:00p)">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">30</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Detroit Yacht Club</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Detroit, MI</div>
+        <div class="efc-time">8:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 29, 2026 (8:00p-11:00p)">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">29</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">North Peak Brewing Co. &amp; Kilkenny's</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Bay City, MI</div>
+        <div class="efc-time">8:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 22, 2026 (9:00p-12:30a)">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">22</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">H.O.M.E. at The B.O.B.</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Rapids, MI</div>
+        <div class="efc-time">9:00p-12:30a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 9, 2026 (8:30p-12:00a)">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">09</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Pinckney, MI</div>
+        <div class="efc-time">8:30p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 4, 2026 (5:00-6:15p)">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">04</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Star Wars Day with the Detroit Tigers @ Comerica Park</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Detroit, MI</div>
+        <div class="efc-time">5:00-6:15p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 2, 2026 (9:00p-12:30a)">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">02</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Kirby House</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Haven, MI</div>
+        <div class="efc-time">9:00p-12:30a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Apr 10, 2026 (9:00p-1:00a)">
+        <div class="efc-month">APR</div>
+        <div class="efc-day">10</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Mar 27, 2026 (7:30p-10:30p)">
+        <div class="efc-month">MAR</div>
+        <div class="efc-day">27</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">High Caliber Karting &amp; Entertainment</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Okemos, MI</div>
+        <div class="efc-time">7:30p-10:30p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Mar 14, 2026 (8:00p-12:00a)">
+        <div class="efc-month">MAR</div>
+        <div class="efc-day">14</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Crystal Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Westland, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Mar 13, 2026 (8:00p-11:00p)">
+        <div class="efc-month">MAR</div>
+        <div class="efc-day">13</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Summerlands Brewing Co</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holt, MI</div>
+        <div class="efc-time">8:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Mar 7, 2026 (7:00p-11:00p)">
+        <div class="efc-month">MAR</div>
+        <div class="efc-day">07</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Burr Oak Dance Club</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Burr Oak, MI</div>
+        <div class="efc-time">7:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jan 9, 2026 (8:00p-12:00a)">
+        <div class="efc-month">JAN</div>
+        <div class="efc-day">09</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Crystal Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Westland, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jan 3, 2026 (8:30p-12:00a)">
+        <div class="efc-month">JAN</div>
+        <div class="efc-day">03</div>
+        <div class="efc-year">2026</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Pinckney, MI</div>
+        <div class="efc-time">8:30p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Dec 31, 2025 (Doors at 7pm)">
+        <div class="efc-month">DEC</div>
+        <div class="efc-day">31</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">NYE at The Green Door</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Lansing, MI</div>
+        <div class="efc-time">Doors at 7pm</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Dec 26, 2025 (9:00p-12:00a)">
+        <div class="efc-month">DEC</div>
+        <div class="efc-day">26</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Gun Lake Casino</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Wayland, MI</div>
+        <div class="efc-time">9:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Dec 6, 2025 (7:00p-11:00p)">
+        <div class="efc-month">DEC</div>
+        <div class="efc-day">06</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Flushing Moose Lodge</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Flushing, MI</div>
+        <div class="efc-time">7:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Nov 26, 2025 (8:00p-12:00a)">
+        <div class="efc-month">NOV</div>
+        <div class="efc-day">26</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Thanksgiving Eve at Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Hell, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Nov 15, 2025 (8:30p-12:30am)">
+        <div class="efc-month">NOV</div>
+        <div class="efc-day">15</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Roadhouse</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Jackson, MI</div>
+        <div class="efc-time">8:30p-12:30am</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Nov 8, 2025 (9:00p-12:30am)">
+        <div class="efc-month">NOV</div>
+        <div class="efc-day">08</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Kirby House</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Haven, MI</div>
+        <div class="efc-time">9:00p-12:30am</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Oct 18, 2025 (8:30p-12:30a)">
+        <div class="efc-month">OCT</div>
+        <div class="efc-day">18</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Roadhouse</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Jackson, MI</div>
+        <div class="efc-time">8:30p-12:30a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Oct 17, 2025">
+        <div class="efc-month">OCT</div>
+        <div class="efc-day">17</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Event - Halloween Party for Willingham &amp; Cote PC</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">East Lansing, MI</div>
+        
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Oct 11, 2025">
+        <div class="efc-month">OCT</div>
+        <div class="efc-day">11</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Event - Block Party</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Rapids, MI</div>
+        
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Oct 10, 2025">
+        <div class="efc-month">OCT</div>
+        <div class="efc-day">10</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Event - Birthday Party</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Rapids, MI</div>
+        
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Oct 4, 2025 (9p-1a)">
+        <div class="efc-month">OCT</div>
+        <div class="efc-day">04</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Shots on the River</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Belmont, MI</div>
+        <div class="efc-time">9p-1a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 26, 2025 (6:00p-10:00p)">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">26</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Oktoberfest @ Original Gravity Brewing Co</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Milan, MI</div>
+        <div class="efc-time">6:00p-10:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 20, 2025 (8:00p-12:00a)">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">20</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Rogue River Tavern</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Rockford, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 13, 2025 (6:00p-11:00p)">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">13</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Score</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Rapids, MI</div>
+        <div class="efc-time">6:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 12, 2025">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">12</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Event - 50th Anniversary Party</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Petoskey, MI</div>
+        
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 5, 2025 (7:00p-11:00p)">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">05</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Silver Lake Chicken Shack</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Mears, MI</div>
+        <div class="efc-time">7:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 31, 2025 (8:00p-12:00a)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">31</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Turtle Lake Resort</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Union City, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 23, 2025 (9:00p-12:30a)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">23</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">H.O.M.E. at The B.O.B.</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Rapids, MI</div>
+        <div class="efc-time">9:00p-12:30a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 22, 2025 (8:30p-12:30a)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">22</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Stables</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Bay City, MI</div>
+        <div class="efc-time">8:30p-12:30a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 20, 2025 (7:00p-9:00p)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">20</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Summer Concert Series @ Hiram Sims Park</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Walled Lake, MI</div>
+        <div class="efc-time">7:00p-9:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 17, 2025 (4:00p-5:00p)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">17</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Nine on Nine Concert Series at Schiffer Park</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Ferndale, MI</div>
+        <div class="efc-time">4:00p-5:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 16, 2025 (8:00p-12:00a)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">16</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">D-Railed Bar &amp; Grill</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Durand, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 13, 2025 (7:00p-9:00p)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">13</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Meridian Farmer's Market Summer Concert Series</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Okemos, MI</div>
+        <div class="efc-time">7:00p-9:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 11, 2025 (6:00p-9:00ap)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">11</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Deck</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Muskegon, MI</div>
+        <div class="efc-time">6:00p-9:00ap</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 7, 2025 (6:00p-9:00p)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">07</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Event - Freedom Boat Club 10th Anniversary Party</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Stevenville, MI</div>
+        <div class="efc-time">6:00p-9:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 2, 2025 (8:00p-11:00p)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">02</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Detroit Yacht Club</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Detroit, MI</div>
+        <div class="efc-time">8:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 1, 2025 (6:00p-11:00p)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">01</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Score</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Rapids, MI</div>
+        <div class="efc-time">6:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 30, 2025 (6:00p-10:00p)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">30</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Gun Lake Live at Bay Pointe Inn</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Shelbyville, MI</div>
+        <div class="efc-time">6:00p-10:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 28, 2025 (7:00p-9:00p)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">28</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Wednesday Night Live Concert Series</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Durand, MI</div>
+        <div class="efc-time">7:00p-9:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 26, 2025 (9:00p-12:30a)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">26</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Kirby House</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Haven, MI</div>
+        <div class="efc-time">9:00p-12:30a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 25, 2025 (5:00p-8:00p)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">25</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Trak Houz @ Zeigler Motorsports</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Kalamazoo, MI</div>
+        <div class="efc-time">5:00p-8:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 20, 2025 (3:00pm-7:00p)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">20</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Cascade Hills Country Club</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Rapids, MI</div>
+        <div class="efc-time">3:00pm-7:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 19, 2025">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">19</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Event - Birthday</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Pinckney, MI</div>
+        
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 17, 2025 (Doors at 5:45p)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">17</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Opening for "Faithfully - The Music of Journey"<br/>Grand Rapids Symphony Orchestra Picnic Pops @ Millenium Park<br/>Ticket Info: https://www.grsymphony.org/family-fare-picnic-pops</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Walker, MI</div>
+        <div class="efc-time">Doors at 5:45p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 12, 2025 (7:00p-9:00p)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">12</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Event - Long Lake Cloverdale Association Annual Party</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Delton, MI</div>
+        <div class="efc-time">7:00p-9:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 11, 2025 (10:00p-2:00a)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">11</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Gun Lake Casino</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Wayland, MI</div>
+        <div class="efc-time">10:00p-2:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 10, 2025 (7:00p-9:00p)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">10</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Summer Concert Series @ McClintock Park</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Laingsburg, MI</div>
+        <div class="efc-time">7:00p-9:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 5, 2025 (7:00p-9:30p)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">05</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Short's Brewing Co</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Bellaire, MI</div>
+        <div class="efc-time">7:00p-9:30p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 4, 2025">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">04</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Party</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Wolverine, MI</div>
+        
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 1, 2025 (6:00p-9:00p)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">01</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Deck</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Muskegon, MI</div>
+        <div class="efc-time">6:00p-9:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 28, 2025">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">28</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Event at Au Gres Yacht Club</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Au Gres, MI</div>
+        
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 14, 2025 (7:00p-10:00p)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">14</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">South Haven Yacht Club</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">South Haven, MI</div>
+        <div class="efc-time">7:00p-10:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 13, 2025 (9:00p-1:00a)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">13</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">H.O.M.E. at The B.O.B.</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Rapids, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 12, 2025 (6:30p-8:00p)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">12</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Cascade Township Summer Concert Series</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Rapids, MI</div>
+        <div class="efc-time">6:30p-8:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 11, 2025 (6:30p-8:30p)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">11</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Music in the Park at Au Gres City Park</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Au Gres, MI</div>
+        <div class="efc-time">6:30p-8:30p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 7, 2025 (TIME TBA)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">07</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Annual Blessing of the Boats Event</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Ludington, MI</div>
+        <div class="efc-time">TIME TBA</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 31, 2025 (9:00p-1:00a)">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">31</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Horn's Gaslight Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Mackinac Island, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 30, 2025 (9:00p-1:00a)">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">30</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Horn's Gaslight Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Mackinac Island, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 25, 2025 (7:00p-11:00p)">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">25</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Silver Lake Chicken Shack</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Mears, MI</div>
+        <div class="efc-time">7:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 20, 2025">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">20</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Event - Wedding</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Ann Arbor, MI</div>
+        
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 17, 2025 (4:00p-8:00p)">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">17</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Original Gravity Brewing Co</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Milan, MI</div>
+        <div class="efc-time">4:00p-8:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 10, 2025 (9:00p-12:30a)">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">10</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Kirby House</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Haven, MI</div>
+        <div class="efc-time">9:00p-12:30a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 9, 2025 (9:00p-1:00a)">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">09</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Apr 5, 2025 (8:00p-12:00a)">
+        <div class="efc-month">APR</div>
+        <div class="efc-day">05</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Hell, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Apr 4, 2025 (8:00p-12:00a)">
+        <div class="efc-month">APR</div>
+        <div class="efc-day">04</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Hell, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Mar 28, 2025 (9:00p-1:00a)">
+        <div class="efc-month">MAR</div>
+        <div class="efc-day">28</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">H.O.M.E. at The B.O.B.</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Rapids, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Mar 21, 2025 (9:00p-1:00a)">
+        <div class="efc-month">MAR</div>
+        <div class="efc-day">21</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Sherman's Lounge</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Blanc, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Feb 28, 2025 (8:30p-12:30a)">
+        <div class="efc-month">FEB</div>
+        <div class="efc-day">28</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Crystal Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Westland, MI</div>
+        <div class="efc-time">8:30p-12:30a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Feb 22, 2025 (9:00p-12:30a)">
+        <div class="efc-month">FEB</div>
+        <div class="efc-day">22</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Kirby House</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Haven, MI</div>
+        <div class="efc-time">9:00p-12:30a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Feb 21, 2025 (10:00p-2:00a)">
+        <div class="efc-month">FEB</div>
+        <div class="efc-day">21</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Ascend Sportsbook at Soaring Eagle Casino</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Mt. Pleasant, MI</div>
+        <div class="efc-time">10:00p-2:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Feb 15, 2025 (9:00p-1:00a)">
+        <div class="efc-month">FEB</div>
+        <div class="efc-day">15</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jan 31, 2025 (10:00p-2:00a)">
+        <div class="efc-month">JAN</div>
+        <div class="efc-day">31</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Ascend Sportsbook at Soaring Eagle Casino</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Mt. Pleasant, MI</div>
+        <div class="efc-time">10:00p-2:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jan 25, 2025 (Doors at 7:00p)">
+        <div class="efc-month">JAN</div>
+        <div class="efc-day">25</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Opening for Dancing Queen: An ABBA Salute at Park Theatre&lt;br&gt;Tickets available at https://parktheatreholland.org/</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">Doors at 7:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jan 10, 2025 (8:30p-12:30a)">
+        <div class="efc-month">JAN</div>
+        <div class="efc-day">10</div>
+        <div class="efc-year">2025</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Green Door</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Lansing, MI</div>
+        <div class="efc-time">8:30p-12:30a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Dec 31, 2024 (9:00p-12:30a)">
+        <div class="efc-month">DEC</div>
+        <div class="efc-day">31</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">NYE @ Kirby House</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Haven, MI</div>
+        <div class="efc-time">9:00p-12:30a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Dec 21, 2024 (8:00p-12:00a)">
+        <div class="efc-month">DEC</div>
+        <div class="efc-day">21</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Hell, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Dec 20, 2024 (8:00p-12:00a)">
+        <div class="efc-month">DEC</div>
+        <div class="efc-day">20</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Hell, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Dec 13, 2024 (9:00p-1:00a)">
+        <div class="efc-month">DEC</div>
+        <div class="efc-day">13</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Nov 29, 2024 (9:00p-1:00a)">
+        <div class="efc-month">NOV</div>
+        <div class="efc-day">29</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">H.O.M.E. at The B.O.B.</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Rapids, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Nov 27, 2024 (8:00p-12:00a)">
+        <div class="efc-month">NOV</div>
+        <div class="efc-day">27</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Thanksgiving Eve at Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Hell, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Nov 16, 2024 (8p-12a)">
+        <div class="efc-month">NOV</div>
+        <div class="efc-day">16</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Vestal Inn</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Belmont, MI</div>
+        <div class="efc-time">8p-12a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Nov 9, 2024 (9p-12:30a)">
+        <div class="efc-month">NOV</div>
+        <div class="efc-day">09</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Kirby House</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Haven, MI</div>
+        <div class="efc-time">9p-12:30a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Nov 2, 2024 (9:30p-12:00a)">
+        <div class="efc-month">NOV</div>
+        <div class="efc-day">02</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Party</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Fowler, MI</div>
+        <div class="efc-time">9:30p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Nov 1, 2024 (9:00p-1:00a)">
+        <div class="efc-month">NOV</div>
+        <div class="efc-day">01</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Oct 26, 2024 (8:00p-12:00a)">
+        <div class="efc-month">OCT</div>
+        <div class="efc-day">26</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Hell, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Oct 25, 2024 (8:00p-12:00a)">
+        <div class="efc-month">OCT</div>
+        <div class="efc-day">25</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Hell, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Oct 19, 2024 (7:00p-11:00a)">
+        <div class="efc-month">OCT</div>
+        <div class="efc-day">19</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Cobblestone Bar &amp; Grill</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Blanc, MI</div>
+        <div class="efc-time">7:00p-11:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Oct 5, 2024 (Event time is 12p-10p)">
+        <div class="efc-month">OCT</div>
+        <div class="efc-day">05</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Rocktober Fest at Short's Brewing Company</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Bellaire, MI</div>
+        <div class="efc-time">Event time is 12p-10p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Oct 3, 2024 (Event time is 6p-11p)">
+        <div class="efc-month">OCT</div>
+        <div class="efc-day">03</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Bikes &amp; Boobs Breast Cancer Awareness Benefit &lt;br&gt;at Scooters Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Flint, MI</div>
+        <div class="efc-time">Event time is 6p-11p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 28, 2024 (9:00p-11:00p)">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">28</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Blind Owl</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Royal Oak, MI</div>
+        <div class="efc-time">9:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 27, 2024 (6:00p-10:00p)">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">27</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Oktoberfest at Original Gravity Brewing Co</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Milan, MI</div>
+        <div class="efc-time">6:00p-10:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 21, 2024 (9:00p-1:00a)">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">21</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 13, 2024 (8:30p-12:30a)">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">13</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Crystal Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Westland, MI</div>
+        <div class="efc-time">8:30p-12:30a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 7, 2024 (8P-11P)">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">07</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Au Gres Yacht Club</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Au Gres, MI</div>
+        <div class="efc-time">8P-11P</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 6, 2024 (7:00p-11:00p)">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">06</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Silver Lake Chicken Shack</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Mears, MI</div>
+        <div class="efc-time">7:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 31, 2024 (Starts at 7p)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">31</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Opening for Dancing Queen: An ABBA Salute &lt;br&gt;at Stix Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Ludington, MI</div>
+        <div class="efc-time">Starts at 7p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 30, 2024 (Starts at 7:30p)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">30</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Opening for Dancing Queen: An ABBA Salute &lt;br&gt;at Warner Vineyards</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Paw Paw, MI</div>
+        <div class="efc-time">Starts at 7:30p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 18, 2024 (4:30p-5:30p)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">18</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Lapeer Days Festival (West Stage)</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Lapeer, MI</div>
+        <div class="efc-time">4:30p-5:30p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 17, 2024 (10:00p-2:00a)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">17</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Ascend Sportsbook &lt;br&gt;at Soaring Eagle Casino</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Mt. Pleasant, MI</div>
+        <div class="efc-time">10:00p-2:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 16, 2024 (9:00p-12:00a)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">16</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hollywood Casino Toledo</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Toledo, OH</div>
+        <div class="efc-time">9:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 11, 2024 (4:00p-8:00p)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">11</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">LoLo's Bar &amp; Grill</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">4:00p-8:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 10, 2024 (9:00p-1:00a)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">10</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 9, 2024 (8:30p-11:30p)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">09</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Lotus Room&lt;br&gt;$10 admission</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Norton Shores, MI</div>
+        <div class="efc-time">8:30p-11:30p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 3, 2024 (6:00p-10:00p)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">03</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Party &lt;br&gt;Pinckney 35th Class Reunion</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Pinckney, MI</div>
+        <div class="efc-time">6:00p-10:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 2, 2024 (10:00p-1:30a)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">02</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Mash</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">East Lansing, MI</div>
+        <div class="efc-time">10:00p-1:30a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 1, 2024 (7:00p-9:00p)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">01</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Laingsburg Concert Series &lt;br&gt;at McClintock Park</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Laingsburg, MI</div>
+        <div class="efc-time">7:00p-9:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 27, 2024 (9:00p-12:30a)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">27</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Kirby House</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Haven, MI</div>
+        <div class="efc-time">9:00p-12:30a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 13, 2024 (7:30p-9:30p)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">13</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Party &lt;br&gt;Long Lake Cloverdale Association</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Delton, MI</div>
+        <div class="efc-time">7:30p-9:30p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 12, 2024 (10:00p-2:00a)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">12</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Ascend Sportsbook &lt;br&gt;at Soaring Eagle Casino</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Mt. Pleasant, MI</div>
+        <div class="efc-time">10:00p-2:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 7, 2024 (4:00p-8:00p)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">07</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">LoLo's Bar &amp; Grill</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">4:00p-8:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 6, 2024 (9:00p-1:00a)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">06</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 5, 2024 (6:00p-11:00p)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">05</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Score</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Rapids, MI</div>
+        <div class="efc-time">6:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 29, 2024 (4:00p-8:00p)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">29</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Original Gravity Brewing Co</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Milan, MI</div>
+        <div class="efc-time">4:00p-8:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 28, 2024 (9:00p-1:00a)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">28</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Green Door</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Lansing, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 26, 2024 (7:00p-9:00p)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">26</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Walled Lake Summer Concert Series&lt;br&gt;at Hiram Sims Park</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Walled Lake, MI</div>
+        <div class="efc-time">7:00p-9:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 16, 2024 (4:00p-8:00p)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">16</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">LoLo's Bar &amp; Grill</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">4:00p-8:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 15, 2024 (7:00p-10:00p)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">15</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">South Haven Yacht Club</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">South Haven, MI</div>
+        <div class="efc-time">7:00p-10:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="June 8, 2024 (Event @ 4:00p | Band @ 7:30p)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">08</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Blessing of the Boats</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Ludington, MI</div>
+        <div class="efc-time">Event @ 4:00p | Band @ 7:30p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="June 7, 2024 (7:00p-10:00p)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">07</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Event - Graduation Party</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Pinckney, MI</div>
+        <div class="efc-time">7:00p-10:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 2, 2024 (6:00p-10:00p)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">02</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Score</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Rapids, MI</div>
+        <div class="efc-time">6:00p-10:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 1, 2024 (8p-12a)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">01</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Hell, MI</div>
+        <div class="efc-time">8p-12a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 31, 2024 (8p-12a)">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">31</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Hell, MI</div>
+        <div class="efc-time">8p-12a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 25, 2024 (TBA)">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">25</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Event</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Wolverine, MI</div>
+        <div class="efc-time">TBA</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 24, 2024 (9:00p-12:00a)">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">24</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Gun Lake Casino</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Wayland, MI</div>
+        <div class="efc-time">9:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 22, 2024 (5p-8p)">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">22</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Deck</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Muskegon, MI</div>
+        <div class="efc-time">5p-8p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 18, 2024 (9:00p-12:30a)">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">18</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Kirby House</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Haven, MI</div>
+        <div class="efc-time">9:00p-12:30a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 17, 2024 (7:00p-11:00p)">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">17</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Cobblestone Bar &amp; Grill</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Blanc, MI</div>
+        <div class="efc-time">7:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 10, 2024 (9:00p-1:00a)">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">10</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">H.O.M.E. at The B.O.B.</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Rapids, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 4, 2024 (9:00p-1:00a)">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">04</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Crystal Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Westland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 3, 2024 (9:00p-1:00a)">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">03</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Winners Bar &amp; Grill</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Clinton Twp, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Apr 27, 2024 (9:00p-1:00a)">
+        <div class="efc-month">APR</div>
+        <div class="efc-day">27</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Apr 20, 2024 (9:00p-1:00a)">
+        <div class="efc-month">APR</div>
+        <div class="efc-day">20</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Crystal Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Westland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Apr 6, 2024 (8:00p-12:001)">
+        <div class="efc-month">APR</div>
+        <div class="efc-day">06</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Gravity Smokehouse</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holt, MI</div>
+        <div class="efc-time">8:00p-12:001</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Apr 5, 2024 (8:30p-12:30a)">
+        <div class="efc-month">APR</div>
+        <div class="efc-day">05</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Green Door</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Lansing, MI</div>
+        <div class="efc-time">8:30p-12:30a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Mar 30, 2024 (9:00p-12:30a)">
+        <div class="efc-month">MAR</div>
+        <div class="efc-day">30</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Kirby House</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Haven, MI</div>
+        <div class="efc-time">9:00p-12:30a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Mar 29, 2024 (9:00p-1:00a)">
+        <div class="efc-month">MAR</div>
+        <div class="efc-day">29</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Mar 15, 2024 (7:00p-11:00p)">
+        <div class="efc-month">MAR</div>
+        <div class="efc-day">15</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Cobblestone Bar &amp; Grille</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Blanc, MI</div>
+        <div class="efc-time">7:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Mar 9, 2024 (8:30p-12:30a)">
+        <div class="efc-month">MAR</div>
+        <div class="efc-day">09</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Green Door</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Lansing, MI</div>
+        <div class="efc-time">8:30p-12:30a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Mar 8, 2024 (9:00p-1:00a)">
+        <div class="efc-month">MAR</div>
+        <div class="efc-day">08</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">H.O.M.E. at The BOB</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Rapids, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Mar 2, 2024 (9:00p-1:00a)">
+        <div class="efc-month">MAR</div>
+        <div class="efc-day">02</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Crystal Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Westland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Feb 17, 2024 (8:00p-12:00a)">
+        <div class="efc-month">FEB</div>
+        <div class="efc-day">17</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Hell, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Feb 16, 2024 (8:00p-12:00a)">
+        <div class="efc-month">FEB</div>
+        <div class="efc-day">16</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Hell, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Feb 10, 2024 (9:00p-12:30a)">
+        <div class="efc-month">FEB</div>
+        <div class="efc-day">10</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Kirby House</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Haven, MI</div>
+        <div class="efc-time">9:00p-12:30a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Feb 3, 2024 (9:00p-1:00a)">
+        <div class="efc-month">FEB</div>
+        <div class="efc-day">03</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jan 27, 2024 (8:00p-12:00a)">
+        <div class="efc-month">JAN</div>
+        <div class="efc-day">27</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Gravity Smokehouse</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holt, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jan 19, 2024 (7:00p-11:00p)">
+        <div class="efc-month">JAN</div>
+        <div class="efc-day">19</div>
+        <div class="efc-year">2024</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Cobblestone Bar &amp; Grille</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Blanc, MI</div>
+        <div class="efc-time">7:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Dec 31, 2023 (9:00p-1:00a)">
+        <div class="efc-month">DEC</div>
+        <div class="efc-day">31</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">New Years Eve @ Wicks Park Bar &amp; Grille</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Saugatuck, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Dec 30, 2023 (8:00p-12:00a)">
+        <div class="efc-month">DEC</div>
+        <div class="efc-day">30</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Hell, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Dec 29, 2023 (8:00p-12:00a)">
+        <div class="efc-month">DEC</div>
+        <div class="efc-day">29</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Hell, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Dec 23, 2023 (9:00p-1:00a)">
+        <div class="efc-month">DEC</div>
+        <div class="efc-day">23</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Dec 16, 2023 (8:00p-12:00a)">
+        <div class="efc-month">DEC</div>
+        <div class="efc-day">16</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Vestal Inn</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Belmont, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Dec 9, 2023 (Doors open at 7p)">
+        <div class="efc-month">DEC</div>
+        <div class="efc-day">09</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Opening for Fast Fashion: The Depeche Mode Experience&lt;br&gt;The Vault</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Saginaw, MI</div>
+        <div class="efc-time">Doors open at 7p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Nov 25, 2023 (9:00p-1:00a)">
+        <div class="efc-month">NOV</div>
+        <div class="efc-day">25</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Nov 22, 2023 (8:00p-12:00a)">
+        <div class="efc-month">NOV</div>
+        <div class="efc-day">22</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Thanksgiving Eve at Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Hell, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Nov 12, 2023 (4:00p-8:00p)">
+        <div class="efc-month">NOV</div>
+        <div class="efc-day">12</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Event</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">East Lansing, MI</div>
+        <div class="efc-time">4:00p-8:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Nov 11, 2023 (7:00p-11:00p)">
+        <div class="efc-month">NOV</div>
+        <div class="efc-day">11</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Wicks Park Bar &amp; Grille</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Saugatuck, MI</div>
+        <div class="efc-time">7:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Nov 10, 2023 (9:00p-01:00a)">
+        <div class="efc-month">NOV</div>
+        <div class="efc-day">10</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Crystal Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Westland, MI</div>
+        <div class="efc-time">9:00p-01:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Nov 4, 2023 (8:00p-12:00a)">
+        <div class="efc-month">NOV</div>
+        <div class="efc-day">04</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Rogue River Tavern</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Rockford, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Oct 28, 2023 (9:00p-12:30a)">
+        <div class="efc-month">OCT</div>
+        <div class="efc-day">28</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Kirby House</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Grand Haven, MI</div>
+        <div class="efc-time">9:00p-12:30a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Oct 14, 2023 (8:00p-12:00a)">
+        <div class="efc-month">OCT</div>
+        <div class="efc-day">14</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Gravity Smokehouse</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holt, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Oct 7, 2023 (8:00p-12:00a)">
+        <div class="efc-month">OCT</div>
+        <div class="efc-day">07</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Hell, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Oct 6, 2023 (8:00p-12:00a)">
+        <div class="efc-month">OCT</div>
+        <div class="efc-day">06</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Hell, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 30, 2023 (9:00p-1:00a)">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">30</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Sherman's Lounge</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Flint, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 29, 2023 (6:00p-10:00p)">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">29</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Oktoberfest @ Original Gravity Brewing Co.</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Milan, MI</div>
+        <div class="efc-time">6:00p-10:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 23, 2023 (9:00p-12:00a)">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">23</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Auburn Hotel &amp; Tavern</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Auburn, MI</div>
+        <div class="efc-time">9:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 9, 2023 (Event starts @ 3p, Music @ 6:30p)">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">09</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Pig Roast at Birch Run Moose Lodge</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Birch Run, MI</div>
+        <div class="efc-time">Event starts @ 3p, Music @ 6:30p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 8, 2023 (8:00p-12:00a)">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">08</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Hell, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 2, 2023 (8:00p-12:00a)">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">02</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Au Gres Yacht Club</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Au Gres, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 1, 2023 (9:00p-1:00a)">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">01</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 19, 2023 (9:00p-1:00a)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">19</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Sherman's Lounge</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Flint, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 18, 2023">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">18</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Event - Wedding</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Wolverine, MI</div>
+        
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 12, 2023 (4:00p-8:00p)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">12</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">LoLo's Bar &amp; Grill</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">4:00p-8:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 11, 2023 (9p-1a)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">11</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9p-1a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 28, 2023 (9p-1a)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">28</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Winners Bar &amp; Grill</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Clinton Twp, MI</div>
+        <div class="efc-time">9p-1a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 22, 2023 (8:00p-12:00a)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">22</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Hell, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 21, 2023 (8:00p-12:00a)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">21</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Hell, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 15, 2023 (9:00p-1:00a)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">15</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 14, 2023 (9:00p-1:00a)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">14</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Sherman's Lounge</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Flint, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 13, 2023">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">13</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Opening for Double Vision - The Foreigner Experience &lt;br&gt;at District 142</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Wyandotte, MI</div>
+        
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 1, 2023 (9:00p-1:00a)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">01</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 24, 2023">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">24</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Party</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Pinckney, MI</div>
+        
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 17, 2023 (4:00p-7:00p)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">17</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Original Gravity Brewing Co.</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Milan, MI</div>
+        <div class="efc-time">4:00p-7:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 16, 2023">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">16</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Party</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Howell, MI</div>
+        
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 10, 2023 (8:00p-12:00a)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">10</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Hell, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 9, 2023 (9:00p-12:00a)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">09</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Draft Bar &amp; Grille</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Swartz Creek, MI</div>
+        <div class="efc-time">9:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 3, 2023 (9:00p-1:00a)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">03</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Club Canton</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Canton, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 2, 2023 (9:00p-1:00a)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">02</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Club Canton</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Canton, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 19, 2023 (9:00p-1:00a)">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">19</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="May 9, 2023">
+        <div class="efc-month">MAY</div>
+        <div class="efc-day">09</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Corporate Party</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Detroit, MI</div>
+        
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Apr 29, 2023 (9:30p-1:00a)">
+        <div class="efc-month">APR</div>
+        <div class="efc-day">29</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Exchange</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Lansing, MI</div>
+        <div class="efc-time">9:30p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Apr 28, 2023 (9:30p-1:00a)">
+        <div class="efc-month">APR</div>
+        <div class="efc-day">28</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Exchange</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Lansing, MI</div>
+        <div class="efc-time">9:30p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Apr 22, 2023 (8:00p-12:00a)">
+        <div class="efc-month">APR</div>
+        <div class="efc-day">22</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Hell, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Apr 21, 2023 (8:00p-12:00a)">
+        <div class="efc-month">APR</div>
+        <div class="efc-day">21</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Hell Saloon</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Hell, MI</div>
+        <div class="efc-time">8:00p-12:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Apr 1, 2023 (9:00p-1:00a)">
+        <div class="efc-month">APR</div>
+        <div class="efc-day">01</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Mar 31, 2023 (Doors open at 7p)">
+        <div class="efc-month">MAR</div>
+        <div class="efc-day">31</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Opening for Hairball @ Lansing Center</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Lansing, MI</div>
+        <div class="efc-time">Doors open at 7p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Mar 24, 2023 (9:00p-1:00a)">
+        <div class="efc-month">MAR</div>
+        <div class="efc-day">24</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Winners Bar &amp; Grill</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Clinton Towship, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Mar 11, 2023">
+        <div class="efc-month">MAR</div>
+        <div class="efc-day">11</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Birthday Party</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Lansing, MI</div>
+        
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Mar 4, 2023 (9:30p-1:00a)">
+        <div class="efc-month">MAR</div>
+        <div class="efc-day">04</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Exchange</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Lansing, MI</div>
+        <div class="efc-time">9:30p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Mar 3, 2023 (9:30p-1:00a)">
+        <div class="efc-month">MAR</div>
+        <div class="efc-day">03</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Exchange</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Lansing, MI</div>
+        <div class="efc-time">9:30p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Feb 25, 2023 (5:00p-11:00p)">
+        <div class="efc-month">FEB</div>
+        <div class="efc-day">25</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">FFA Alumni Hootenany Fundraiser</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Springport, MI</div>
+        <div class="efc-time">5:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jan 28, 2023 (9:30p-1:00a)">
+        <div class="efc-month">JAN</div>
+        <div class="efc-day">28</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Exchange</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Lansing, MI</div>
+        <div class="efc-time">9:30p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jan 27, 2023 (9:30p-1:00a)">
+        <div class="efc-month">JAN</div>
+        <div class="efc-day">27</div>
+        <div class="efc-year">2023</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Exchange</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Lansing, MI</div>
+        <div class="efc-time">9:30p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Dec 30, 2022 (8:30p-12:30a)">
+        <div class="efc-month">DEC</div>
+        <div class="efc-day">30</div>
+        <div class="efc-year">2022</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Sherman's Lounge</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Flint, MI</div>
+        <div class="efc-time">8:30p-12:30a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Dec 23, 2022 (7:00p-10:00p)">
+        <div class="efc-month">DEC</div>
+        <div class="efc-day">23</div>
+        <div class="efc-year">2022</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Double Clutch Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Okemos, MI</div>
+        <div class="efc-time">7:00p-10:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Dec 16, 2022 (7:00p-10:00p)">
+        <div class="efc-month">DEC</div>
+        <div class="efc-day">16</div>
+        <div class="efc-year">2022</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Double Clutch Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Okemos, MI</div>
+        <div class="efc-time">7:00p-10:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Dec 9, 2022 (7:00p-10:00p)">
+        <div class="efc-month">DEC</div>
+        <div class="efc-day">09</div>
+        <div class="efc-year">2022</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Double Clutch Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Okemos, MI</div>
+        <div class="efc-time">7:00p-10:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Dec 2, 2022 (7:00p-10:00p)">
+        <div class="efc-month">DEC</div>
+        <div class="efc-day">02</div>
+        <div class="efc-year">2022</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Double Clutch Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Okemos, MI</div>
+        <div class="efc-time">7:00p-10:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Nov 26, 2022 (9:00p-1:00a)">
+        <div class="efc-month">NOV</div>
+        <div class="efc-day">26</div>
+        <div class="efc-year">2022</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Sherman's Lounge</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Flint, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Nov 12, 2022 (9:00p-1:00a)">
+        <div class="efc-month">NOV</div>
+        <div class="efc-day">12</div>
+        <div class="efc-year">2022</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Oct 22, 2022 (9:30p-1:00a)">
+        <div class="efc-month">OCT</div>
+        <div class="efc-day">22</div>
+        <div class="efc-year">2022</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Exchange</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Lansing, MI</div>
+        <div class="efc-time">9:30p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Oct 21, 2022 (9:30p-1:00a)">
+        <div class="efc-month">OCT</div>
+        <div class="efc-day">21</div>
+        <div class="efc-year">2022</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Exchange</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Lansing, MI</div>
+        <div class="efc-time">9:30p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Oct 8, 2022">
+        <div class="efc-month">OCT</div>
+        <div class="efc-day">08</div>
+        <div class="efc-year">2022</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Wedding Reception</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Howell, MI</div>
+        
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Oct 7, 2022 (9:00p-1:00a)">
+        <div class="efc-month">OCT</div>
+        <div class="efc-day">07</div>
+        <div class="efc-year">2022</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 30, 2022 (6:00p-9:00p)">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">30</div>
+        <div class="efc-year">2022</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Oktoberfest @ Original Gravity Brewing Co.</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Milan,MI</div>
+        <div class="efc-time">6:00p-9:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 23, 2022">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">23</div>
+        <div class="efc-year">2022</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Private Wedding</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">St. Joseph, MI</div>
+        
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 10, 2022 (5:00p-8:00p)">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">10</div>
+        <div class="efc-year">2022</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Tanglewood Winery</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">5:00p-8:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Sept 9, 2022 (9:00p-1:00a)">
+        <div class="efc-month">SEP</div>
+        <div class="efc-day">09</div>
+        <div class="efc-year">2022</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 20, 2022 (9:30p-1:00a)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">20</div>
+        <div class="efc-year">2022</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Exchange</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Lansing, MI</div>
+        <div class="efc-time">9:30p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 19, 2022 (7:00p-11:00p)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">19</div>
+        <div class="efc-year">2022</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Back to Bricks at Trapper Joe's &lt;br&gt;feat. Rev. Right-Time</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Burton, MI</div>
+        <div class="efc-time">7:00p-11:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 12, 2022 (9:30p-1:00a)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">12</div>
+        <div class="efc-year">2022</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Exchange</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Lansing, MI</div>
+        <div class="efc-time">9:30p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Aug 5, 2022 (9:00p-1:00a)">
+        <div class="efc-month">AUG</div>
+        <div class="efc-day">05</div>
+        <div class="efc-year">2022</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 30, 2022 (9:30p-1:00a)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">30</div>
+        <div class="efc-year">2022</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">The Exchange</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Lansing, MI</div>
+        <div class="efc-time">9:30p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 4, 2022 (8:00p-10:00p)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">04</div>
+        <div class="efc-year">2022</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">4th of July Celebration @ McCurdy Park</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Corunna, MI</div>
+        <div class="efc-time">8:00p-10:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jul 2, 2022 (9:00p-1:00a)">
+        <div class="efc-month">JUL</div>
+        <div class="efc-day">02</div>
+        <div class="efc-year">2022</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Itty Bitty Bar</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Holland, MI</div>
+        <div class="efc-time">9:00p-1:00a</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+<article class="efc-show">
+    <div class="efc-date" data-full-date="Jun 18, 2022 (4:00p-7:00p)">
+        <div class="efc-month">JUN</div>
+        <div class="efc-day">18</div>
+        <div class="efc-year">2022</div>
+    </div>
+
+    <div class="efc-main">
+        <div class="efc-venue">Original Gravity Brewing Co.</div>
+    </div>
+
+    <div class="efc-location">
+        <div class="efc-city">Milan, MI</div>
+        <div class="efc-time">4:00p-7:00p</div>
+    </div>
+
+    <div class="efc-action"></div>
+</article>
+        </div>
+    </section>
+
+</div>
+
+<script>
+(function () {
+    const schedule = document.getElementById("schedule-data");
+    if (!schedule) return;
+
+    const tabs = schedule.querySelectorAll(".efc-schedule-tab");
+    const panels = schedule.querySelectorAll(".efc-panel");
+
+    tabs.forEach(function (button) {
+        button.addEventListener("click", function () {
+            const targetId = button.getAttribute("data-tab");
+
+            tabs.forEach(function (tab) {
+                const isActive = tab === button;
+                tab.classList.toggle("active", isActive);
+                tab.setAttribute("aria-selected", isActive ? "true" : "false");
+            });
+
+            panels.forEach(function (panel) {
+                panel.classList.toggle("active", panel.id === targetId);
+            });
+        });
+    });
+})();
+
+// Automatically update tab counts
+(function(){
+function updateTabCounts(){
+var upcoming=document.querySelectorAll("#upcomingPanel .efc-show").length;
+var past=document.querySelectorAll("#pastPanel .efc-show").length;
+document.querySelectorAll(".efc-schedule-tab").forEach(function(tab){
+var key=(tab.dataset.tab||"").toLowerCase();
+var label=tab.textContent.replace(/\s*\(\d+\)\s*$/,"").trim();
+if(key==="upcoming"){tab.textContent=label+" ("+upcoming+")";}
+else if(key==="past"){tab.textContent=label+" ("+past+")";}
+});
+}
+if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",updateTabCounts);}
+else{updateTabCounts();}
+})();
+
+</script>
+
+<script>
+(function(){
+  function updateCounts(){
+    var up=document.querySelectorAll('#upcomingPanel .efc-show').length;
+    var past=document.querySelectorAll('#pastPanel .efc-show').length;
+    document.querySelectorAll('.efc-schedule-tab').forEach(function(tab){
+      var key=(tab.getAttribute('data-tab')||'');
+      var base=tab.textContent.replace(/\s*\(\d+\)\s*$/,'').trim();
+      if(key==='upcomingPanel'){
+        tab.textContent=base+' ('+up+')';
+      }else if(key==='pastPanel'){
+        tab.textContent=base+' ('+past+')';
+      }
+    });
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',updateCounts);
+  }else{
+    updateCounts();
+  }
+})();
+</script>
