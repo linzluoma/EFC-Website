@@ -1,66 +1,39 @@
 /*
-Electric Flower Co. Schedule Engine
-Version 1.0
+========================================================
+Electric Flower Co.
+Full Schedule Renderer
+Version 2.0
+========================================================
 
-This script:
-
-1. Reads show data from window.EFC_SHOWS
-2. Automatically separates upcoming and past shows
-3. Sorts upcoming shows from soonest to latest
-4. Sorts past shows from newest to oldest
-5. Creates the same HTML structure used by the original schedule
-6. Controls the Upcoming Shows and Past Shows tabs
-
-The following files must load in this order:
-
+Requires, in this order:
 1. shows-data.js
-2. schedule.js
+2. show-utils.js
+3. schedule.js
 */
 
-(function () {
-    "use strict";
+window.EFC = window.EFC || {};
 
-    /*
-    ================================================================
-    SETTINGS
-    ================================================================
-    */
+(function (EFC) {
+    "use strict";
 
     const SETTINGS = {
         debug: true,
-
-        // Leave this false to show private events on the main schedule.
         hidePrivateShows: false,
-
-        upcomingEmptyMessage:
-            "No upcoming shows are currently listed.",
-
-        pastEmptyMessage:
-            "No past shows are currently listed.",
-
+        upcomingEmptyMessage: "No upcoming shows are currently listed.",
+        pastEmptyMessage: "No past shows are currently listed.",
         ticketButtonText: "Tickets",
-
         websiteButtonText: "Venue Website"
     };
 
-
-    /*
-    ================================================================
-    GENERAL HELPERS
-    ================================================================
-    */
-
-    function debugLog(...messages) {
+    function log(...messages) {
         if (SETTINGS.debug) {
             console.log("[EFC Schedule]", ...messages);
         }
     }
 
-
-    function debugWarning(...messages) {
+    function warn(...messages) {
         console.warn("[EFC Schedule]", ...messages);
     }
-
 
     function createElement(tagName, className, textContent) {
         const element = document.createElement(tagName);
@@ -69,455 +42,117 @@ The following files must load in this order:
             element.className = className;
         }
 
-        if (
-            textContent !== undefined &&
-            textContent !== null
-        ) {
+        if (textContent !== undefined && textContent !== null) {
             element.textContent = textContent;
         }
 
         return element;
     }
 
+    function appendTextWithBreaks(element, value) {
+        const text = String(value || "")
+            .replace(/<br\s*\/?>/gi, "\n")
+            .replace(/\s*\|\s*/g, "\n");
 
-    function getShowData() {
-        if (!Array.isArray(window.EFC_SHOWS)) {
-            throw new Error(
-                "The show database could not be found. " +
-                "Make sure shows-data.js loads before schedule.js."
-            );
-        }
-
-        return window.EFC_SHOWS;
-    }
-
-
-    /*
-    ================================================================
-    DATE HELPERS
-    ================================================================
-    */
-
-    function parseShowDate(dateString) {
-        /*
-        The show dates use this format:
-
-        2026-08-07
-
-        We split the date manually so JavaScript does not accidentally
-        shift it backward or forward because of time-zone handling.
-        */
-
-        const parts = String(dateString).split("-");
-
-        if (parts.length !== 3) {
-            return null;
-        }
-
-        const year = Number(parts[0]);
-        const month = Number(parts[1]);
-        const day = Number(parts[2]);
-
-        if (
-            !Number.isInteger(year) ||
-            !Number.isInteger(month) ||
-            !Number.isInteger(day)
-        ) {
-            return null;
-        }
-
-        const date = new Date(
-            year,
-            month - 1,
-            day
-        );
-
-        date.setHours(0, 0, 0, 0);
-
-        if (Number.isNaN(date.getTime())) {
-            return null;
-        }
-
-        return date;
-    }
-
-
-    function getToday() {
-        const today = new Date();
-
-        today.setHours(0, 0, 0, 0);
-
-        return today;
-    }
-
-
-    function getMonthLabel(date) {
-        return date
-            .toLocaleDateString(
-                "en-US",
-                { month: "short" }
-            )
-            .toUpperCase();
-    }
-
-
-    function getDayLabel(date) {
-        return String(
-            date.getDate()
-        ).padStart(2, "0");
-    }
-
-
-    function getYearLabel(date) {
-        return String(
-            date.getFullYear()
-        );
-    }
-
-
-    function getFullDateLabel(show, date) {
-        const formattedDate =
-            date.toLocaleDateString(
-                "en-US",
-                {
-                    month: "short",
-                    day: "numeric",
-                    year: "numeric"
-                }
-            );
-
-        if (show.time) {
-            return `${formattedDate} (${show.time})`;
-        }
-
-        return formattedDate;
-    }
-
-
-    /*
-    ================================================================
-    DATA HELPERS
-    ================================================================
-    */
-
-    function isValidShow(show) {
-        return Boolean(
-            show &&
-            typeof show === "object" &&
-            typeof show.date === "string" &&
-            typeof show.venue === "string"
-        );
-    }
-
-
-    function shouldDisplayShow(show) {
-        if (!isValidShow(show)) {
-            return false;
-        }
-
-        if (
-            SETTINGS.hidePrivateShows &&
-            show.public === false
-        ) {
-            return false;
-        }
-
-        return true;
-    }
-
-
-    function formatLocation(show) {
-        const city =
-            String(show.city || "").trim();
-
-        const state =
-            String(show.state || "").trim();
-
-        if (city && state) {
-            return `${city}, ${state}`;
-        }
-
-        return city || state;
-    }
-
-
-    function appendTextWithLineBreaks(
-        container,
-        text
-    ) {
-        /*
-        Some older show names still contain <br> tags or vertical bars
-        from the original HTML schedule.
-
-        This safely converts those into visible line breaks.
-        */
-
-        const normalizedText =
-            String(text || "")
-                .replace(
-                    /<br\s*\/?>/gi,
-                    "\n"
-                )
-                .replace(
-                    /\s*\|\s*/g,
-                    "\n"
-                );
-
-        const lines =
-            normalizedText.split(/\n+/);
-
-        lines.forEach(
-            (line, index) => {
-                if (index > 0) {
-                    container.appendChild(
-                        document.createElement("br")
-                    );
-                }
-
-                container.appendChild(
-                    document.createTextNode(
-                        line.trim()
-                    )
-                );
+        text.split(/\n+/).forEach((line, index) => {
+            if (index > 0) {
+                element.appendChild(document.createElement("br"));
             }
-        );
+
+            element.appendChild(document.createTextNode(line.trim()));
+        });
     }
 
+    function createDateBlock(show) {
+        const date = EFC.parseDate(show.date);
+        const block = createElement("div", "efc-date");
 
-    /*
-    ================================================================
-    SHOW CARD BUILDERS
-    ================================================================
-    */
+        block.dataset.fullDate = show.time
+            ? `${EFC.formatLongDate(show.date)} (${show.time})`
+            : EFC.formatLongDate(show.date);
 
-    function createDateBlock(show, date) {
-        const dateBlock =
-            createElement(
-                "div",
-                "efc-date"
-            );
-
-        dateBlock.dataset.fullDate =
-            getFullDateLabel(show, date);
-
-        const month =
-            createElement(
-                "div",
-                "efc-month",
-                getMonthLabel(date)
-            );
-
-        const day =
-            createElement(
-                "div",
-                "efc-day",
-                getDayLabel(date)
-            );
-
-        const year =
-            createElement(
-                "div",
-                "efc-year",
-                getYearLabel(date)
-            );
-
-        dateBlock.append(
-            month,
-            day,
-            year
+        block.append(
+            createElement("div", "efc-month", date.toLocaleDateString("en-US", { month: "short" }).toUpperCase()),
+            createElement("div", "efc-day", String(date.getDate()).padStart(2, "0")),
+            createElement("div", "efc-year", String(date.getFullYear()))
         );
 
-        return dateBlock;
+        return block;
     }
-
 
     function createVenueBlock(show) {
-        const mainBlock =
-            createElement(
-                "div",
-                "efc-main"
-            );
-
-        const venueBlock =
-            createElement(
-                "div",
-                "efc-venue"
-            );
+        const main = createElement("div", "efc-main");
+        const venue = createElement("div", "efc-venue");
 
         if (show.website) {
-            const venueLink =
-                createElement("a");
-
-            venueLink.href =
-                show.website;
-
-            venueLink.target =
-                "_blank";
-
-            venueLink.rel =
-                "noopener noreferrer";
-
-            venueLink.style.color =
-                "inherit";
-
-            venueLink.style.textDecoration =
-                "none";
-
-            appendTextWithLineBreaks(
-                venueLink,
-                show.venue
-            );
-
-            venueBlock.appendChild(
-                venueLink
-            );
+            const link = createElement("a");
+            link.href = show.website;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            link.style.color = "inherit";
+            link.style.textDecoration = "none";
+            appendTextWithBreaks(link, show.venue);
+            venue.appendChild(link);
         } else {
-            appendTextWithLineBreaks(
-                venueBlock,
-                show.venue
-            );
+            appendTextWithBreaks(venue, show.venue);
         }
 
-        mainBlock.appendChild(
-            venueBlock
-        );
-
-        return mainBlock;
+        main.appendChild(venue);
+        return main;
     }
 
-
     function createLocationBlock(show) {
-        const locationBlock =
-            createElement(
-                "div",
-                "efc-location"
-            );
-
-        const locationText =
-            formatLocation(show);
+        const location = createElement("div", "efc-location");
+        const locationText = EFC.formatLocation(show);
 
         if (locationText) {
-            const cityBlock =
-                createElement(
-                    "div",
-                    "efc-city",
-                    locationText
-                );
-
-            locationBlock.appendChild(
-                cityBlock
-            );
+            location.appendChild(createElement("div", "efc-city", locationText));
         }
 
         if (show.time) {
-            const timeBlock =
-                createElement(
-                    "div",
-                    "efc-time",
-                    show.time
-                );
-
-            locationBlock.appendChild(
-                timeBlock
-            );
+            location.appendChild(createElement("div", "efc-time", show.time));
         }
 
-        return locationBlock;
+        return location;
     }
-
 
     function createActionBlock(show) {
-        const actionBlock =
-            createElement(
-                "div",
-                "efc-action"
-            );
+        const action = createElement("div", "efc-action");
+        const url = show.ticketLink || show.website || "";
+        const label = show.ticketLink
+            ? SETTINGS.ticketButtonText
+            : (show.website ? SETTINGS.websiteButtonText : "");
 
-        let linkURL = "";
-        let linkText = "";
-
-        if (show.ticketLink) {
-            linkURL =
-                show.ticketLink;
-
-            linkText =
-                SETTINGS.ticketButtonText;
-        } else if (show.website) {
-            linkURL =
-                show.website;
-
-            linkText =
-                SETTINGS.websiteButtonText;
+        if (url) {
+            const link = createElement("a", "", label);
+            link.href = url;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            action.appendChild(link);
         }
 
-        if (linkURL) {
-            const actionLink =
-                createElement(
-                    "a",
-                    "",
-                    linkText
-                );
-
-            actionLink.href =
-                linkURL;
-
-            actionLink.target =
-                "_blank";
-
-            actionLink.rel =
-                "noopener noreferrer";
-
-            actionBlock.appendChild(
-                actionLink
-            );
-        }
-
-        return actionBlock;
+        return action;
     }
 
-
     function createShowCard(show) {
-        const date =
-            parseShowDate(show.date);
-
-        if (!date) {
-            debugWarning(
-                "Skipping show with an invalid date:",
-                show
-            );
-
+        if (!EFC.isValidShow(show)) {
+            warn("Skipping invalid show:", show);
             return null;
         }
 
-        const article =
-            createElement(
-                "article",
-                "efc-show"
-            );
+        const article = createElement("article", "efc-show");
 
         if (show.id) {
-            article.id =
-                show.id;
+            article.id = show.id;
         }
 
-        /*
-        These data attributes will make future filtering easier.
-        */
-
-        article.dataset.showDate =
-            show.date;
-
-        article.dataset.category =
-            show.category || "";
-
-        article.dataset.public =
-            String(show.public !== false);
-
-        article.dataset.featured =
-            String(show.featured === true);
+        article.dataset.showDate = show.date;
+        article.dataset.category = show.category || "";
+        article.dataset.public = String(show.public !== false);
+        article.dataset.featured = String(show.featured === true);
 
         article.append(
-            createDateBlock(show, date),
+            createDateBlock(show),
             createVenueBlock(show),
             createLocationBlock(show),
             createActionBlock(show)
@@ -526,441 +161,150 @@ The following files must load in this order:
         return article;
     }
 
-
-    /*
-    ================================================================
-    SORTING AND GROUPING
-    ================================================================
-    */
-
-    function splitShows(shows) {
-        const today =
-            getToday();
-
-        const upcomingShows = [];
-        const pastShows = [];
-        const skippedShows = [];
-
-        shows.forEach(
-            (show) => {
-                if (!shouldDisplayShow(show)) {
-                    skippedShows.push(show);
-                    return;
-                }
-
-                const showDate =
-                    parseShowDate(show.date);
-
-                if (!showDate) {
-                    skippedShows.push(show);
-                    return;
-                }
-
-                /*
-                A show occurring today remains in Upcoming Shows
-                until the following calendar day.
-                */
-
-                if (showDate >= today) {
-                    upcomingShows.push(show);
-                } else {
-                    pastShows.push(show);
-                }
-            }
-        );
-
-        /*
-        Upcoming shows:
-        Closest date first.
-        */
-
-        upcomingShows.sort(
-            (showA, showB) =>
-                showA.date.localeCompare(
-                    showB.date
-                )
-        );
-
-        /*
-        Past shows:
-        Most recent date first.
-        */
-
-        pastShows.sort(
-            (showA, showB) =>
-                showB.date.localeCompare(
-                    showA.date
-                )
-        );
-
-        return {
-            upcomingShows,
-            pastShows,
-            skippedShows
-        };
-    }
-
-
-    /*
-    ================================================================
-    RENDERING
-    ================================================================
-    */
-
     function createEmptyMessage(message) {
-        const paragraph =
-            createElement(
-                "p",
-                "efc-empty-message",
-                message
-            );
-
-        paragraph.style.padding =
-            "24px 0";
-
-        paragraph.style.opacity =
-            "0.65";
-
+        const paragraph = createElement("p", "efc-empty-message", message);
+        paragraph.style.padding = "24px 0";
+        paragraph.style.opacity = "0.65";
         return paragraph;
     }
 
-
-    function renderShowList(
-        container,
-        shows,
-        emptyMessage
-    ) {
+    function renderShowList(container, shows, emptyMessage) {
         container.replaceChildren();
 
-        if (shows.length === 0) {
-            container.appendChild(
-                createEmptyMessage(
-                    emptyMessage
-                )
-            );
-
+        if (!shows.length) {
+            container.appendChild(createEmptyMessage(emptyMessage));
             return;
         }
 
-        const fragment =
-            document.createDocumentFragment();
+        const fragment = document.createDocumentFragment();
 
-        shows.forEach(
-            (show) => {
-                const showCard =
-                    createShowCard(show);
-
-                if (showCard) {
-                    fragment.appendChild(
-                        showCard
-                    );
-                }
+        shows.forEach(show => {
+            const card = createShowCard(show);
+            if (card) {
+                fragment.appendChild(card);
             }
-        );
+        });
 
-        container.appendChild(
-            fragment
-        );
+        container.appendChild(fragment);
     }
 
+    function updateTabCount(selector, label, count) {
+        const tab = document.querySelector(selector);
+
+        if (tab) {
+            tab.innerHTML = `${label} <span class="efc-count">(${count})</span>`;
+        }
+    }
 
     function renderSchedule() {
-        const upcomingContainer =
-            document.getElementById(
-                "upcomingShows"
-            );
+        const upcomingContainer = document.getElementById("upcomingShows");
+        const pastContainer = document.getElementById("pastShows");
 
-        const pastContainer =
-            document.getElementById(
-                "pastShows"
-            );
-
-        if (
-            !upcomingContainer ||
-            !pastContainer
-        ) {
-            throw new Error(
-                "The HTML must contain elements with the IDs " +
-                "upcomingShows and pastShows."
-            );
+        if (!upcomingContainer || !pastContainer) {
+            return false;
         }
 
-        const allShows =
-            getShowData();
-
-        const {
-            upcomingShows,
-            pastShows,
-            skippedShows
-        } = splitShows(allShows);
-
-        renderShowList(
-            upcomingContainer,
-            upcomingShows,
-            SETTINGS.upcomingEmptyMessage
-        );
-
-        renderShowList(
-            pastContainer,
-            pastShows,
-            SETTINGS.pastEmptyMessage
-        );
-
-        // Update the tab counts
-const upcomingTab = document.querySelector(
-    '[data-tab="upcomingPanel"]'
-);
-
-const pastTab = document.querySelector(
-    '[data-tab="pastPanel"]'
-);
-
-if (upcomingTab) {
-    upcomingTab.innerHTML =
-        `Upcoming Shows <span class="efc-count">(${upcomingShows.length})</span>`;
-}
-
-if (pastTab) {
-    pastTab.innerHTML =
-        `Past Shows <span class="efc-count">(${pastShows.length})</span>`;
-}
-
-        debugLog(
-            `Loaded ${allShows.length} total shows.`
-        );
-
-        debugLog(
-            `Rendered ${upcomingShows.length} upcoming shows.`
-        );
-
-        debugLog(
-            `Rendered ${pastShows.length} past shows.`
-        );
-
-        if (skippedShows.length > 0) {
-            debugWarning(
-                `Skipped ${skippedShows.length} invalid or hidden shows.`,
-                skippedShows
-            );
+        if (typeof EFC.getUpcomingShows !== "function") {
+            throw new Error("show-utils.js was not loaded before schedule.js.");
         }
+
+        const filtering = {
+            publicOnly: SETTINGS.hidePrivateShows
+        };
+
+        const upcomingShows = EFC.getUpcomingShows(filtering);
+        const pastShows = EFC.getPastShows(filtering);
+
+        renderShowList(upcomingContainer, upcomingShows, SETTINGS.upcomingEmptyMessage);
+        renderShowList(pastContainer, pastShows, SETTINGS.pastEmptyMessage);
+
+        updateTabCount('[data-tab="upcomingPanel"]', "Upcoming Shows", upcomingShows.length);
+        updateTabCount('[data-tab="pastPanel"]', "Past Shows", pastShows.length);
+
+        log(`Loaded ${EFC.getAllShows().length} total shows.`);
+        log(`Rendered ${upcomingShows.length} upcoming shows.`);
+        log(`Rendered ${pastShows.length} past shows.`);
+
+        return true;
     }
 
+    function activateTab(selectedButton, buttons, panels) {
+        const targetPanelId = selectedButton.dataset.tab;
 
-    /*
-    ================================================================
-    TAB CONTROLS
-    ================================================================
-    */
+        buttons.forEach(button => {
+            const isActive = button === selectedButton;
+            button.classList.toggle("active", isActive);
+            button.setAttribute("aria-selected", String(isActive));
+            button.tabIndex = isActive ? 0 : -1;
+        });
 
-    function activateTab(
-        selectedButton,
-        buttons,
-        panels
-    ) {
-        const targetPanelID =
-            selectedButton.dataset.tab;
-
-        buttons.forEach(
-            (button) => {
-                const isActive =
-                    button === selectedButton;
-
-                button.classList.toggle(
-                    "active",
-                    isActive
-                );
-
-                button.setAttribute(
-                    "aria-selected",
-                    String(isActive)
-                );
-
-                button.tabIndex =
-                    isActive ? 0 : -1;
-            }
-        );
-
-        panels.forEach(
-            (panel) => {
-                const isTargetPanel =
-                    panel.id === targetPanelID;
-
-                panel.classList.toggle(
-                    "active",
-                    isTargetPanel
-                );
-            }
-        );
+        panels.forEach(panel => {
+            panel.classList.toggle("active", panel.id === targetPanelId);
+        });
     }
-
 
     function initializeTabs() {
-        const tabButtons =
-            Array.from(
-                document.querySelectorAll(
-                    ".efc-schedule-tab"
-                )
-            );
+        const buttons = Array.from(document.querySelectorAll(".efc-schedule-tab"));
+        const panels = Array.from(document.querySelectorAll(".efc-panel"));
 
-        const tabPanels =
-            Array.from(
-                document.querySelectorAll(
-                    ".efc-panel"
-                )
-            );
-
-        if (
-            tabButtons.length === 0 ||
-            tabPanels.length === 0
-        ) {
-            debugWarning(
-                "Schedule tabs or panels were not found."
-            );
-
+        if (!buttons.length || !panels.length) {
             return;
         }
 
-        tabButtons.forEach(
-            (button, index) => {
-                button.addEventListener(
-                    "click",
-                    () => {
-                        activateTab(
-                            button,
-                            tabButtons,
-                            tabPanels
-                        );
-                    }
-                );
+        buttons.forEach((button, index) => {
+            button.addEventListener("click", () => {
+                activateTab(button, buttons, panels);
+            });
 
-                /*
-                Allow keyboard users to switch tabs
-                with the left and right arrow keys.
-                */
+            button.addEventListener("keydown", event => {
+                if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") {
+                    return;
+                }
 
-                button.addEventListener(
-                    "keydown",
-                    (event) => {
-                        if (
-                            event.key !== "ArrowLeft" &&
-                            event.key !== "ArrowRight"
-                        ) {
-                            return;
-                        }
+                event.preventDefault();
+                const direction = event.key === "ArrowRight" ? 1 : -1;
+                const nextIndex = (index + direction + buttons.length) % buttons.length;
+                buttons[nextIndex].focus();
+                activateTab(buttons[nextIndex], buttons, panels);
+            });
+        });
 
-                        event.preventDefault();
-
-                        const direction =
-                            event.key === "ArrowRight"
-                                ? 1
-                                : -1;
-
-                        const nextIndex =
-                            (
-                                index +
-                                direction +
-                                tabButtons.length
-                            ) % tabButtons.length;
-
-                        const nextButton =
-                            tabButtons[nextIndex];
-
-                        nextButton.focus();
-
-                        activateTab(
-                            nextButton,
-                            tabButtons,
-                            tabPanels
-                        );
-                    }
-                );
-            }
-        );
-
-        const initiallyActiveButton =
-            tabButtons.find(
-                (button) =>
-                    button.classList.contains(
-                        "active"
-                    )
-            ) || tabButtons[0];
-
-        activateTab(
-            initiallyActiveButton,
-            tabButtons,
-            tabPanels
-        );
+        const initialButton = buttons.find(button => button.classList.contains("active")) || buttons[0];
+        activateTab(initialButton, buttons, panels);
     }
-
-
-    /*
-    ================================================================
-    ERROR DISPLAY
-    ================================================================
-    */
 
     function displayScheduleError() {
-        const upcomingContainer =
-            document.getElementById(
-                "upcomingShows"
+        const container = document.getElementById("upcomingShows");
+
+        if (container) {
+            container.replaceChildren(
+                createEmptyMessage("The schedule could not be loaded. Please try again later.")
             );
-
-        if (!upcomingContainer) {
-            return;
         }
-
-        upcomingContainer.replaceChildren(
-            createEmptyMessage(
-                "The schedule could not be loaded. " +
-                "Please try again later."
-            )
-        );
     }
-
-
-    /*
-    ================================================================
-    INITIALIZATION
-    ================================================================
-    */
 
     function initializeSchedule() {
         try {
-            debugLog(
-                "Schedule engine starting..."
-            );
+            const rendered = renderSchedule();
 
-            renderSchedule();
+            if (!rendered) {
+                return;
+            }
 
             initializeTabs();
-
-            debugLog(
-                "Schedule rendering complete."
-            );
+            log("Schedule rendering complete.");
         } catch (error) {
-            console.error(
-                "[EFC Schedule] Initialization failed:",
-                error
-            );
-
+            console.error("[EFC Schedule] Initialization failed:", error);
             displayScheduleError();
         }
     }
 
+    EFC.renderFullSchedule = renderSchedule;
 
-    /*
-    Wait until the HTML is ready before rendering.
-    */
-
-    if (
-        document.readyState === "loading"
-    ) {
-        document.addEventListener(
-            "DOMContentLoaded",
-            initializeSchedule,
-            { once: true }
-        );
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initializeSchedule, { once: true });
     } else {
         initializeSchedule();
     }
-})();
+
+})(window.EFC);
