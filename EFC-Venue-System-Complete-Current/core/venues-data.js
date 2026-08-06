@@ -371,10 +371,10 @@ window.EFC_VENUES = [
         "region": "Detroit Metro",
         "privateEvent": false,
         "featured": true,
-        "website": "",
+        "website": "https://www.mlb.com/tigers/ballpark",
         "latitude": 42.383037,
         "longitude": -83.102237,
-        "logo": "",
+        "logo": "comerica-park.svg",
         "image": "",
         "alternateNames": [
             "Star Wars Day with the Detroit Tigers @ Comerica Park"
@@ -387,7 +387,7 @@ window.EFC_VENUES = [
         ],
         "notes": "",
         "featuredOrder": 1,
-        "logoFile": "",
+        "logoFile": "comerica-park.svg",
         "coordinatePrecision": "city"
     },
     {
@@ -456,11 +456,11 @@ window.EFC_VENUES = [
         "category": "Yacht Club",
         "region": "Detroit Metro",
         "privateEvent": false,
-        "featured": false,
-        "website": "",
+        "featured": true,
+        "website": "https://www.dyc.com/",
         "latitude": 42.383037,
         "longitude": -83.102237,
-        "logo": "",
+        "logo": "detroit-yacht-club.svg",
         "image": "",
         "alternateNames": [],
         "eventSeries": [],
@@ -469,8 +469,8 @@ window.EFC_VENUES = [
             "show-2025-08-02-065"
         ],
         "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
+        "featuredOrder": 6,
+        "logoFile": "detroit-yacht-club.svg",
         "coordinatePrecision": "city"
     },
     {
@@ -483,10 +483,10 @@ window.EFC_VENUES = [
         "region": "Detroit Metro",
         "privateEvent": false,
         "featured": true,
-        "website": "",
+        "website": "https://district142live.com/",
         "latitude": 42.210674,
         "longitude": -83.157208,
-        "logo": "",
+        "logo": "district-142.png",
         "image": "",
         "alternateNames": [
             "Opening for Double Vision - The Foreigner Experience | at District 142"
@@ -498,8 +498,8 @@ window.EFC_VENUES = [
             "show-2023-07-13-208"
         ],
         "notes": "",
-        "featuredOrder": 6,
-        "logoFile": "",
+        "featuredOrder": 4,
+        "logoFile": "district-142.png",
         "coordinatePrecision": "city"
     },
     {
@@ -642,10 +642,10 @@ window.EFC_VENUES = [
         "region": "Other Michigan",
         "privateEvent": false,
         "featured": true,
-        "website": "",
+        "website": "https://gunlakecasino.com/",
         "latitude": 42.673081,
         "longitude": -85.641727,
-        "logo": "",
+        "logo": "gun-lake-casino.png",
         "image": "",
         "alternateNames": [],
         "eventSeries": [],
@@ -656,8 +656,8 @@ window.EFC_VENUES = [
             "show-2024-05-24-153"
         ],
         "notes": "",
-        "featuredOrder": 2,
-        "logoFile": "",
+        "featuredOrder": 5,
+        "logoFile": "gun-lake-casino.png",
         "coordinatePrecision": "city"
     },
     {
@@ -780,7 +780,7 @@ window.EFC_VENUES = [
         "category": "Casino",
         "region": "Out of State",
         "privateEvent": false,
-        "featured": false,
+        "featured": true,
         "website": "",
         "latitude": 41.6528,
         "longitude": -83.5379,
@@ -805,11 +805,11 @@ window.EFC_VENUES = [
         "category": "Bar / Pub",
         "region": "Northern Michigan",
         "privateEvent": false,
-        "featured": false,
-        "website": "",
+        "featured": true,
+        "website": "https://www.hornsbar.com/",
         "latitude": 45.860184,
         "longitude": -84.625834,
-        "logo": "",
+        "logo": "horns-bar.png",
         "image": "",
         "alternateNames": [
             "Horns Gaslight Bar"
@@ -822,8 +822,8 @@ window.EFC_VENUES = [
             "show-2025-05-30-087"
         ],
         "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
+        "featuredOrder": 8,
+        "logoFile": "horns-bar.png",
         "coordinatePrecision": "city"
     },
     {
@@ -925,11 +925,11 @@ window.EFC_VENUES = [
         "category": "Live Music",
         "region": "Mid-Michigan",
         "privateEvent": false,
-        "featured": false,
-        "website": "",
+        "featured": true,
+        "website": "https://lansingcenter.com/",
         "latitude": 42.714341,
         "longitude": -84.560889,
-        "logo": "",
+        "logo": "lansing-center.jpg",
         "image": "",
         "alternateNames": [
             "Opening for Hairball @ Lansing Center"
@@ -941,8 +941,8 @@ window.EFC_VENUES = [
             "show-2023-03-31-224"
         ],
         "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
+        "featuredOrder": 7,
+        "logoFile": "lansing-center.jpg",
         "coordinatePrecision": "city"
     },
     {
@@ -1141,18 +1141,18 @@ window.EFC_VENUES = [
     },
     {
         "id": "millennium-park",
-        "name": "Millennium Park",
-        "displayName": "Millennium Park",
+        "name": "Grand Rapids Symphony Orchestra",
+        "displayName": "Grand Rapids Symphony Orchestra",
         "city": "Walker",
         "state": "MI",
         "category": "Outdoor Concert",
         "region": "Other Michigan",
         "privateEvent": false,
-        "featured": false,
-        "website": "",
+        "featured": true,
+        "website": "https://www.grsymphony.org/",
         "latitude": 42.996553,
         "longitude": -85.756366,
-        "logo": "",
+        "logo": "grand-rapids-symphony.png",
         "image": "",
         "alternateNames": [
             "Opening for \"Faithfully - The Music of Journey\" | Grand Rapids Symphony Orchestra Picnic Pops @ Millenium Park"
@@ -1164,8 +1164,8 @@ window.EFC_VENUES = [
             "show-2025-07-17-073"
         ],
         "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
+        "featuredOrder": 2,
+        "logoFile": "grand-rapids-symphony.png",
         "coordinatePrecision": "city"
     },
     {
@@ -1267,7 +1267,7 @@ window.EFC_VENUES = [
         "category": "Outdoor Concert",
         "region": "West Michigan",
         "privateEvent": false,
-        "featured": false,
+        "featured": true,
         "website": "",
         "latitude": 42.767049,
         "longitude": -86.098572,
@@ -1296,7 +1296,7 @@ window.EFC_VENUES = [
         "category": "Yacht Club",
         "region": "Northern Michigan",
         "privateEvent": false,
-        "featured": true,
+        "featured": false,
         "website": "",
         "latitude": 43.77962,
         "longitude": -86.429916,
@@ -1409,7 +1409,7 @@ window.EFC_VENUES = [
         "category": "Live Music",
         "region": "Flint / Genesee Area",
         "privateEvent": false,
-        "featured": true,
+        "featured": false,
         "website": "",
         "latitude": 42.932537,
         "longitude": -83.620491,
@@ -1439,11 +1439,11 @@ window.EFC_VENUES = [
         "category": "Brewery",
         "region": "Northern Michigan",
         "privateEvent": false,
-        "featured": false,
-        "website": "",
+        "featured": true,
+        "website": "https://www.shortsbrewing.com/",
         "latitude": 44.97116,
         "longitude": -85.202326,
-        "logo": "",
+        "logo": "shorts-brewing.png",
         "image": "",
         "alternateNames": [
             "Short's Brewing Co",
@@ -1459,8 +1459,8 @@ window.EFC_VENUES = [
             "show-2024-10-05-117"
         ],
         "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
+        "featuredOrder": 3,
+        "logoFile": "shorts-brewing.png",
         "coordinatePrecision": "city"
     },
     {
@@ -1664,7 +1664,7 @@ window.EFC_VENUES = [
         "category": "Live Music",
         "region": "West Michigan",
         "privateEvent": false,
-        "featured": false,
+        "featured": true,
         "website": "",
         "latitude": 42.961156,
         "longitude": -85.65557,
@@ -2031,7 +2031,7 @@ window.EFC_VENUES = [
         "category": "Live Music",
         "region": "Other Michigan",
         "privateEvent": false,
-        "featured": false,
+        "featured": true,
         "website": "",
         "latitude": 42.066714,
         "longitude": -85.143168,
@@ -2128,7 +2128,7 @@ window.EFC_VENUES = [
             "show-2026-07-25-015"
         ],
         "notes": "",
-        "featuredOrder": 3,
+        "featuredOrder": null,
         "logoFile": "",
         "coordinatePrecision": "city"
     },

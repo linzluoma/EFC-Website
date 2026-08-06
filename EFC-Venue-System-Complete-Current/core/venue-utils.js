@@ -2,7 +2,7 @@
 ========================================================
 Electric Flower Co.
 Venue Utilities
-Version 1.1
+Version 1.3
 ========================================================
 
 Requires:
@@ -275,15 +275,11 @@ window.EFC = window.EFC || {};
                     venue.displayName ||
                     venue.name,
                 featuredOrder:
-                    Number.isFinite(
-                        Number(
-                            venue.featuredOrder
-                        )
-                    )
-                        ? Number(
-                            venue.featuredOrder
-                        )
-                        : null,
+                    venue.featuredOrder === null ||
+                    venue.featuredOrder === undefined ||
+                    venue.featuredOrder === ""
+                        ? null
+                        : Number(venue.featuredOrder),
                 logoFile:
                     venue.logoFile ||
                     venue.logo ||
@@ -349,18 +345,18 @@ window.EFC = window.EFC || {};
 
             if (sortBy === "featuredOrder") {
                 const aOrder =
-                    Number.isFinite(
-                        Number(a.featuredOrder)
-                    )
-                        ? Number(a.featuredOrder)
-                        : Number.MAX_SAFE_INTEGER;
+                    a.featuredOrder === null ||
+                    a.featuredOrder === undefined ||
+                    a.featuredOrder === ""
+                        ? Number.MAX_SAFE_INTEGER
+                        : Number(a.featuredOrder);
 
                 const bOrder =
-                    Number.isFinite(
-                        Number(b.featuredOrder)
-                    )
-                        ? Number(b.featuredOrder)
-                        : Number.MAX_SAFE_INTEGER;
+                    b.featuredOrder === null ||
+                    b.featuredOrder === undefined ||
+                    b.featuredOrder === ""
+                        ? Number.MAX_SAFE_INTEGER
+                        : Number(b.featuredOrder);
 
                 if (aOrder !== bOrder) {
                     return (
@@ -865,7 +861,7 @@ window.EFC = window.EFC || {};
         };
 
     console.log(
-        "[EFC Venue Utils] venue-utils.js v1.1 loaded."
+        "[EFC Venue Utils] venue-utils.js v1.3 loaded."
     );
 
 })(window.EFC);
