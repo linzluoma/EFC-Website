@@ -1,0 +1,597 @@
+<!-- =====================================================
+Electric Flower Co.
+Official Venue Page Embed
+Package Version 2.0
+===================================================== -->
+
+<link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+>
+
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+></script>
+
+<div id="efc-venue-history">
+    <p class="efc-venue-page-loading">
+        Loading venue history...
+    </p>
+</div>
+
+<style>
+
+/* =====================================================
+   PAGE SHELL
+===================================================== */
+
+#efc-venue-history{
+    width:100%;
+    max-width:1100px;
+    margin:0 auto;
+    box-sizing:border-box;
+}
+
+.efc-venue-history-shell{
+    width:100%;
+}
+
+.efc-venue-page-loading,
+.efc-venue-history-map-loading,
+.efc-venue-history-map-error,
+.efc-map-error,
+.efc-map-empty{
+    margin:0;
+    padding:36px 18px;
+    text-align:center;
+}
+
+/* =====================================================
+   INTRODUCTION
+===================================================== */
+
+.efc-venue-history-intro{
+    max-width:780px;
+    margin:0 auto 40px;
+    text-align:center;
+}
+
+.efc-venue-history-title{
+    margin:0 0 14px;
+    font-size:clamp(2rem,5vw,3.4rem);
+    line-height:1.05;
+}
+
+.efc-venue-history-description{
+    margin:0;
+    font-size:1.02em;
+    line-height:1.7;
+    opacity:.72;
+}
+
+/* =====================================================
+   STATISTICS
+===================================================== */
+
+.efc-venue-history-stats{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:16px;
+    margin:0 0 48px;
+}
+
+.efc-venue-history-stat{
+    padding:26px 18px;
+    text-align:center;
+    border:1px solid rgba(127,127,127,.14);
+    border-radius:12px;
+    background:rgba(127,127,127,.025);
+}
+
+.efc-venue-history-stat-value{
+    font-size:clamp(1.8rem,4vw,2.8rem);
+    font-weight:700;
+    line-height:1;
+}
+
+.efc-venue-history-stat-label{
+    margin-top:9px;
+    font-size:.82em;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    opacity:.62;
+}
+
+/* =====================================================
+   PERFORMANCE MAP
+===================================================== */
+
+.efc-venue-history-map-section{
+    margin:0 0 48px;
+}
+
+.efc-venue-history-map-title{
+    margin:0 0 10px;
+    text-align:center;
+    font-size:1.5em;
+    font-weight:700;
+}
+
+.efc-venue-history-map-description{
+    max-width:760px;
+    margin:0 auto 24px;
+    text-align:center;
+    line-height:1.65;
+    opacity:.70;
+}
+
+.efc-venue-history-map{
+    width:100%;
+}
+
+/* The map already repeats the statistics shown above. */
+.efc-map-summary{
+    display:none;
+}
+
+.efc-venue-map-shell{
+    width:100%;
+}
+
+.efc-venue-map-canvas{
+    width:100%;
+    height:60vh;
+    min-height:500px;
+    max-height:700px;
+    border:1px solid rgba(127,127,127,.14);
+    border-radius:12px;
+    overflow:hidden;
+    box-sizing:border-box;
+}
+
+/* Leaflet popup styling */
+
+.efc-map-popup-location{
+    margin-bottom:3px;
+    font-size:1.05em;
+    font-weight:700;
+}
+
+.efc-map-popup-summary{
+    margin-bottom:10px;
+    font-size:.88em;
+    opacity:.72;
+}
+
+.efc-map-popup-list{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+
+.efc-map-popup-venue{
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    padding:7px 0;
+    border-top:1px solid rgba(127,127,127,.14);
+}
+
+.efc-map-popup-venue span{
+    white-space:nowrap;
+    font-size:.84em;
+    opacity:.65;
+}
+
+/* =====================================================
+   SEARCH AND FILTERS
+===================================================== */
+
+.efc-venue-history-controls{
+    padding:24px;
+    margin-bottom:26px;
+    border:1px solid rgba(127,127,127,.12);
+    border-radius:12px;
+    background:rgba(127,127,127,.02);
+}
+
+.efc-venue-history-control-label{
+    display:block;
+    margin-bottom:7px;
+    font-size:.78em;
+    letter-spacing:.07em;
+    text-transform:uppercase;
+    opacity:.62;
+}
+
+.efc-venue-history-search{
+    width:100%;
+    box-sizing:border-box;
+    padding:15px 17px;
+    border:1px solid rgba(127,127,127,.24);
+    border-radius:8px;
+    background:transparent;
+    color:inherit;
+    font:inherit;
+    font-size:1.02em;
+}
+
+.efc-venue-history-search:focus,
+.efc-venue-history-select:focus{
+    outline:2px solid currentColor;
+    outline-offset:2px;
+}
+
+.efc-venue-history-scope{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:9px;
+    margin:20px 0;
+}
+
+.efc-venue-history-scope-button{
+    padding:9px 16px;
+    border:1px solid rgba(127,127,127,.22);
+    border-radius:999px;
+    background:transparent;
+    color:inherit;
+    font:inherit;
+    cursor:pointer;
+    transition:transform .16s ease,border-color .16s ease;
+}
+
+.efc-venue-history-scope-button:hover{
+    transform:translateY(-1px);
+}
+
+.efc-venue-history-scope-button.is-active{
+    border-color:currentColor;
+    font-weight:700;
+}
+
+.efc-venue-history-select-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:14px;
+}
+
+.efc-venue-history-select{
+    width:100%;
+    box-sizing:border-box;
+    padding:12px 13px;
+    border:1px solid rgba(127,127,127,.22);
+    border-radius:8px;
+    background:transparent;
+    color:inherit;
+    font:inherit;
+}
+
+/* =====================================================
+   RESULT COUNT
+===================================================== */
+
+.efc-venue-history-result-bar{
+    display:flex;
+    justify-content:flex-end;
+    margin:0 2px 12px;
+    font-size:.86em;
+    opacity:.62;
+}
+
+/* =====================================================
+   VENUE CARDS
+===================================================== */
+
+.efc-venue-history-results{
+    display:grid;
+    gap:14px;
+}
+
+.efc-venue-history-card{
+    border:1px solid rgba(127,127,127,.15);
+    border-radius:12px;
+    overflow:hidden;
+    background:rgba(127,127,127,.018);
+    transition:transform .16s ease,border-color .16s ease;
+}
+
+.efc-venue-history-card:hover{
+    transform:translateY(-1px);
+    border-color:rgba(127,127,127,.28);
+}
+
+.efc-venue-history-summary{
+    width:100%;
+    display:grid;
+    grid-template-columns:minmax(0,1.5fr) auto auto auto;
+    align-items:center;
+    gap:20px;
+    padding:22px 24px;
+    border:0;
+    background:transparent;
+    color:inherit;
+    text-align:left;
+    font:inherit;
+    cursor:pointer;
+}
+
+.efc-venue-history-name-row{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:8px;
+}
+
+.efc-venue-history-name{
+    display:block;
+    font-size:1.18em;
+    font-weight:700;
+    line-height:1.25;
+}
+
+.efc-venue-history-featured{
+    display:inline-flex;
+    align-items:center;
+    padding:3px 8px;
+    border:1px solid rgba(127,127,127,.20);
+    border-radius:999px;
+    font-size:.68em;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    opacity:.72;
+}
+
+.efc-venue-history-location{
+    display:block;
+    margin-top:5px;
+    font-size:.93em;
+    opacity:.66;
+}
+
+.efc-venue-history-card-meta{
+    display:flex;
+    align-items:flex-end;
+    flex-direction:column;
+    gap:6px;
+}
+
+.efc-venue-history-count{
+    display:inline-flex;
+    align-items:center;
+    padding:6px 10px;
+    border-radius:999px;
+    background:rgba(127,127,127,.09);
+    font-size:.82em;
+    font-weight:700;
+}
+
+.efc-venue-history-category{
+    font-size:.82em;
+    opacity:.62;
+}
+
+.efc-venue-history-facts{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(92px,1fr));
+    gap:12px;
+}
+
+.efc-venue-history-fact{
+    display:flex;
+    flex-direction:column;
+}
+
+.efc-venue-history-fact-label{
+    font-size:.68em;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    opacity:.52;
+}
+
+.efc-venue-history-fact-value{
+    margin-top:3px;
+    font-size:.88em;
+    font-weight:600;
+}
+
+.efc-venue-history-chevron{
+    font-size:1.45em;
+    transition:transform .2s ease;
+}
+
+.efc-venue-history-card.is-expanded
+.efc-venue-history-chevron{
+    transform:rotate(180deg);
+}
+
+/* =====================================================
+   EXPANDED PERFORMANCE HISTORY
+===================================================== */
+
+.efc-venue-history-detail{
+    padding:0 24px 24px;
+    border-top:1px solid rgba(127,127,127,.10);
+}
+
+.efc-venue-history-year{
+    padding-top:20px;
+}
+
+.efc-venue-history-year-title{
+    margin:0 0 9px;
+    font-size:.82em;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    opacity:.58;
+}
+
+.efc-venue-history-show{
+    display:grid;
+    grid-template-columns:170px minmax(0,1fr);
+    gap:22px;
+    padding:13px 0;
+}
+
+.efc-venue-history-show:not(:last-child){
+    border-bottom:1px solid rgba(127,127,127,.09);
+}
+
+.efc-venue-history-show-date{
+    font-size:.90em;
+    opacity:.70;
+}
+
+.efc-venue-history-show-title{
+    font-weight:650;
+}
+
+.efc-venue-history-show-meta{
+    margin-top:4px;
+    font-size:.84em;
+    opacity:.60;
+}
+
+.efc-venue-history-no-results,
+.efc-venue-history-empty{
+    text-align:center;
+    padding:34px 14px;
+}
+
+/* =====================================================
+   RESPONSIVE LAYOUT
+===================================================== */
+
+@media(max-width:850px){
+
+    .efc-venue-history-summary{
+        grid-template-columns:minmax(0,1fr) auto;
+    }
+
+    .efc-venue-history-card-meta,
+    .efc-venue-history-facts{
+        grid-column:1 / -1;
+        align-items:flex-start;
+    }
+
+    .efc-venue-history-card-meta{
+        flex-direction:row;
+        flex-wrap:wrap;
+    }
+
+    .efc-venue-history-chevron{
+        grid-column:2;
+        grid-row:1;
+    }
+
+}
+
+@media(max-width:700px){
+
+    #efc-venue-history{
+        padding:0 14px;
+    }
+
+    .efc-venue-history-stats,
+    .efc-venue-history-select-grid{
+        grid-template-columns:1fr;
+    }
+
+    .efc-venue-history-map-section{
+        margin-bottom:38px;
+    }
+
+    .efc-venue-map-canvas{
+        height:500px;
+        min-height:500px;
+        max-height:none;
+    }
+
+    .efc-map-popup-venue{
+        display:block;
+    }
+
+    .efc-map-popup-venue span{
+        display:block;
+        margin-top:2px;
+    }
+
+    .efc-venue-history-controls{
+        padding:18px;
+    }
+
+    .efc-venue-history-summary{
+        padding:18px;
+        gap:14px;
+    }
+
+    .efc-venue-history-facts{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .efc-venue-history-detail{
+        padding:0 18px 18px;
+    }
+
+    .efc-venue-history-show{
+        grid-template-columns:1fr;
+        gap:4px;
+    }
+
+}
+
+@media(max-width:420px){
+
+    .efc-venue-map-canvas{
+        height:440px;
+        min-height:440px;
+    }
+
+    .efc-venue-history-facts{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+<script>
+
+window.addEventListener(
+    "load",
+    function () {
+
+        const container =
+            document.getElementById(
+                "efc-venue-history"
+            );
+
+        if (
+            typeof EFC === "undefined" ||
+            typeof EFC.renderVenueHistoryPage !==
+            "function"
+        ) {
+            container.innerHTML =
+                "<p class='efc-venue-page-loading'>Venue history library not loaded.</p>";
+
+            return;
+        }
+
+        EFC.renderVenueHistoryPage(
+            "efc-venue-history",
+            {
+                title:
+                    "Where We've Played",
+                description:
+                    "Explore the venues, events, and private engagements that have shaped Electric Flower Co.'s performance history."
+            }
+        );
+
+    }
+);
+
+</script>

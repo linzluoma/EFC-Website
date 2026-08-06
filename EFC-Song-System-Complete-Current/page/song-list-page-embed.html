@@ -1,0 +1,288 @@
+<style>
+#efc-song-list,
+#efc-song-list * { box-sizing:border-box; }
+
+#efc-song-list {
+    width:100%;
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 20px;
+    color:inherit;
+    font:inherit;
+}
+
+.efc-song-toolbar {
+    display:grid;
+    grid-template-columns:minmax(240px,1fr) auto;
+    gap:18px;
+    align-items:end;
+    margin-bottom:22px;
+}
+
+.efc-song-search-wrap label {
+    display:block;
+    margin-bottom:7px;
+    font-size:.82em;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    opacity:.6;
+}
+
+#efc-song-search {
+    width:100%;
+    padding:12px 14px;
+    border:1px solid rgba(127,127,127,.28);
+    border-radius:8px;
+    background:transparent;
+    color:inherit;
+    font:inherit;
+    outline:none;
+}
+
+#efc-song-search:focus { border-color:currentColor; }
+
+.efc-song-count {
+    padding-bottom:11px;
+    font-size:.9em;
+    opacity:.58;
+    white-space:nowrap;
+}
+
+.efc-song-tabs {
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.6rem;
+    margin:0 0 22px;
+    border-bottom:1px solid rgba(127,127,127,.2);
+}
+
+.efc-song-tab {
+    appearance:none;
+    border:0;
+    border-bottom:3px solid transparent;
+    background:transparent;
+    color:inherit;
+    font:inherit;
+    cursor:pointer;
+    padding:11px 0;
+    margin-bottom:-1px;
+    opacity:.58;
+}
+
+.efc-song-tab:hover,
+.efc-song-tab:focus { opacity:1; }
+
+.efc-song-tab.active {
+    opacity:1;
+    border-bottom-color:currentColor;
+}
+
+.efc-song-panel { display:none; }
+.efc-song-panel.active { display:block; }
+
+.efc-genre-tools {
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-bottom:22px;
+}
+
+.efc-genre-chip {
+    appearance:none;
+    border:1px solid rgba(127,127,127,.24);
+    border-radius:999px;
+    background:transparent;
+    color:inherit;
+    font:inherit;
+    font-size:.88em;
+    cursor:pointer;
+    padding:8px 12px;
+    opacity:.78;
+}
+
+.efc-genre-chip:hover,
+.efc-genre-chip:focus,
+.efc-genre-chip.active {
+    opacity:1;
+    border-color:currentColor;
+}
+
+.efc-song-row {
+    display:grid;
+    grid-template-columns:minmax(0,1.35fr) minmax(180px,.85fr);
+    gap:28px;
+    align-items:baseline;
+    padding:13px 0;
+    border-bottom:1px solid rgba(127,127,127,.14);
+}
+
+.efc-song-row:first-child { border-top:1px solid rgba(127,127,127,.14); }
+
+.efc-song-title {
+    font-weight:700;
+    line-height:1.35;
+}
+
+.efc-song-artist {
+    line-height:1.4;
+    opacity:.7;
+}
+
+.efc-group { margin-bottom:34px; }
+
+.efc-group-heading {
+    margin:0 0 8px;
+    padding-bottom:8px;
+    border-bottom:2px solid rgba(127,127,127,.18);
+    font-size:.9em;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    opacity:.72;
+}
+
+.efc-empty {
+    padding:28px 0;
+    text-align:center;
+    opacity:.62;
+}
+
+@media (max-width:700px) {
+    #efc-song-list { padding:0 8px; }
+    .efc-song-toolbar { grid-template-columns:1fr; gap:6px; }
+    .efc-song-count { padding-bottom:0; }
+    .efc-song-tabs { gap:1rem; }
+    .efc-song-row { grid-template-columns:1fr; gap:2px; padding:11px 0; }
+    .efc-song-artist { font-size:.92em; }
+}
+</style>
+
+<div id="efc-song-list">
+
+    <div class="efc-song-toolbar">
+
+        <div class="efc-song-search-wrap">
+
+            <label for="efc-song-search">
+                Search the song list
+            </label>
+
+            <input
+                id="efc-song-search"
+                type="search"
+                placeholder="Search title, artist, genre, or decade..."
+                autocomplete="off">
+
+        </div>
+
+        <div
+            class="efc-song-count"
+            id="efc-song-count">
+            Loading songs...
+        </div>
+
+    </div>
+
+    <div
+        class="efc-song-tabs"
+        role="tablist"
+        aria-label="Song list views">
+
+        <button
+            type="button"
+            class="efc-song-tab active"
+            data-view="genre"
+            role="tab"
+            aria-selected="true">
+            Genres
+        </button>
+
+        <button
+            type="button"
+            class="efc-song-tab"
+            data-view="title"
+            role="tab"
+            aria-selected="false">
+            Songs by Title
+        </button>
+
+        <button
+            type="button"
+            class="efc-song-tab"
+            data-view="artist"
+            role="tab"
+            aria-selected="false">
+            Songs by Artist
+        </button>
+
+        <button
+            type="button"
+            class="efc-song-tab"
+            data-view="decade"
+            role="tab"
+            aria-selected="false">
+            Songs by Decade
+        </button>
+
+    </div>
+
+    <div
+        class="efc-song-panel active"
+        data-panel="genre">
+    </div>
+
+    <div
+        class="efc-song-panel"
+        data-panel="title">
+    </div>
+
+    <div
+        class="efc-song-panel"
+        data-panel="artist">
+    </div>
+
+    <div
+        class="efc-song-panel"
+        data-panel="decade">
+    </div>
+
+</div>
+
+<script>
+window.addEventListener("load", function () {
+
+    const root =
+        document.getElementById(
+            "efc-song-list"
+        );
+
+    if (typeof EFC === "undefined") {
+
+        if (root) {
+            root.innerHTML =
+                "<p style='text-align:center;'>EFC library not loaded.</p>";
+        }
+
+        return;
+    }
+
+    if (
+        typeof EFC.renderSongList !==
+        "function"
+    ) {
+
+        if (root) {
+            root.innerHTML =
+                "<p style='text-align:center;'>Song list library not loaded.</p>";
+        }
+
+        return;
+    }
+
+    EFC.renderSongList(
+        "efc-song-list"
+    );
+
+});
+</script>

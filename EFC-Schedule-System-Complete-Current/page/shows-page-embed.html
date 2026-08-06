@@ -1,0 +1,95 @@
+<!--
+Electric Flower Co.
+Dynamic Full Schedule Embed
+Version 2.1
+
+Keep your existing <style>...</style> block above this code.
+Replace the old hard-coded schedule HTML and old inline JavaScript
+with everything below.
+-->
+
+<div id="schedule-data">
+
+    <div
+        class="efc-schedule-tabs"
+        role="tablist"
+        aria-label="Show schedule sections">
+
+        <button
+            type="button"
+            class="efc-schedule-tab active"
+            data-tab="upcomingPanel"
+            role="tab"
+            aria-selected="true">
+            Upcoming Shows
+        </button>
+
+        <button
+            type="button"
+            class="efc-schedule-tab"
+            data-tab="pastPanel"
+            role="tab"
+            aria-selected="false">
+            Past Shows
+        </button>
+
+    </div>
+
+    <section
+        id="upcomingPanel"
+        class="efc-panel active"
+        role="tabpanel">
+
+        <div class="efc-scroll">
+            <div id="upcomingShows">
+                <p style="text-align:center;padding:24px;">
+                    Loading upcoming shows...
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <section
+        id="pastPanel"
+        class="efc-panel"
+        role="tabpanel">
+
+        <div class="efc-scroll">
+            <div id="pastShows">
+                <p style="text-align:center;padding:24px;">
+                    Loading past shows...
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+</div>
+
+<script>
+window.addEventListener("load", function () {
+
+    const upcomingContainer =
+        document.getElementById("upcomingShows");
+
+    if (typeof EFC === "undefined") {
+        if (upcomingContainer) {
+            upcomingContainer.innerHTML =
+                "<p style='text-align:center;'>EFC library not loaded.</p>";
+        }
+        return;
+    }
+
+    if (typeof EFC.renderFullSchedule !== "function") {
+        if (upcomingContainer) {
+            upcomingContainer.innerHTML =
+                "<p style='text-align:center;'>Schedule library not loaded.</p>";
+        }
+        return;
+    }
+
+    EFC.renderFullSchedule();
+
+});
+</script>

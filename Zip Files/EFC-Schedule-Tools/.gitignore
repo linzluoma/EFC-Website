@@ -1,0 +1,18 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# VS Code local settings
+.vscode/settings.json
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini

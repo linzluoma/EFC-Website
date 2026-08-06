@@ -1,0 +1,2944 @@
+/*
+========================================================
+Electric Flower Co.
+Venue Database
+Version 3.3
+========================================================
+
+Adds city-level map coordinates for the venue map.
+
+Coordinate notes:
+- Coordinates represent the venue's listed city or locality,
+  not the venue's exact street address.
+- Exact venue coordinates can replace these values later.
+- coordinatePrecision is currently "city".
+========================================================
+*/
+
+window.EFC_VENUES = [
+    {
+        "id": "annual-blessing-of-the-boats-event",
+        "name": "Annual Blessing of the Boats Event",
+        "displayName": "Annual Blessing of the Boats Event",
+        "city": "Ludington",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Northern Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 43.957196,
+        "longitude": -86.442937,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-06-07-085"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "au-gres-city-park",
+        "name": "Au Gres City Park",
+        "displayName": "Au Gres City Park",
+        "city": "Au Gres",
+        "state": "MI",
+        "category": "Outdoor Concert",
+        "region": "Other Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 44.044186,
+        "longitude": -83.693409,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Music in the Park at Au Gres City Park"
+        ],
+        "eventSeries": [
+            "Music in the Park"
+        ],
+        "sourceShowIds": [
+            "show-2025-06-11-084"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "au-gres-yacht-club",
+        "name": "Au Gres Yacht Club",
+        "displayName": "Au Gres Yacht Club",
+        "city": "Au Gres",
+        "state": "MI",
+        "category": "Yacht Club",
+        "region": "Other Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 44.044186,
+        "longitude": -83.693409,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2024-09-07-123",
+            "show-2023-09-02-197"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "auburn-hotel-and-tavern",
+        "name": "Auburn Hotel & Tavern",
+        "displayName": "Auburn Hotel & Tavern",
+        "city": "Auburn",
+        "state": "MI",
+        "category": "Bar / Pub",
+        "region": "Other Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 43.602011,
+        "longitude": -84.075106,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2023-09-23-194"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "bay-pointe-inn",
+        "name": "Bay Pointe Inn",
+        "displayName": "Bay Pointe Inn",
+        "city": "Shelbyville",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "West Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.5942,
+        "longitude": -85.637,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Gun Lake Live at Bay Pointe Inn"
+        ],
+        "eventSeries": [
+            "Gun Lake Live"
+        ],
+        "sourceShowIds": [
+            "show-2025-07-30-067"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "birch-run-moose-lodge",
+        "name": "Birch Run Moose Lodge",
+        "displayName": "Birch Run Moose Lodge",
+        "city": "Birch Run",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Flint / Genesee Area",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 43.250743,
+        "longitude": -83.791674,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Pig Roast at Birch Run Moose Lodge"
+        ],
+        "eventSeries": [
+            "Pig Roast"
+        ],
+        "sourceShowIds": [
+            "show-2023-09-09-195"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "blessing-of-the-boats",
+        "name": "Blessing of the Boats",
+        "displayName": "Blessing of the Boats",
+        "city": "Ludington",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Northern Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 43.957196,
+        "longitude": -86.442937,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2024-06-08-147"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "blind-owl",
+        "name": "Blind Owl",
+        "displayName": "Blind Owl",
+        "city": "Royal Oak",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Detroit Metro",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.507816,
+        "longitude": -83.15389,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2024-09-28-119"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "burr-oak-dance-club",
+        "name": "Burr Oak Dance Club",
+        "displayName": "Burr Oak Dance Club",
+        "city": "Burr Oak",
+        "state": "MI",
+        "category": "Club Event",
+        "region": "Other Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 41.847416,
+        "longitude": -85.323948,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2026-11-07-012",
+            "show-2026-03-07-037"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "cascade-hills-country-club",
+        "name": "Cascade Hills Country Club",
+        "displayName": "Cascade Hills Country Club",
+        "city": "Grand Rapids",
+        "state": "MI",
+        "category": "Country Club",
+        "region": "West Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.961156,
+        "longitude": -85.65557,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-07-20-071"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "cascade-township-summer-concert-series",
+        "name": "Cascade Township Summer Concert Series",
+        "displayName": "Cascade Township Summer Concert Series",
+        "city": "Grand Rapids",
+        "state": "MI",
+        "category": "Concert Series",
+        "region": "West Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.961156,
+        "longitude": -85.65557,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-06-12-083"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "club-canton",
+        "name": "Club Canton",
+        "displayName": "Club Canton",
+        "city": "Canton",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Detroit Metro",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.3086,
+        "longitude": -83.4822,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2023-06-03-215",
+            "show-2023-06-02-216"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "cobblestone-bar-and-grill",
+        "name": "Cobblestone Bar & Grill",
+        "displayName": "Cobblestone Bar & Grill",
+        "city": "Grand Blanc",
+        "state": "MI",
+        "category": "Bar / Pub",
+        "region": "Flint / Genesee Area",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.932537,
+        "longitude": -83.620491,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Cobblestone Bar & Grille"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2024-10-19-116",
+            "show-2024-05-17-156",
+            "show-2024-03-15-166",
+            "show-2024-01-19-175"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "comerica-park",
+        "name": "Comerica Park",
+        "displayName": "Comerica Park",
+        "city": "Detroit",
+        "state": "MI",
+        "category": "Outdoor Concert",
+        "region": "Detroit Metro",
+        "privateEvent": false,
+        "featured": true,
+        "website": "",
+        "latitude": 42.383037,
+        "longitude": -83.102237,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Star Wars Day with the Detroit Tigers @ Comerica Park"
+        ],
+        "eventSeries": [
+            "Star Wars Day with the Detroit Tigers"
+        ],
+        "sourceShowIds": [
+            "show-2026-05-04-031"
+        ],
+        "notes": "",
+        "featuredOrder": 1,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "crystal-bar",
+        "name": "Crystal Bar",
+        "displayName": "Crystal Bar",
+        "city": "Westland",
+        "state": "MI",
+        "category": "Bar / Pub",
+        "region": "Detroit Metro",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.319173,
+        "longitude": -83.380778,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2026-03-14-035",
+            "show-2026-01-09-038",
+            "show-2025-02-28-097",
+            "show-2024-09-13-122",
+            "show-2024-05-04-158",
+            "show-2024-04-20-161",
+            "show-2024-03-02-169",
+            "show-2023-11-10-186"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "d-railed-bar-and-grill",
+        "name": "D-Railed Bar & Grill",
+        "displayName": "D-Railed Bar & Grill",
+        "city": "Durand",
+        "state": "MI",
+        "category": "Bar / Pub",
+        "region": "Mid-Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.912759,
+        "longitude": -83.989076,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-08-16-061"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "detroit-yacht-club",
+        "name": "Detroit Yacht Club",
+        "displayName": "Detroit Yacht Club",
+        "city": "Detroit",
+        "state": "MI",
+        "category": "Yacht Club",
+        "region": "Detroit Metro",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.383037,
+        "longitude": -83.102237,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2026-05-30-027",
+            "show-2025-08-02-065"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "district-142",
+        "name": "District 142",
+        "displayName": "District 142",
+        "city": "Wyandotte",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Detroit Metro",
+        "privateEvent": false,
+        "featured": true,
+        "website": "",
+        "latitude": 42.210674,
+        "longitude": -83.157208,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Opening for Double Vision - The Foreigner Experience | at District 142"
+        ],
+        "eventSeries": [
+            "Opening for Double Vision - The Foreigner Experience |"
+        ],
+        "sourceShowIds": [
+            "show-2023-07-13-208"
+        ],
+        "notes": "",
+        "featuredOrder": 6,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "double-clutch-bar",
+        "name": "Double Clutch Bar",
+        "displayName": "Double Clutch Bar",
+        "city": "Okemos",
+        "state": "MI",
+        "category": "Bar / Pub",
+        "region": "Mid-Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.709062,
+        "longitude": -84.414283,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2022-12-23-233",
+            "show-2022-12-16-234",
+            "show-2022-12-09-235",
+            "show-2022-12-02-236"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "ffa-alumni-hootenany-fundraiser",
+        "name": "FFA Alumni Hootenany Fundraiser",
+        "displayName": "FFA Alumni Hootenany Fundraiser",
+        "city": "Springport",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Other Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.378335,
+        "longitude": -84.696476,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2023-02-25-229"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "fireside-grill",
+        "name": "Fireside Grill",
+        "displayName": "Fireside Grill",
+        "city": "Novi",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Detroit Metro",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.478494,
+        "longitude": -83.486825,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2026-07-30-014"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "flushing-moose-lodge",
+        "name": "Flushing Moose Lodge",
+        "displayName": "Flushing Moose Lodge",
+        "city": "Flushing",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Flint / Genesee Area",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 43.062786,
+        "longitude": -83.842628,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-12-06-042"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "gravity-smokehouse",
+        "name": "Gravity Smokehouse",
+        "displayName": "Gravity Smokehouse",
+        "city": "Holt",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Mid-Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.642061,
+        "longitude": -84.530768,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2024-04-06-162",
+            "show-2024-01-27-174",
+            "show-2023-10-14-189"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "gun-lake-casino",
+        "name": "Gun Lake Casino",
+        "displayName": "Gun Lake Casino",
+        "city": "Wayland",
+        "state": "MI",
+        "category": "Casino",
+        "region": "Other Michigan",
+        "privateEvent": false,
+        "featured": true,
+        "website": "",
+        "latitude": 42.673081,
+        "longitude": -85.641727,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2026-08-07-001",
+            "show-2025-12-26-041",
+            "show-2025-07-11-075",
+            "show-2024-05-24-153"
+        ],
+        "notes": "",
+        "featuredOrder": 2,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "hell-saloon",
+        "name": "Hell Saloon",
+        "displayName": "Hell Saloon",
+        "city": "Pinckney",
+        "state": "MI",
+        "category": "Bar / Pub",
+        "region": "Mid-Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.455397,
+        "longitude": -83.941075,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Thanksgiving Eve at Hell Saloon"
+        ],
+        "eventSeries": [
+            "Thanksgiving Eve"
+        ],
+        "sourceShowIds": [
+            "show-2026-10-09-010",
+            "show-2026-05-09-030",
+            "show-2026-01-03-039",
+            "show-2025-11-26-043",
+            "show-2025-04-05-093",
+            "show-2025-04-04-094",
+            "show-2024-12-21-105",
+            "show-2024-12-20-106",
+            "show-2024-11-27-109",
+            "show-2024-10-26-114",
+            "show-2024-10-25-115",
+            "show-2024-06-01-150",
+            "show-2024-05-31-151",
+            "show-2024-02-17-170",
+            "show-2024-02-16-171",
+            "show-2023-12-30-177",
+            "show-2023-12-29-178",
+            "show-2023-11-22-183",
+            "show-2023-10-07-190",
+            "show-2023-10-06-191",
+            "show-2023-09-08-196",
+            "show-2023-07-22-204",
+            "show-2023-07-21-205",
+            "show-2023-06-10-213",
+            "show-2023-04-22-221",
+            "show-2023-04-21-222"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "high-caliber-karting-and-entertainment",
+        "name": "High Caliber Karting & Entertainment",
+        "displayName": "High Caliber Karting & Entertainment",
+        "city": "Okemos",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Mid-Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.709062,
+        "longitude": -84.414283,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2026-03-27-034"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "hiram-sims-park",
+        "name": "Hiram Sims Park",
+        "displayName": "Hiram Sims Park",
+        "city": "Walled Lake",
+        "state": "MI",
+        "category": "Concert Series",
+        "region": "Detroit Metro",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.537199,
+        "longitude": -83.473713,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Summer Concert Series @ Hiram Sims Park",
+            "Walled Lake Summer Concert Series | at Hiram Sims Park"
+        ],
+        "eventSeries": [
+            "Summer Concert Series",
+            "Walled Lake Summer Concert Series |"
+        ],
+        "sourceShowIds": [
+            "show-2025-08-20-059",
+            "show-2024-06-26-144"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "hollywood-casino-toledo",
+        "name": "Hollywood Casino Toledo",
+        "displayName": "Hollywood Casino Toledo",
+        "city": "Toledo",
+        "state": "OH",
+        "category": "Casino",
+        "region": "Out of State",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 41.6528,
+        "longitude": -83.5379,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2024-08-16-129"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "horn-s-gaslight-bar",
+        "name": "Horn's Gaslight Bar",
+        "displayName": "Horn's Gaslight Bar",
+        "city": "Mackinac Island",
+        "state": "MI",
+        "category": "Bar / Pub",
+        "region": "Northern Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 45.860184,
+        "longitude": -84.625834,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Horns Gaslight Bar"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2026-07-18-017",
+            "show-2026-07-17-018",
+            "show-2025-05-31-086",
+            "show-2025-05-30-087"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "itty-bitty-bar",
+        "name": "Itty Bitty Bar",
+        "displayName": "Itty Bitty Bar",
+        "city": "Holland",
+        "state": "MI",
+        "category": "Bar / Pub",
+        "region": "West Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.767049,
+        "longitude": -86.098572,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2026-04-10-033",
+            "show-2025-05-09-092",
+            "show-2025-02-15-100",
+            "show-2024-12-13-107",
+            "show-2024-11-01-113",
+            "show-2024-09-21-121",
+            "show-2024-08-10-131",
+            "show-2024-07-06-140",
+            "show-2024-04-27-160",
+            "show-2024-03-29-165",
+            "show-2024-02-03-173",
+            "show-2023-12-23-179",
+            "show-2023-11-25-182",
+            "show-2023-09-01-198",
+            "show-2023-08-11-202",
+            "show-2023-07-15-206",
+            "show-2023-07-01-209",
+            "show-2023-05-19-217",
+            "show-2023-04-01-223",
+            "show-2022-11-12-238",
+            "show-2022-10-07-242",
+            "show-2022-09-09-246",
+            "show-2022-08-05-250",
+            "show-2022-07-02-253"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "kirby-house",
+        "name": "Kirby House",
+        "displayName": "Kirby House",
+        "city": "Grand Haven",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "West Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 43.054969,
+        "longitude": -86.219349,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "The Kirby House",
+            "NYE @ Kirby House"
+        ],
+        "eventSeries": [
+            "NYE"
+        ],
+        "sourceShowIds": [
+            "show-2026-08-01-013",
+            "show-2026-05-02-032",
+            "show-2025-11-08-045",
+            "show-2025-07-26-069",
+            "show-2025-05-10-091",
+            "show-2025-02-22-098",
+            "show-2024-12-31-104",
+            "show-2024-11-09-111",
+            "show-2024-07-27-136",
+            "show-2024-05-18-155",
+            "show-2024-03-30-164",
+            "show-2024-02-10-172",
+            "show-2023-10-28-188"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "lansing-center",
+        "name": "Lansing Center",
+        "displayName": "Lansing Center",
+        "city": "Lansing",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Mid-Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.714341,
+        "longitude": -84.560889,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Opening for Hairball @ Lansing Center"
+        ],
+        "eventSeries": [
+            "Opening for Hairball"
+        ],
+        "sourceShowIds": [
+            "show-2023-03-31-224"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "lapeer-days-festival-west-stage",
+        "name": "Lapeer Days Festival (West Stage)",
+        "displayName": "Lapeer Days Festival (West Stage)",
+        "city": "Lapeer",
+        "state": "MI",
+        "category": "Festival",
+        "region": "Flint / Genesee Area",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 43.045127,
+        "longitude": -83.326746,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2024-08-18-127"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "lolo-s-bar-and-grill",
+        "name": "LoLo's Bar & Grill",
+        "displayName": "LoLo's Bar & Grill",
+        "city": "Holland",
+        "state": "MI",
+        "category": "Bar / Pub",
+        "region": "West Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.767049,
+        "longitude": -86.098572,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2024-08-11-130",
+            "show-2024-07-07-139",
+            "show-2024-06-16-145",
+            "show-2023-08-12-201"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "macray-harbor",
+        "name": "MacRay Harbor",
+        "displayName": "MacRay Harbor",
+        "city": "Harrison Twp",
+        "state": "MI",
+        "category": "Bar / Pub",
+        "region": "Detroit Metro",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.5817,
+        "longitude": -82.828,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "N42 Bar & Grill @ MacRay Harbor"
+        ],
+        "eventSeries": [
+            "N42 Bar & Grill"
+        ],
+        "sourceShowIds": [
+            "show-2026-07-03-021"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "mash",
+        "name": "Mash",
+        "displayName": "Mash",
+        "city": "East Lansing",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Mid-Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.748913,
+        "longitude": -84.482442,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2024-08-02-134"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "mcclintock-park",
+        "name": "McClintock Park",
+        "displayName": "McClintock Park",
+        "city": "Laingsburg",
+        "state": "MI",
+        "category": "Concert Series",
+        "region": "Mid-Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.89056,
+        "longitude": -84.350399,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Summer Concert Series @ McClintock Park",
+            "Laingsburg Concert Series | at McClintock Park"
+        ],
+        "eventSeries": [
+            "Summer Concert Series",
+            "Laingsburg Concert Series |"
+        ],
+        "sourceShowIds": [
+            "show-2026-08-13-003",
+            "show-2025-07-10-076",
+            "show-2024-08-01-135"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "mccurdy-park",
+        "name": "McCurdy Park",
+        "displayName": "McCurdy Park",
+        "city": "Corunna",
+        "state": "MI",
+        "category": "Outdoor Concert",
+        "region": "Flint / Genesee Area",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.983392,
+        "longitude": -84.115863,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "4th of July Celebration @ McCurdy Park"
+        ],
+        "eventSeries": [
+            "4th of July Celebration"
+        ],
+        "sourceShowIds": [
+            "show-2022-07-04-252"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "meridian-farmer-s-market-summer-concert-series",
+        "name": "Meridian Farmer's Market Summer Concert Series",
+        "displayName": "Meridian Farmer's Market Summer Concert Series",
+        "city": "Okemos",
+        "state": "MI",
+        "category": "Concert Series",
+        "region": "Mid-Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.709062,
+        "longitude": -84.414283,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-08-13-062"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "millennium-park",
+        "name": "Millennium Park",
+        "displayName": "Millennium Park",
+        "city": "Walker",
+        "state": "MI",
+        "category": "Outdoor Concert",
+        "region": "Other Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.996553,
+        "longitude": -85.756366,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Opening for \"Faithfully - The Music of Journey\" | Grand Rapids Symphony Orchestra Picnic Pops @ Millenium Park"
+        ],
+        "eventSeries": [
+            "Opening for \"Faithfully - The Music of Journey\" | Grand Rapids Symphony Orchestra Picnic Pops"
+        ],
+        "sourceShowIds": [
+            "show-2025-07-17-073"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "north-peak-brewing-co-and-kilkenny-s",
+        "name": "North Peak Brewing Co. & Kilkenny's",
+        "displayName": "North Peak Brewing Co. & Kilkenny's",
+        "city": "Bay City",
+        "state": "MI",
+        "category": "Brewery",
+        "region": "Other Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 43.590062,
+        "longitude": -83.888421,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2026-05-29-028"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "opening-for-fast-fashion-the-depeche-mode-experience-the-vault",
+        "name": "Opening for Fast Fashion: The Depeche Mode Experience | The Vault",
+        "displayName": "Opening for Fast Fashion: The Depeche Mode Experience | The Vault",
+        "city": "Saginaw",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Other Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 43.417678,
+        "longitude": -83.954716,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2023-12-09-181"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "original-gravity-brewing-co",
+        "name": "Original Gravity Brewing Co",
+        "displayName": "Original Gravity Brewing Co",
+        "city": "Milan",
+        "state": "MI",
+        "category": "Brewery",
+        "region": "West Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.081347,
+        "longitude": -83.684793,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Oktoberfest @ Original Gravity Brewing Co",
+            "Oktoberfest at Original Gravity Brewing Co",
+            "Oktoberfest @ Original Gravity Brewing Co."
+        ],
+        "eventSeries": [
+            "Oktoberfest"
+        ],
+        "sourceShowIds": [
+            "show-2026-09-25-007",
+            "show-2026-06-05-026",
+            "show-2025-09-26-051",
+            "show-2025-05-17-090",
+            "show-2024-09-27-120",
+            "show-2024-06-29-142",
+            "show-2023-09-29-193",
+            "show-2023-06-17-211",
+            "show-2022-09-30-243",
+            "show-2022-06-18-254"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "park-theatre",
+        "name": "Park Theatre",
+        "displayName": "Park Theatre",
+        "city": "Holland",
+        "state": "MI",
+        "category": "Outdoor Concert",
+        "region": "West Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.767049,
+        "longitude": -86.098572,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Opening for Dancing Queen: An ABBA Salute at Park Theatre"
+        ],
+        "eventSeries": [
+            "Opening for Dancing Queen: An ABBA Salute"
+        ],
+        "sourceShowIds": [
+            "show-2025-01-25-102"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "pentwater-yacht-club",
+        "name": "Pentwater Yacht Club",
+        "displayName": "Pentwater Yacht Club",
+        "city": "Pentwater",
+        "state": "MI",
+        "category": "Yacht Club",
+        "region": "Northern Michigan",
+        "privateEvent": false,
+        "featured": true,
+        "website": "",
+        "latitude": 43.77962,
+        "longitude": -86.429916,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Commodore's Ball at Pentwater Yacht Club"
+        ],
+        "eventSeries": [
+            "Commodore's Ball"
+        ],
+        "sourceShowIds": [
+            "show-2026-08-29-005"
+        ],
+        "notes": "",
+        "featuredOrder": 4,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "rogue-river-tavern",
+        "name": "Rogue River Tavern",
+        "displayName": "Rogue River Tavern",
+        "city": "Rockford",
+        "state": "MI",
+        "category": "Bar / Pub",
+        "region": "West Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 43.136975,
+        "longitude": -85.554519,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-09-20-052",
+            "show-2023-11-04-187"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "schiffer-park",
+        "name": "Schiffer Park",
+        "displayName": "Schiffer Park",
+        "city": "Ferndale",
+        "state": "MI",
+        "category": "Concert Series",
+        "region": "Detroit Metro",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.45921,
+        "longitude": -83.131366,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Nine on Nine Concert Series at Schiffer Park"
+        ],
+        "eventSeries": [
+            "Nine on Nine Concert Series"
+        ],
+        "sourceShowIds": [
+            "show-2025-08-17-060"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "scooters-bar",
+        "name": "Scooters Bar",
+        "displayName": "Scooters Bar",
+        "city": "Flint",
+        "state": "MI",
+        "category": "Bar / Pub",
+        "region": "Flint / Genesee Area",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 43.02442,
+        "longitude": -83.691971,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Bikes & Boobs Breast Cancer Awareness Benefit | at Scooters Bar"
+        ],
+        "eventSeries": [
+            "Bikes & Boobs Breast Cancer Awareness Benefit |"
+        ],
+        "sourceShowIds": [
+            "show-2024-10-03-118"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "sherman-s-lounge",
+        "name": "Sherman's Lounge",
+        "displayName": "Sherman's Lounge",
+        "city": "Grand Blanc",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Flint / Genesee Area",
+        "privateEvent": false,
+        "featured": true,
+        "website": "",
+        "latitude": 42.932537,
+        "longitude": -83.620491,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-03-21-096",
+            "show-2023-09-30-192",
+            "show-2023-08-19-199",
+            "show-2023-07-14-207",
+            "show-2022-12-30-232",
+            "show-2022-11-26-237"
+        ],
+        "notes": "",
+        "featuredOrder": 7,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "short-s-brewing-company",
+        "name": "Short's Brewing Company",
+        "displayName": "Short's Brewing Company",
+        "city": "Bellaire",
+        "state": "MI",
+        "category": "Brewery",
+        "region": "Northern Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 44.97116,
+        "longitude": -85.202326,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Short's Brewing Co",
+            "Rocktober Fest at Short's Brewing Company"
+        ],
+        "eventSeries": [
+            "Rocktober Fest"
+        ],
+        "sourceShowIds": [
+            "show-2026-08-22-004",
+            "show-2026-06-06-025",
+            "show-2025-07-05-077",
+            "show-2024-10-05-117"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "shots-on-the-river",
+        "name": "Shots on the River",
+        "displayName": "Shots on the River",
+        "city": "Belmont",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "West Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 43.075,
+        "longitude": -85.6106,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-10-04-050"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "silver-lake-chicken-shack",
+        "name": "Silver Lake Chicken Shack",
+        "displayName": "Silver Lake Chicken Shack",
+        "city": "Mears",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Northern Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 43.683473,
+        "longitude": -86.422227,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2026-06-12-024",
+            "show-2025-09-05-055",
+            "show-2025-05-25-088",
+            "show-2024-09-06-124"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "soaring-eagle-casino",
+        "name": "Soaring Eagle Casino",
+        "displayName": "Soaring Eagle Casino",
+        "city": "Mt. Pleasant",
+        "state": "MI",
+        "category": "Casino",
+        "region": "Other Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 43.5978,
+        "longitude": -84.7675,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Ascend Sportsbook at Soaring Eagle Casino",
+            "Ascend Sportsbook | at Soaring Eagle Casino"
+        ],
+        "eventSeries": [
+            "Ascend Sportsbook",
+            "Ascend Sportsbook |"
+        ],
+        "sourceShowIds": [
+            "show-2025-02-21-099",
+            "show-2025-01-31-101",
+            "show-2024-08-17-128",
+            "show-2024-07-12-138"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "south-haven-yacht-club",
+        "name": "South Haven Yacht Club",
+        "displayName": "South Haven Yacht Club",
+        "city": "South Haven",
+        "state": "MI",
+        "category": "Yacht Club",
+        "region": "West Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.401341,
+        "longitude": -86.268434,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-06-14-081",
+            "show-2024-06-15-146"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "stix-bar",
+        "name": "Stix Bar",
+        "displayName": "Stix Bar",
+        "city": "Ludington",
+        "state": "MI",
+        "category": "Bar / Pub",
+        "region": "Northern Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 43.957196,
+        "longitude": -86.442937,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Opening for Dancing Queen: An ABBA Salute | at Stix Bar"
+        ],
+        "eventSeries": [
+            "Opening for Dancing Queen: An ABBA Salute |"
+        ],
+        "sourceShowIds": [
+            "show-2024-08-31-125"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "summerlands-brewing-co",
+        "name": "Summerlands Brewing Co",
+        "displayName": "Summerlands Brewing Co",
+        "city": "Holt",
+        "state": "MI",
+        "category": "Brewery",
+        "region": "Mid-Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.642061,
+        "longitude": -84.530768,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2026-03-13-036"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "tanglewood-winery",
+        "name": "Tanglewood Winery",
+        "displayName": "Tanglewood Winery",
+        "city": "Holland",
+        "state": "MI",
+        "category": "Winery",
+        "region": "West Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.767049,
+        "longitude": -86.098572,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2022-09-10-245"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "the-b-o-b",
+        "name": "The B.O.B.",
+        "displayName": "The B.O.B.",
+        "city": "Grand Rapids",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "West Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.961156,
+        "longitude": -85.65557,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "H.O.M.E. at The B.O.B.",
+            "H.O.M.E. at The BOB"
+        ],
+        "eventSeries": [
+            "H.O.M.E."
+        ],
+        "sourceShowIds": [
+            "show-2026-08-08-002",
+            "show-2026-06-13-023",
+            "show-2026-05-22-029",
+            "show-2025-08-23-057",
+            "show-2025-06-13-082",
+            "show-2025-03-28-095",
+            "show-2024-11-29-108",
+            "show-2024-05-10-157",
+            "show-2024-03-08-168"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "the-cascades-summer-concert-series",
+        "name": "The Cascades Summer Concert Series",
+        "displayName": "The Cascades Summer Concert Series",
+        "city": "Jackson",
+        "state": "MI",
+        "category": "Concert Series",
+        "region": "Mid-Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.243441,
+        "longitude": -84.404858,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2026-07-22-016"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "the-deck",
+        "name": "The Deck",
+        "displayName": "The Deck",
+        "city": "Muskegon",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "West Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 43.22654,
+        "longitude": -86.257247,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-08-11-063",
+            "show-2025-07-01-079",
+            "show-2024-05-22-154"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "the-draft-bar-and-grille",
+        "name": "The Draft Bar & Grille",
+        "displayName": "The Draft Bar & Grille",
+        "city": "Swartz Creek",
+        "state": "MI",
+        "category": "Bar / Pub",
+        "region": "Flint / Genesee Area",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.964205,
+        "longitude": -83.816173,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2023-06-09-214"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "the-exchange",
+        "name": "The Exchange",
+        "displayName": "The Exchange",
+        "city": "Lansing",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Mid-Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.714341,
+        "longitude": -84.560889,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2023-04-29-219",
+            "show-2023-04-28-220",
+            "show-2023-03-04-227",
+            "show-2023-03-03-228",
+            "show-2023-01-28-230",
+            "show-2023-01-27-231",
+            "show-2022-10-22-239",
+            "show-2022-10-21-240",
+            "show-2022-08-20-247",
+            "show-2022-08-12-249",
+            "show-2022-07-30-251"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "the-green-door",
+        "name": "The Green Door",
+        "displayName": "The Green Door",
+        "city": "Lansing",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Mid-Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.714341,
+        "longitude": -84.560889,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "NYE at The Green Door"
+        ],
+        "eventSeries": [
+            "NYE"
+        ],
+        "sourceShowIds": [
+            "show-2025-12-31-040",
+            "show-2025-01-10-103",
+            "show-2024-06-28-143",
+            "show-2024-04-05-163",
+            "show-2024-03-09-167"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "the-irish-pub",
+        "name": "The Irish Pub",
+        "displayName": "The Irish Pub",
+        "city": "Lansing",
+        "state": "MI",
+        "category": "Bar / Pub",
+        "region": "Mid-Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.714341,
+        "longitude": -84.560889,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2026-10-17-011"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "the-lotus-room-10-admission",
+        "name": "The Lotus Room | $10 admission",
+        "displayName": "The Lotus Room | $10 admission",
+        "city": "Norton Shores",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Other Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 43.169538,
+        "longitude": -86.235405,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2024-08-09-132"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "the-roadhouse",
+        "name": "The Roadhouse",
+        "displayName": "The Roadhouse",
+        "city": "Jackson",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Mid-Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.243441,
+        "longitude": -84.404858,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-11-15-044",
+            "show-2025-10-18-046"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "the-score",
+        "name": "The Score",
+        "displayName": "The Score",
+        "city": "Grand Rapids",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "West Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.961156,
+        "longitude": -85.65557,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2026-10-02-008",
+            "show-2025-09-13-053",
+            "show-2025-08-01-066",
+            "show-2024-07-05-141",
+            "show-2024-06-02-149"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "the-stables",
+        "name": "The Stables",
+        "displayName": "The Stables",
+        "city": "Bay City",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Other Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 43.590062,
+        "longitude": -83.888421,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-08-22-058"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "trapper-joe-s-feat-rev-right-time",
+        "name": "Trapper Joe's | feat. Rev. Right-Time",
+        "displayName": "Trapper Joe's | feat. Rev. Right-Time",
+        "city": "Burton",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Flint / Genesee Area",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 43.000745,
+        "longitude": -83.618151,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Back to Bricks at Trapper Joe's | feat. Rev. Right-Time"
+        ],
+        "eventSeries": [
+            "Back to Bricks"
+        ],
+        "sourceShowIds": [
+            "show-2022-08-19-248"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "tunes-by-the-tridge",
+        "name": "Tunes by the Tridge",
+        "displayName": "Tunes by the Tridge",
+        "city": "Midland",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Mid-Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 43.624796,
+        "longitude": -84.231984,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2026-07-09-019"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "turtle-lake-resort",
+        "name": "Turtle Lake Resort",
+        "displayName": "Turtle Lake Resort",
+        "city": "Union City",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Other Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.066714,
+        "longitude": -85.143168,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2026-07-04-020",
+            "show-2025-08-31-056"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "vestal-inn",
+        "name": "Vestal Inn",
+        "displayName": "Vestal Inn",
+        "city": "Belmont",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "West Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 43.075,
+        "longitude": -85.6106,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2024-11-16-110",
+            "show-2023-12-16-180"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "warner-vineyards",
+        "name": "Warner Vineyards",
+        "displayName": "Warner Vineyards",
+        "city": "Paw Paw",
+        "state": "MI",
+        "category": "Winery",
+        "region": "Other Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.214235,
+        "longitude": -85.892177,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Opening for Dancing Queen: An ABBA Salute | at Warner Vineyards"
+        ],
+        "eventSeries": [
+            "Opening for Dancing Queen: An ABBA Salute |"
+        ],
+        "sourceShowIds": [
+            "show-2024-08-30-126"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "warwick-hills-country-club",
+        "name": "Warwick Hills Country Club",
+        "displayName": "Warwick Hills Country Club",
+        "city": "Grand Blanc",
+        "state": "MI",
+        "category": "Country Club",
+        "region": "Flint / Genesee Area",
+        "privateEvent": false,
+        "featured": true,
+        "website": "",
+        "latitude": 42.932537,
+        "longitude": -83.620491,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Men's Invitational at Warwick Hills Country Club"
+        ],
+        "eventSeries": [
+            "Men's Invitational"
+        ],
+        "sourceShowIds": [
+            "show-2026-07-25-015"
+        ],
+        "notes": "",
+        "featuredOrder": 3,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "wednesday-night-live-concert-series",
+        "name": "Wednesday Night Live Concert Series",
+        "displayName": "Wednesday Night Live Concert Series",
+        "city": "Durand",
+        "state": "MI",
+        "category": "Concert Series",
+        "region": "Mid-Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.912759,
+        "longitude": -83.989076,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-07-28-068"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "wicks-park-bar-and-grille",
+        "name": "Wicks Park Bar & Grille",
+        "displayName": "Wicks Park Bar & Grille",
+        "city": "Saugatuck",
+        "state": "MI",
+        "category": "Bar / Pub",
+        "region": "West Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.661361,
+        "longitude": -86.204623,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "New Years Eve @ Wicks Park Bar & Grille"
+        ],
+        "eventSeries": [
+            "New Years Eve"
+        ],
+        "sourceShowIds": [
+            "show-2023-12-31-176",
+            "show-2023-11-11-185"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "winners-bar-and-grill",
+        "name": "Winners Bar & Grill",
+        "displayName": "Winners Bar & Grill",
+        "city": "Clinton Twp",
+        "state": "MI",
+        "category": "Bar / Pub",
+        "region": "Detroit Metro",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.5869,
+        "longitude": -82.9196,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2024-05-03-159",
+            "show-2023-07-28-203",
+            "show-2023-03-24-225"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "zeigler-motorsports",
+        "name": "Zeigler Motorsports",
+        "displayName": "Zeigler Motorsports",
+        "city": "Kalamazoo",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "West Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 42.275163,
+        "longitude": -85.588501,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Trak Houz @ Zeigler Motorsports"
+        ],
+        "eventSeries": [
+            "Trak Houz"
+        ],
+        "sourceShowIds": [
+            "show-2025-07-25-070"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "anniversary-petoskey-mi-2025-09-12-show-2025-09-12-054",
+        "name": "Anniversary",
+        "displayName": "Anniversary",
+        "city": "Petoskey",
+        "state": "MI",
+        "category": "Anniversary",
+        "region": "Northern Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 45.36485,
+        "longitude": -85.010701,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Event - 50th Anniversary Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-09-12-054"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "anniversary-stevenville-mi-2025-08-07-show-2025-08-07-064",
+        "name": "Anniversary",
+        "displayName": "Anniversary",
+        "city": "Stevenville",
+        "state": "MI",
+        "category": "Anniversary",
+        "region": "Other Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.0131,
+        "longitude": -86.5195,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Event - Freedom Boat Club 10th Anniversary Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-08-07-064"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "association-event-delton-mi-2024-07-13-show-2024-07-13-137",
+        "name": "Association Event",
+        "displayName": "Association Event",
+        "city": "Delton",
+        "state": "MI",
+        "category": "Association Event",
+        "region": "Other Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.494554,
+        "longitude": -85.413167,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Party | Long Lake Cloverdale Association"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2024-07-13-137"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "association-event-delton-mi-2025-07-12-show-2025-07-12-074",
+        "name": "Association Event",
+        "displayName": "Association Event",
+        "city": "Delton",
+        "state": "MI",
+        "category": "Association Event",
+        "region": "Other Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.494554,
+        "longitude": -85.413167,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Event - Long Lake Cloverdale Association Annual Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-07-12-074"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "birthday-grand-rapids-mi-2025-10-10-show-2025-10-10-049",
+        "name": "Birthday",
+        "displayName": "Birthday",
+        "city": "Grand Rapids",
+        "state": "MI",
+        "category": "Birthday",
+        "region": "West Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.961156,
+        "longitude": -85.65557,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Event - Birthday Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-10-10-049"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "birthday-lansing-mi-2023-03-11-show-2023-03-11-226",
+        "name": "Birthday",
+        "displayName": "Birthday",
+        "city": "Lansing",
+        "state": "MI",
+        "category": "Birthday",
+        "region": "Mid-Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.714341,
+        "longitude": -84.560889,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Birthday Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2023-03-11-226"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "birthday-pinckney-mi-2025-07-19-show-2025-07-19-072",
+        "name": "Birthday",
+        "displayName": "Birthday",
+        "city": "Pinckney",
+        "state": "MI",
+        "category": "Birthday",
+        "region": "Mid-Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.455397,
+        "longitude": -83.941075,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Event - Birthday"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-07-19-072"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "block-party-grand-rapids-mi-2025-10-11-show-2025-10-11-048",
+        "name": "Block Party",
+        "displayName": "Block Party",
+        "city": "Grand Rapids",
+        "state": "MI",
+        "category": "Block Party",
+        "region": "West Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.961156,
+        "longitude": -85.65557,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Event - Block Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-10-11-048"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "corporate-event-detroit-mi-2023-05-09-show-2023-05-09-218",
+        "name": "Corporate Event",
+        "displayName": "Corporate Event",
+        "city": "Detroit",
+        "state": "MI",
+        "category": "Corporate",
+        "region": "Detroit Metro",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.383037,
+        "longitude": -83.102237,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Corporate Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2023-05-09-218"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "corporate-event-east-lansing-mi-2025-10-17-show-2025-10-17-047",
+        "name": "Corporate Event",
+        "displayName": "Corporate Event",
+        "city": "East Lansing",
+        "state": "MI",
+        "category": "Corporate",
+        "region": "Mid-Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.748913,
+        "longitude": -84.482442,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Event - Halloween Party for Willingham & Cote PC"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-10-17-047"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "graduation-party-pinckney-mi-2024-06-07-show-2024-06-07-148",
+        "name": "Graduation Party",
+        "displayName": "Graduation Party",
+        "city": "Pinckney",
+        "state": "MI",
+        "category": "Graduation",
+        "region": "Mid-Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.455397,
+        "longitude": -83.941075,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Event - Graduation Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2024-06-07-148"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "private-club-event-au-gres-mi-2025-06-28-show-2025-06-28-080",
+        "name": "Private Club Event",
+        "displayName": "Private Club Event",
+        "city": "Au Gres",
+        "state": "MI",
+        "category": "Private Club Event",
+        "region": "Other Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 44.044186,
+        "longitude": -83.693409,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Event at Au Gres Yacht Club"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-06-28-080"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "private-event-ann-arbor-mi-2026-06-19-show-2026-06-19-022",
+        "name": "Private Event",
+        "displayName": "Private Event",
+        "city": "Ann Arbor",
+        "state": "MI",
+        "category": "Private Event",
+        "region": "Other Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.276147,
+        "longitude": -83.73086,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2026-06-19-022"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "private-event-east-lansing-mi-2023-11-12-show-2023-11-12-184",
+        "name": "Private Event",
+        "displayName": "Private Event",
+        "city": "East Lansing",
+        "state": "MI",
+        "category": "Private Event",
+        "region": "Mid-Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.748913,
+        "longitude": -84.482442,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2023-11-12-184"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "private-event-fowler-mi-2024-11-02-show-2024-11-02-112",
+        "name": "Private Event",
+        "displayName": "Private Event",
+        "city": "Fowler",
+        "state": "MI",
+        "category": "Private Event",
+        "region": "Other Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 43.003991,
+        "longitude": -84.741698,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2024-11-02-112"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "private-event-howell-mi-2023-06-16-show-2023-06-16-212",
+        "name": "Private Event",
+        "displayName": "Private Event",
+        "city": "Howell",
+        "state": "MI",
+        "category": "Private Event",
+        "region": "Mid-Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.608129,
+        "longitude": -83.934339,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2023-06-16-212"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "private-event-pinckney-mi-2023-06-24-show-2023-06-24-210",
+        "name": "Private Event",
+        "displayName": "Private Event",
+        "city": "Pinckney",
+        "state": "MI",
+        "category": "Private Event",
+        "region": "Mid-Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.455397,
+        "longitude": -83.941075,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2023-06-24-210"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "private-event-southfield-mi-2026-09-04-show-2026-09-04-006",
+        "name": "Private Event",
+        "displayName": "Private Event",
+        "city": "Southfield",
+        "state": "MI",
+        "category": "Private Event",
+        "region": "Detroit Metro",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.47464,
+        "longitude": -83.259509,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Event at Congregation Shaarey Zedek"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2026-09-04-006"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "private-event-wolverine-mi-2024-05-25-show-2024-05-25-152",
+        "name": "Private Event",
+        "displayName": "Private Event",
+        "city": "Wolverine",
+        "state": "MI",
+        "category": "Private Event",
+        "region": "Northern Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 45.273593,
+        "longitude": -84.605544,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2024-05-25-152"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "private-event-wolverine-mi-2025-07-04-show-2025-07-04-078",
+        "name": "Private Event",
+        "displayName": "Private Event",
+        "city": "Wolverine",
+        "state": "MI",
+        "category": "Private Event",
+        "region": "Northern Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 45.273593,
+        "longitude": -84.605544,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-07-04-078"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "reunion-pinckney-mi-2024-08-03-show-2024-08-03-133",
+        "name": "Reunion",
+        "displayName": "Reunion",
+        "city": "Pinckney",
+        "state": "MI",
+        "category": "Reunion",
+        "region": "Mid-Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.455397,
+        "longitude": -83.941075,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Party | Pinckney 35th Class Reunion"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2024-08-03-133"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "wedding-ann-arbor-mi-2025-05-20-show-2025-05-20-089",
+        "name": "Wedding",
+        "displayName": "Wedding",
+        "city": "Ann Arbor",
+        "state": "MI",
+        "category": "Wedding",
+        "region": "Other Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.276147,
+        "longitude": -83.73086,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Event - Wedding"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-05-20-089"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "wedding-gaylord-mi-2026-10-03-show-2026-10-03-009",
+        "name": "Wedding",
+        "displayName": "Wedding",
+        "city": "Gaylord",
+        "state": "MI",
+        "category": "Wedding",
+        "region": "Northern Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 45.018978,
+        "longitude": -84.680907,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Wedding at Treetops Resort"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2026-10-03-009"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "wedding-howell-mi-2022-10-08-show-2022-10-08-241",
+        "name": "Wedding",
+        "displayName": "Wedding",
+        "city": "Howell",
+        "state": "MI",
+        "category": "Wedding",
+        "region": "Mid-Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.608129,
+        "longitude": -83.934339,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Wedding Reception"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2022-10-08-241"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "wedding-st-joseph-mi-2022-09-23-show-2022-09-23-244",
+        "name": "Wedding",
+        "displayName": "Wedding",
+        "city": "St. Joseph",
+        "state": "MI",
+        "category": "Wedding",
+        "region": "Other Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.09971,
+        "longitude": -86.488756,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Wedding"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2022-09-23-244"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    },
+    {
+        "id": "wedding-wolverine-mi-2023-08-18-show-2023-08-18-200",
+        "name": "Wedding",
+        "displayName": "Wedding",
+        "city": "Wolverine",
+        "state": "MI",
+        "category": "Wedding",
+        "region": "Northern Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 45.273593,
+        "longitude": -84.605544,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Event - Wedding"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2023-08-18-200"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city"
+    }
+];

@@ -1,0 +1,424 @@
+<!--
+Electric Flower Co. Master Tour Schedule
+Generated from the uploaded schedule source.
+
+Preserved entries:
+- 12 upcoming shows
+- 242 past shows
+
+Paste this entire file into the Weebly Embed Code block on the Shows page.
+The EPK can continue reading .efc-show, .efc-date, .efc-venue, and .efc-city.
+-->
+<style>
+#schedule-data,
+#schedule-data * {
+    box-sizing: border-box;
+}
+
+/* NOTE: Full browser width now depends on the surrounding Weebly theme container.
+   This widget already uses the full width available to it. */
+#schedule-data {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    padding: 0 28px;
+    color: inherit;
+    font: inherit;
+    overflow-x: hidden;
+}
+
+/* Tabs */
+
+.efc-schedule-tabs {
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+    margin: 0 0 24px;
+    border-bottom: 1px solid rgba(127,127,127,.22);
+}
+
+.efc-schedule-tab {
+    appearance: none;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 12px 0;
+    margin-bottom: -1px;
+    opacity: .58;
+    transition: opacity .2s ease, border-color .2s ease;
+}
+
+.efc-schedule-tab:hover,
+.efc-schedule-tab:focus-visible {
+    opacity: 1;
+}
+
+.efc-schedule-tab.active {
+    opacity: 1;
+    border-bottom-color: currentColor;
+}
+
+/* Panels and scrolling */
+
+.efc-panel {
+    display: none;
+}
+
+.efc-panel.active {
+    display: block;
+}
+
+.efc-scroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(127,127,127,.35) transparent;
+}
+
+#upcomingPanel .efc-scroll {
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+}
+
+#pastPanel .efc-scroll {
+    max-height: 680px;
+}
+
+.efc-scroll::-webkit-scrollbar {
+    width: 9px;
+}
+
+.efc-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.efc-scroll::-webkit-scrollbar-thumb {
+    background: rgba(127,127,127,.28);
+    border-radius: 999px;
+}
+
+/* Desktop show rows */
+
+.efc-show {
+    display: grid;
+    grid-template-columns:
+        90px
+        minmax(0, 1fr)
+        minmax(170px, 200px)
+        auto;
+    grid-template-areas: "date main location action";
+    gap: 28px;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(127,127,127,.12);
+}
+
+.efc-show:first-child {
+    border-top: 1px solid rgba(127,127,127,.18);
+}
+
+.efc-date {
+    grid-area: date;
+    display: grid;
+    justify-items: start;
+    align-content: center;
+    min-width: 0;
+    line-height: 1;
+}
+
+.efc-month {
+    margin-bottom: 3px;
+    font-size: .72em;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    opacity: .65;
+}
+
+.efc-day {
+    font-size: 2.05em;
+    font-weight: 700;
+    letter-spacing: -.04em;
+    line-height: .95;
+}
+
+.efc-year {
+    margin-top: 5px;
+    font-size: .68em;
+    opacity: .46;
+}
+
+.efc-main {
+    grid-area: main;
+    min-width: 0;
+}
+
+.efc-venue {
+    color: inherit;
+    font: inherit;
+    font-size: 1.16em;
+    font-weight: 700;
+    line-height: 1.35;
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
+.efc-location {
+    grid-area: location;
+    min-width: 0;
+    line-height: 1.4;
+}
+
+.efc-city {
+    color: inherit;
+    font: inherit;
+    font-size: .96em;
+    opacity: .78;
+    overflow-wrap: break-word;
+}
+
+.efc-time {
+    margin-top: 4px;
+    font-size: .82em;
+    line-height: 1.35;
+    opacity: .52;
+}
+
+.efc-action {
+    grid-area: action;
+    min-width: 0;
+    text-align: right;
+}
+
+.efc-action:empty {
+    display: block;
+}
+
+.efc-action a {
+    display: inline-block;
+    padding: 8px 15px;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    color: inherit;
+    font: inherit;
+    font-size: .86em;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color .2s ease, color .2s ease;
+}
+
+.efc-action a:hover,
+.efc-action a:focus-visible {
+    background: currentColor;
+    color: white;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) and (min-width: 701px) {
+    #schedule-data {
+        padding: 0 22px;
+    }
+
+    .efc-show {
+        grid-template-columns:
+            74px
+            minmax(0, 1fr)
+            minmax(150px, 180px);
+        grid-template-areas:
+            "date main location"
+            "date action action";
+        gap: 18px 22px;
+    }
+
+    .efc-action {
+        text-align: left;
+    }
+
+    .efc-action:empty {
+        display: none;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+    #schedule-data {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 16px;
+    }
+
+    .efc-schedule-tabs {
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 28px;
+    }
+
+    .efc-schedule-tab {
+        padding: 13px 0;
+        font-size: 1em;
+        white-space: nowrap;
+    }
+
+    .efc-scroll {
+        width: 100%;
+        padding-right: 0;
+        overflow-x: hidden;
+    }
+
+    #pastPanel .efc-scroll {
+        max-height: 620px;
+        padding-right: 7px;
+    }
+
+    .efc-show {
+        grid-template-columns: 64px minmax(0, 1fr);
+        grid-template-areas:
+            "date main"
+            "date location"
+            "date action";
+        column-gap: 18px;
+        row-gap: 0;
+        align-items: start;
+        padding: 20px 0;
+    }
+
+    .efc-date {
+        justify-items: center;
+        align-content: start;
+        width: 64px;
+        text-align: center;
+    }
+
+    .efc-month {
+        margin-bottom: 4px;
+        font-size: .7em;
+        letter-spacing: .18em;
+    }
+
+    .efc-day {
+        font-size: 2.15em;
+        line-height: .95;
+    }
+
+    .efc-year {
+        display: none;
+    }
+
+    .efc-main {
+        width: 100%;
+        min-width: 0;
+        padding-top: 1px;
+    }
+
+    .efc-venue {
+        width: 100%;
+        margin: 0;
+        font-size: 1.17em;
+        font-weight: 700;
+        line-height: 1.32;
+        text-align: left;
+        word-break: normal;
+        overflow-wrap: break-word;
+        hyphens: none;
+    }
+
+    .efc-location {
+        width: 100%;
+        min-width: 0;
+        margin-top: 7px;
+        text-align: left;
+    }
+
+    .efc-city {
+        display: block;
+        font-size: .98em;
+        line-height: 1.35;
+        opacity: .72;
+    }
+
+    .efc-time {
+        display: block;
+        margin-top: 3px;
+        font-size: .88em;
+        line-height: 1.35;
+        opacity: .55;
+    }
+
+    .efc-action {
+        width: 100%;
+        margin-top: 12px;
+        text-align: left;
+    }
+
+    .efc-action:empty {
+        display: none;
+    }
+
+    .efc-action a {
+        padding: 9px 15px;
+        font-size: .88em;
+        white-space: normal;
+    }
+}
+
+/* Extra-small phones */
+
+@media (max-width: 380px) {
+    #schedule-data {
+        padding: 0 12px;
+    }
+
+    .efc-schedule-tabs {
+        gap: 20px;
+    }
+
+    .efc-show {
+        grid-template-columns: 58px minmax(0, 1fr);
+        column-gap: 14px;
+    }
+
+    .efc-date {
+        width: 58px;
+    }
+
+    .efc-day {
+        font-size: 2em;
+    }
+
+    .efc-venue {
+        font-size: 1.1em;
+    }
+}
+</style>
+<div id="schedule-data">
+<div aria-label="Show schedule sections" class="efc-schedule-tabs" role="tablist">
+<button aria-selected="true" class="efc-schedule-tab active" data-tab="upcomingPanel" role="tab" type="button">
+            Upcoming Shows
+        </button>
+<button aria-selected="false" class="efc-schedule-tab" data-tab="pastPanel" role="tab" type="button">
+            Past Shows
+        </button>
+</div>
+<section class="efc-panel active" id="upcomingPanel" role="tabpanel">
+<div class="efc-scroll" id="upcomingShows">
+</div>
+</section>
+<section class="efc-panel" id="pastPanel" role="tabpanel">
+<div class="efc-scroll" id="pastShows">
+</div>
+</section>
+<script src="shows-data.js"></script>
+<script src="schedule.js"></script>
+</div>
+
+

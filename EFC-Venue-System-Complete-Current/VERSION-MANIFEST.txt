@@ -1,0 +1,21 @@
+Electric Flower Co. Venue Release Manifest
+==========================================
+
+venues-data.js: Version 3.3
+venue-utils.js: Version 1.1
+venue-widgets.js: Version 1.1
+venue-map.js: Version 1.1
+venue-history.js: Version 2.2
+venue-page-embed.txt: Package Version 2.0
+
+Venue records: 104
+Mapped records: 104
+Featured records: 6
+
+Featured venues:
+- 1: Comerica Park
+- 2: Gun Lake Casino
+- 3: Warwick Hills Country Club
+- 4: Pentwater Yacht Club
+- 6: District 142
+- 7: Sherman's Lounge
