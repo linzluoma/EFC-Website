@@ -2,7 +2,7 @@
 ========================================================
 Electric Flower Co.
 Venue History Page
-Version 2.2
+Version 3.0
 ========================================================
 
 Requires:
@@ -13,9 +13,9 @@ Requires:
 5. venue-widgets.js
 6. venue-history.js
 
-Version 2.2 integrates the interactive performance map
-into the page and keeps it synchronized with the page's
-search, scope, category, and region filters.
+Version 3.0 presents a completed-performance portfolio and
+groups private engagements into cleaner portfolio entries while keeping
+the map synchronized with search, scope, category, and region filters.
 ========================================================
 */
 
@@ -204,12 +204,13 @@ window.EFC = window.EFC || {};
             sortBy: state.sortBy,
             sortDirection:
                 state.sortDirection,
-            limit: null
+            limit: null,
+            groupPrivate: true,
+            pastOnly: true
         };
 
         if (state.scope === "featured") {
             options.featured = true;
-            options.privateEvent = false;
         } else if (state.scope === "public") {
             options.privateEvent = false;
         } else if (state.scope === "private") {
@@ -465,13 +466,13 @@ window.EFC = window.EFC || {};
         const categories =
             typeof EFC.getVenueCategories ===
             "function"
-                ? EFC.getVenueCategories()
+                ? EFC.getVenueCategories({ groupPrivate: true, pastOnly: true })
                 : [];
 
         const regions =
             typeof EFC.getVenueRegions ===
             "function"
-                ? EFC.getVenueRegions()
+                ? EFC.getVenueRegions({ groupPrivate: true, pastOnly: true })
                 : [];
 
         selectGrid.append(
@@ -1160,7 +1161,12 @@ window.EFC = window.EFC || {};
         }
 
         const venues =
-            EFC.getAllVenues(
+            (
+                typeof EFC.getVenuePortfolioEntries ===
+                "function"
+                    ? EFC.getVenuePortfolioEntries
+                    : EFC.getAllVenues
+            )(
                 buildFilterOptions()
             );
 
@@ -1306,7 +1312,7 @@ window.EFC = window.EFC || {};
             }
 
             if (
-                typeof EFC.getAllVenues !==
+                typeof EFC.getVenuePortfolioEntries !==
                 "function"
             ) {
                 root.innerHTML =
@@ -1350,7 +1356,7 @@ window.EFC = window.EFC || {};
         };
 
     console.log(
-        "[EFC Venue History] venue-history.js v2.2 loaded."
+        "[EFC Venue History] venue-history.js v3.0 loaded."
     );
 
 })(window.EFC);

@@ -2,7 +2,7 @@
 ========================================================
 Electric Flower Co.
 Venue Utilities
-Version 1.3
+Version 3.0
 ========================================================
 
 Requires:
@@ -28,6 +28,8 @@ window.EFC = window.EFC || {};
         featured: null,
         privateEvent: null,
         hasUpcoming: null,
+        pastOnly: false,
+        groupPrivate: false,
         sortBy: "name",
         sortDirection: "asc",
         limit: null
@@ -223,7 +225,7 @@ window.EFC = window.EFC || {};
             getPastAndUpcoming(shows);
 
         const chronological =
-            shows.slice().sort((a, b) =>
+            split.past.slice().sort((a, b) =>
                 String(a.date || "")
                     .localeCompare(
                         String(b.date || "")
@@ -232,13 +234,13 @@ window.EFC = window.EFC || {};
 
         return {
             venueId: venue.id,
-            performances: shows.length,
+            performances: split.past.length,
             publicShows:
-                shows.filter(show =>
+                split.past.filter(show =>
                     show.public !== false
                 ).length,
             privateShows:
-                shows.filter(show =>
+                split.past.filter(show =>
                     show.public === false
                 ).length,
             firstShow:
@@ -255,7 +257,7 @@ window.EFC = window.EFC || {};
             upcomingShows: split.upcoming,
             yearsPlayed:
                 uniqueSorted(
-                    shows.map(show =>
+                    split.past.map(show =>
                         String(show.date || "")
                             .slice(0, 4)
                     )
@@ -290,6 +292,157 @@ window.EFC = window.EFC || {};
                 stats
             }
         );
+    }
+
+    function buildPrivatePortfolioGroups(venues) {
+        const groups = new Map();
+
+        venues.forEach(venue => {
+            if (!venue.privateEvent) {
+                return;
+            }
+
+            const label =
+                venue.privateGroup ||
+                venue.category ||
+                "Private Events";
+
+            const id =
+                "private-group-" +
+                normalize(label)
+                    .replace(/[^a-z0-9]+/g, "-")
+                    .replace(/^-+|-+$/g, "");
+
+            if (!groups.has(id)) {
+                groups.set(id, {
+                    id,
+                    name: label,
+                    displayName: label,
+                    city: "Multiple Locations",
+                    state: "",
+                    category: label,
+                    region: "Multiple Regions",
+                    privateEvent: true,
+                    featured: false,
+                    featuredOrder: null,
+                    logoFile: "",
+                    latitude: null,
+                    longitude: null,
+                    alternateNames: [],
+                    eventSeries: [],
+                    sourceShowIds: [],
+                    portfolioGroup: true,
+                    memberVenueIds: [],
+                    stats: {
+                        venueId: id,
+                        performances: 0,
+                        publicShows: 0,
+                        privateShows: 0,
+                        firstShow: null,
+                        lastShow: null,
+                        mostRecentPastShow: null,
+                        nextShow: null,
+                        pastShows: [],
+                        upcomingShows: [],
+                        yearsPlayed: []
+                    }
+                });
+            }
+
+            const group = groups.get(id);
+            group.memberVenueIds.push(venue.id);
+            group.sourceShowIds.push(
+                ...cloneArray(venue.sourceShowIds)
+            );
+            group.stats.pastShows.push(
+                ...cloneArray(
+                    venue.stats &&
+                    venue.stats.pastShows
+                )
+            );
+            group.stats.upcomingShows.push(
+                ...cloneArray(
+                    venue.stats &&
+                    venue.stats.upcomingShows
+                )
+            );
+        });
+
+        return Array.from(groups.values())
+            .map(group => {
+                group.sourceShowIds =
+                    Array.from(
+                        new Set(group.sourceShowIds)
+                    );
+
+                group.memberVenueIds =
+                    Array.from(
+                        new Set(group.memberVenueIds)
+                    );
+
+                group.stats.pastShows.sort((a, b) =>
+                    String(b.date || "")
+                        .localeCompare(
+                            String(a.date || "")
+                        )
+                );
+
+                group.stats.upcomingShows.sort((a, b) =>
+                    String(a.date || "")
+                        .localeCompare(
+                            String(b.date || "")
+                        )
+                );
+
+                const chronological =
+                    group.stats.pastShows
+                        .slice()
+                        .sort((a, b) =>
+                            String(a.date || "")
+                                .localeCompare(
+                                    String(b.date || "")
+                                )
+                        );
+
+                group.stats.performances =
+                    group.stats.pastShows.length;
+                group.stats.privateShows =
+                    group.stats.pastShows.length;
+                group.stats.firstShow =
+                    chronological[0] || null;
+                group.stats.lastShow =
+                    chronological[
+                        chronological.length - 1
+                    ] || null;
+                group.stats.mostRecentPastShow =
+                    group.stats.pastShows[0] || null;
+                group.stats.nextShow =
+                    group.stats.upcomingShows[0] || null;
+                group.stats.yearsPlayed =
+                    uniqueSorted(
+                        group.stats.pastShows.map(show =>
+                            String(show.date || "")
+                                .slice(0, 4)
+                        )
+                    );
+
+                return group;
+            })
+            .filter(group =>
+                group.stats.performances > 0
+            );
+    }
+
+    function groupPrivatePortfolioEntries(venues) {
+        const publicVenues =
+            venues.filter(venue =>
+                !venue.privateEvent
+            );
+
+        const privateGroups =
+            buildPrivatePortfolioGroups(venues);
+
+        return publicVenues.concat(privateGroups);
     }
 
     function venueMatchesSearch(
@@ -450,6 +603,21 @@ window.EFC = window.EFC || {};
                 getBaseVenues()
                     .map(enrichVenue);
 
+            if (settings.pastOnly) {
+                venues =
+                    venues.filter(venue =>
+                        venue.stats &&
+                        venue.stats.performances > 0
+                    );
+            }
+
+            if (settings.groupPrivate) {
+                venues =
+                    groupPrivatePortfolioEntries(
+                        venues
+                    );
+            }
+
             if (settings.search) {
                 venues =
                     venues.filter(venue =>
@@ -594,6 +762,34 @@ window.EFC = window.EFC || {};
 
     EFC.getVenueHistory =
         function (venueId) {
+            if (
+                String(venueId || "")
+                    .startsWith(
+                        "private-group-"
+                    )
+            ) {
+                const group =
+                    EFC.getAllVenues({
+                        groupPrivate: true,
+                        pastOnly: true,
+                        privateEvent: true,
+                        limit: null
+                    }).find(item =>
+                        item.id === venueId
+                    );
+
+                return group
+                    ? {
+                        venue: group,
+                        shows:
+                            group.stats
+                                .pastShows
+                                .slice(),
+                        stats: group.stats
+                    }
+                    : null;
+            }
+
             const venue =
                 EFC.getVenueById(
                     venueId
@@ -606,9 +802,9 @@ window.EFC = window.EFC || {};
             return {
                 venue,
                 shows:
-                    getShowsForVenue(
-                        venue
-                    ),
+                    venue.stats
+                        .pastShows
+                        .slice(),
                 stats:
                     venue.stats
             };
@@ -690,6 +886,19 @@ window.EFC = window.EFC || {};
                 limit:
                     settings.limit
             });
+        };
+
+    EFC.getVenuePortfolioEntries =
+        function (options) {
+            return EFC.getAllVenues(
+                Object.assign(
+                    {
+                        groupPrivate: true,
+                        pastOnly: true
+                    },
+                    options || {}
+                )
+            );
         };
 
     EFC.searchVenues =
@@ -861,7 +1070,7 @@ window.EFC = window.EFC || {};
         };
 
     console.log(
-        "[EFC Venue Utils] venue-utils.js v1.3 loaded."
+        "[EFC Venue Utils] venue-utils.js v3.0 loaded."
     );
 
 })(window.EFC);

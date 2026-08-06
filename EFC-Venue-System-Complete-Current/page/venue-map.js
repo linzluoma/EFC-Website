@@ -2,7 +2,7 @@
 ========================================================
 Electric Flower Co.
 Venue Map
-Version 1.1
+Version 3.0
 ========================================================
 
 Requires:
@@ -75,7 +75,9 @@ window.EFC = window.EFC || {};
             region: settings.region,
             sortBy: "name",
             sortDirection: "asc",
-            limit: null
+            limit: null,
+            pastOnly: true,
+            groupPrivate: false
         }).filter(venue =>
             validCoordinate(venue.latitude) &&
             validCoordinate(venue.longitude)
@@ -593,7 +595,7 @@ window.EFC = window.EFC || {};
     };
 
     console.log(
-        "[EFC Venue Map] venue-map.js v1.1 loaded."
+        "[EFC Venue Map] venue-map.js v3.0 loaded."
     );
 
 })(window.EFC);

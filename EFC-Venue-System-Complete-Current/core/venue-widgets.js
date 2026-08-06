@@ -2,7 +2,7 @@
 ========================================================
 Electric Flower Co.
 Venue Widgets
-Version 1.1
+Version 3.1
 ========================================================
 
 Requires:
@@ -110,7 +110,16 @@ window.EFC = window.EFC || {};
                     settings.logoClass
                 );
 
-            image.src = logoFile;
+            const logoBase =
+                settings.logoBase ||
+                "https://www.weebly.com/editor/uploads/1/4/1/5/141509793/custom_themes/844756911689450114/files/venue-logos/";
+
+            image.src =
+                logoFile.startsWith("http://") ||
+                logoFile.startsWith("https://") ||
+                logoFile.startsWith("/")
+                    ? logoFile
+                    : logoBase + logoFile;
             image.alt =
                 `${venue.displayName || venue.name} logo`;
 
@@ -182,7 +191,9 @@ window.EFC = window.EFC || {};
                     showNextShow: false,
                     showHistoryButton: false,
                     buttonText:
-                        "View History"
+                        "View History",
+                    logoBase:
+                        "https://www.weebly.com/editor/uploads/1/4/1/5/141509793/custom_themes/844756911689450114/files/venue-logos/"
                 },
                 options || {}
             );
@@ -406,7 +417,7 @@ window.EFC = window.EFC || {};
                 Object.assign(
                     {
                         limit: 8,
-                        includePrivate: false,
+                        includePrivate: true,
                         sortBy:
                             "featuredOrder",
                         sortDirection:
@@ -871,7 +882,7 @@ window.EFC = window.EFC || {};
         };
 
     console.log(
-        "[EFC Venue Widgets] venue-widgets.js v1.1 loaded."
+        "[EFC Venue Widgets] venue-widgets.js v3.1 loaded."
     );
 
 })(window.EFC);

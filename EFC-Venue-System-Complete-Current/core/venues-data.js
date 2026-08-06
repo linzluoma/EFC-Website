@@ -2,44 +2,130 @@
 ========================================================
 Electric Flower Co.
 Venue Database
-Version 3.3
+Version 4.0
 ========================================================
 
-Adds city-level map coordinates for the venue map.
-
-Coordinate notes:
-- Coordinates represent the venue's listed city or locality,
-  not the venue's exact street address.
-- Exact venue coordinates can replace these values later.
-- coordinatePrecision is currently "city".
+Version 4.0 first-pass cleanup:
+- Adds privateGroup classifications.
+- Supports grouped private-event portfolio entries.
+- Merges the duplicate Blessing of the Boats records.
+- Cleans several show-specific venue names.
+- Retains sourceShowIds so history remains schedule-driven.
 ========================================================
 */
 
 window.EFC_VENUES = [
     {
-        "id": "annual-blessing-of-the-boats-event",
-        "name": "Annual Blessing of the Boats Event",
-        "displayName": "Annual Blessing of the Boats Event",
-        "city": "Ludington",
+        "id": "anniversary-petoskey-mi-2025-09-12-show-2025-09-12-054",
+        "name": "Anniversary",
+        "displayName": "Anniversary",
+        "city": "Petoskey",
         "state": "MI",
-        "category": "Live Music",
+        "category": "Private Celebrations",
         "region": "Northern Michigan",
-        "privateEvent": false,
+        "privateEvent": true,
         "featured": false,
         "website": "",
-        "latitude": 43.957196,
-        "longitude": -86.442937,
+        "latitude": 45.36485,
+        "longitude": -85.010701,
         "logo": "",
         "image": "",
-        "alternateNames": [],
+        "alternateNames": [
+            "Private Event - 50th Anniversary Party"
+        ],
         "eventSeries": [],
         "sourceShowIds": [
-            "show-2025-06-07-085"
+            "show-2025-09-12-054"
         ],
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": "Private Celebrations"
+    },
+    {
+        "id": "anniversary-stevenville-mi-2025-08-07-show-2025-08-07-064",
+        "name": "Anniversary",
+        "displayName": "Anniversary",
+        "city": "Stevenville",
+        "state": "MI",
+        "category": "Private Celebrations",
+        "region": "Other Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.0131,
+        "longitude": -86.5195,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Event - Freedom Boat Club 10th Anniversary Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-08-07-064"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Private Celebrations"
+    },
+    {
+        "id": "association-event-delton-mi-2024-07-13-show-2024-07-13-137",
+        "name": "Association Event",
+        "displayName": "Association Event",
+        "city": "Delton",
+        "state": "MI",
+        "category": "Corporate Events",
+        "region": "Other Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.494554,
+        "longitude": -85.413167,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Party | Long Lake Cloverdale Association"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2024-07-13-137"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Corporate Events"
+    },
+    {
+        "id": "association-event-delton-mi-2025-07-12-show-2025-07-12-074",
+        "name": "Association Event",
+        "displayName": "Association Event",
+        "city": "Delton",
+        "state": "MI",
+        "category": "Corporate Events",
+        "region": "Other Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.494554,
+        "longitude": -85.413167,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Event - Long Lake Cloverdale Association Annual Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-07-12-074"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Corporate Events"
     },
     {
         "id": "au-gres-city-park",
@@ -68,7 +154,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "au-gres-yacht-club",
@@ -94,7 +181,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "auburn-hotel-and-tavern",
@@ -119,7 +207,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "bay-pointe-inn",
@@ -148,7 +237,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "birch-run-moose-lodge",
@@ -177,7 +267,92 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
+    },
+    {
+        "id": "birthday-grand-rapids-mi-2025-10-10-show-2025-10-10-049",
+        "name": "Birthday",
+        "displayName": "Birthday",
+        "city": "Grand Rapids",
+        "state": "MI",
+        "category": "Private Celebrations",
+        "region": "West Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.961156,
+        "longitude": -85.65557,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Event - Birthday Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-10-10-049"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Private Celebrations"
+    },
+    {
+        "id": "birthday-lansing-mi-2023-03-11-show-2023-03-11-226",
+        "name": "Birthday",
+        "displayName": "Birthday",
+        "city": "Lansing",
+        "state": "MI",
+        "category": "Private Celebrations",
+        "region": "Mid-Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.714341,
+        "longitude": -84.560889,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Birthday Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2023-03-11-226"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Private Celebrations"
+    },
+    {
+        "id": "birthday-pinckney-mi-2025-07-19-show-2025-07-19-072",
+        "name": "Birthday",
+        "displayName": "Birthday",
+        "city": "Pinckney",
+        "state": "MI",
+        "category": "Private Celebrations",
+        "region": "Mid-Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.455397,
+        "longitude": -83.941075,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Event - Birthday"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-07-19-072"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Private Celebrations"
     },
     {
         "id": "blessing-of-the-boats",
@@ -185,7 +360,7 @@ window.EFC_VENUES = [
         "displayName": "Blessing of the Boats",
         "city": "Ludington",
         "state": "MI",
-        "category": "Live Music",
+        "category": "Festival",
         "region": "Northern Michigan",
         "privateEvent": false,
         "featured": false,
@@ -194,15 +369,19 @@ window.EFC_VENUES = [
         "longitude": -86.442937,
         "logo": "",
         "image": "",
-        "alternateNames": [],
+        "alternateNames": [
+            "Annual Blessing of the Boats Event"
+        ],
         "eventSeries": [],
         "sourceShowIds": [
-            "show-2024-06-08-147"
+            "show-2024-06-08-147",
+            "show-2025-06-07-085"
         ],
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "blind-owl",
@@ -227,7 +406,36 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
+    },
+    {
+        "id": "block-party-grand-rapids-mi-2025-10-11-show-2025-10-11-048",
+        "name": "Block Party",
+        "displayName": "Block Party",
+        "city": "Grand Rapids",
+        "state": "MI",
+        "category": "Private Celebrations",
+        "region": "West Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.961156,
+        "longitude": -85.65557,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Event - Block Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-10-11-048"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Private Celebrations"
     },
     {
         "id": "burr-oak-dance-club",
@@ -253,7 +461,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "cascade-hills-country-club",
@@ -278,7 +487,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "cascade-township-summer-concert-series",
@@ -303,7 +513,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "club-canton",
@@ -329,7 +540,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "cobblestone-bar-and-grill",
@@ -359,7 +571,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "comerica-park",
@@ -374,7 +587,7 @@ window.EFC_VENUES = [
         "website": "https://www.mlb.com/tigers/ballpark",
         "latitude": 42.383037,
         "longitude": -83.102237,
-        "logo": "comerica-park.svg",
+        "logo": "comerica-park.png",
         "image": "",
         "alternateNames": [
             "Star Wars Day with the Detroit Tigers @ Comerica Park"
@@ -387,8 +600,65 @@ window.EFC_VENUES = [
         ],
         "notes": "",
         "featuredOrder": 1,
-        "logoFile": "comerica-park.svg",
-        "coordinatePrecision": "city"
+        "logoFile": "comerica-park.png",
+        "coordinatePrecision": "city",
+        "privateGroup": null
+    },
+    {
+        "id": "corporate-event-detroit-mi-2023-05-09-show-2023-05-09-218",
+        "name": "Corporate Event",
+        "displayName": "Corporate Event",
+        "city": "Detroit",
+        "state": "MI",
+        "category": "Corporate Events",
+        "region": "Detroit Metro",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.383037,
+        "longitude": -83.102237,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Corporate Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2023-05-09-218"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Corporate Events"
+    },
+    {
+        "id": "corporate-event-east-lansing-mi-2025-10-17-show-2025-10-17-047",
+        "name": "Corporate Event",
+        "displayName": "Corporate Event",
+        "city": "East Lansing",
+        "state": "MI",
+        "category": "Corporate Events",
+        "region": "Mid-Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.748913,
+        "longitude": -84.482442,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Event - Halloween Party for Willingham & Cote PC"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-10-17-047"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Corporate Events"
     },
     {
         "id": "crystal-bar",
@@ -420,7 +690,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "d-railed-bar-and-grill",
@@ -445,7 +716,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "detroit-yacht-club",
@@ -460,7 +732,7 @@ window.EFC_VENUES = [
         "website": "https://www.dyc.com/",
         "latitude": 42.383037,
         "longitude": -83.102237,
-        "logo": "detroit-yacht-club.svg",
+        "logo": "detroit-yacht-club.png",
         "image": "",
         "alternateNames": [],
         "eventSeries": [],
@@ -470,8 +742,9 @@ window.EFC_VENUES = [
         ],
         "notes": "",
         "featuredOrder": 6,
-        "logoFile": "detroit-yacht-club.svg",
-        "coordinatePrecision": "city"
+        "logoFile": "detroit-yacht-club.png",
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "district-142",
@@ -500,7 +773,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": 4,
         "logoFile": "district-142.png",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "double-clutch-bar",
@@ -528,7 +802,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "ffa-alumni-hootenany-fundraiser",
@@ -536,7 +811,7 @@ window.EFC_VENUES = [
         "displayName": "FFA Alumni Hootenany Fundraiser",
         "city": "Springport",
         "state": "MI",
-        "category": "Live Music",
+        "category": "Fundraiser",
         "region": "Other Michigan",
         "privateEvent": false,
         "featured": false,
@@ -553,7 +828,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "fireside-grill",
@@ -578,7 +854,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "flushing-moose-lodge",
@@ -603,7 +880,36 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
+    },
+    {
+        "id": "graduation-party-pinckney-mi-2024-06-07-show-2024-06-07-148",
+        "name": "Graduation Party",
+        "displayName": "Graduation Party",
+        "city": "Pinckney",
+        "state": "MI",
+        "category": "Private Celebrations",
+        "region": "Mid-Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.455397,
+        "longitude": -83.941075,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Event - Graduation Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2024-06-07-148"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Private Celebrations"
     },
     {
         "id": "gravity-smokehouse",
@@ -630,7 +936,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "gun-lake-casino",
@@ -658,7 +965,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": 5,
         "logoFile": "gun-lake-casino.png",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "hell-saloon",
@@ -712,7 +1020,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "high-caliber-karting-and-entertainment",
@@ -737,7 +1046,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "hiram-sims-park",
@@ -769,7 +1079,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "hollywood-casino-toledo",
@@ -794,7 +1105,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "horn-s-gaslight-bar",
@@ -824,7 +1136,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": 8,
         "logoFile": "horns-bar.png",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "itty-bitty-bar",
@@ -872,7 +1185,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "kirby-house",
@@ -914,7 +1228,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "lansing-center",
@@ -943,7 +1258,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": 7,
         "logoFile": "lansing-center.jpg",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "lapeer-days-festival-west-stage",
@@ -968,7 +1284,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "lolo-s-bar-and-grill",
@@ -996,7 +1313,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "macray-harbor",
@@ -1025,7 +1343,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "mash",
@@ -1050,7 +1369,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "mcclintock-park",
@@ -1083,7 +1403,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "mccurdy-park",
@@ -1112,7 +1433,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "meridian-farmer-s-market-summer-concert-series",
@@ -1137,12 +1459,13 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "millennium-park",
-        "name": "Grand Rapids Symphony Orchestra",
-        "displayName": "Grand Rapids Symphony Orchestra",
+        "name": "Millennium Park",
+        "displayName": "Millennium Park",
         "city": "Walker",
         "state": "MI",
         "category": "Outdoor Concert",
@@ -1155,6 +1478,7 @@ window.EFC_VENUES = [
         "logo": "grand-rapids-symphony.png",
         "image": "",
         "alternateNames": [
+            "Grand Rapids Symphony Orchestra",
             "Opening for \"Faithfully - The Music of Journey\" | Grand Rapids Symphony Orchestra Picnic Pops @ Millenium Park"
         ],
         "eventSeries": [
@@ -1166,7 +1490,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": 2,
         "logoFile": "grand-rapids-symphony.png",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "north-peak-brewing-co-and-kilkenny-s",
@@ -1191,32 +1516,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "opening-for-fast-fashion-the-depeche-mode-experience-the-vault",
-        "name": "Opening for Fast Fashion: The Depeche Mode Experience | The Vault",
-        "displayName": "Opening for Fast Fashion: The Depeche Mode Experience | The Vault",
-        "city": "Saginaw",
-        "state": "MI",
-        "category": "Live Music",
-        "region": "Other Michigan",
-        "privateEvent": false,
-        "featured": false,
-        "website": "",
-        "latitude": 43.417678,
-        "longitude": -83.954716,
-        "logo": "",
-        "image": "",
-        "alternateNames": [],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2023-12-09-181"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "original-gravity-brewing-co",
@@ -1256,7 +1557,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "park-theatre",
@@ -1285,7 +1587,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "pentwater-yacht-club",
@@ -1314,7 +1617,284 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": 4,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
+    },
+    {
+        "id": "private-club-event-au-gres-mi-2025-06-28-show-2025-06-28-080",
+        "name": "Private Club Event",
+        "displayName": "Private Club Event",
+        "city": "Au Gres",
+        "state": "MI",
+        "category": "Corporate Events",
+        "region": "Other Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 44.044186,
+        "longitude": -83.693409,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Event at Au Gres Yacht Club"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-06-28-080"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Corporate Events"
+    },
+    {
+        "id": "private-event-ann-arbor-mi-2026-06-19-show-2026-06-19-022",
+        "name": "Private Event",
+        "displayName": "Private Event",
+        "city": "Ann Arbor",
+        "state": "MI",
+        "category": "Private Events",
+        "region": "Other Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.276147,
+        "longitude": -83.73086,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2026-06-19-022"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Private Events"
+    },
+    {
+        "id": "private-event-east-lansing-mi-2023-11-12-show-2023-11-12-184",
+        "name": "Private Event",
+        "displayName": "Private Event",
+        "city": "East Lansing",
+        "state": "MI",
+        "category": "Private Events",
+        "region": "Mid-Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.748913,
+        "longitude": -84.482442,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2023-11-12-184"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Private Events"
+    },
+    {
+        "id": "private-event-fowler-mi-2024-11-02-show-2024-11-02-112",
+        "name": "Private Event",
+        "displayName": "Private Event",
+        "city": "Fowler",
+        "state": "MI",
+        "category": "Private Events",
+        "region": "Other Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 43.003991,
+        "longitude": -84.741698,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2024-11-02-112"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Private Events"
+    },
+    {
+        "id": "private-event-howell-mi-2023-06-16-show-2023-06-16-212",
+        "name": "Private Event",
+        "displayName": "Private Event",
+        "city": "Howell",
+        "state": "MI",
+        "category": "Private Events",
+        "region": "Mid-Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.608129,
+        "longitude": -83.934339,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2023-06-16-212"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Private Events"
+    },
+    {
+        "id": "private-event-pinckney-mi-2023-06-24-show-2023-06-24-210",
+        "name": "Private Event",
+        "displayName": "Private Event",
+        "city": "Pinckney",
+        "state": "MI",
+        "category": "Private Events",
+        "region": "Mid-Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.455397,
+        "longitude": -83.941075,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2023-06-24-210"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Private Events"
+    },
+    {
+        "id": "private-event-southfield-mi-2026-09-04-show-2026-09-04-006",
+        "name": "Private Event",
+        "displayName": "Private Event",
+        "city": "Southfield",
+        "state": "MI",
+        "category": "Private Events",
+        "region": "Detroit Metro",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.47464,
+        "longitude": -83.259509,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Event at Congregation Shaarey Zedek"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2026-09-04-006"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Private Events"
+    },
+    {
+        "id": "private-event-wolverine-mi-2024-05-25-show-2024-05-25-152",
+        "name": "Private Event",
+        "displayName": "Private Event",
+        "city": "Wolverine",
+        "state": "MI",
+        "category": "Private Events",
+        "region": "Northern Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 45.273593,
+        "longitude": -84.605544,
+        "logo": "",
+        "image": "",
+        "alternateNames": [],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2024-05-25-152"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Private Events"
+    },
+    {
+        "id": "private-event-wolverine-mi-2025-07-04-show-2025-07-04-078",
+        "name": "Private Event",
+        "displayName": "Private Event",
+        "city": "Wolverine",
+        "state": "MI",
+        "category": "Private Events",
+        "region": "Northern Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 45.273593,
+        "longitude": -84.605544,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Party"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-07-04-078"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Private Events"
+    },
+    {
+        "id": "reunion-pinckney-mi-2024-08-03-show-2024-08-03-133",
+        "name": "Reunion",
+        "displayName": "Reunion",
+        "city": "Pinckney",
+        "state": "MI",
+        "category": "Private Celebrations",
+        "region": "Mid-Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.455397,
+        "longitude": -83.941075,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Party | Pinckney 35th Class Reunion"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2024-08-03-133"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Private Celebrations"
     },
     {
         "id": "rogue-river-tavern",
@@ -1340,7 +1920,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "schiffer-park",
@@ -1369,7 +1950,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "scooters-bar",
@@ -1398,7 +1980,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "sherman-s-lounge",
@@ -1428,7 +2011,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": 7,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "short-s-brewing-company",
@@ -1461,7 +2045,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": 3,
         "logoFile": "shorts-brewing.png",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "shots-on-the-river",
@@ -1486,7 +2071,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "silver-lake-chicken-shack",
@@ -1514,7 +2100,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "soaring-eagle-casino",
@@ -1548,7 +2135,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "south-haven-yacht-club",
@@ -1574,7 +2162,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "stix-bar",
@@ -1603,7 +2192,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "summerlands-brewing-co",
@@ -1628,7 +2218,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "tanglewood-winery",
@@ -1653,7 +2244,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "the-b-o-b",
@@ -1691,7 +2283,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "the-cascades-summer-concert-series",
@@ -1716,7 +2309,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "the-deck",
@@ -1743,7 +2337,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "the-draft-bar-and-grille",
@@ -1768,7 +2363,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "the-exchange",
@@ -1803,7 +2399,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "the-green-door",
@@ -1836,7 +2433,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "the-irish-pub",
@@ -1861,12 +2459,13 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "the-lotus-room-10-admission",
-        "name": "The Lotus Room | $10 admission",
-        "displayName": "The Lotus Room | $10 admission",
+        "name": "The Lotus Room",
+        "displayName": "The Lotus Room",
         "city": "Norton Shores",
         "state": "MI",
         "category": "Live Music",
@@ -1886,7 +2485,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "the-roadhouse",
@@ -1912,7 +2512,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "the-score",
@@ -1941,7 +2542,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "the-stables",
@@ -1966,12 +2568,41 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
+    },
+    {
+        "id": "opening-for-fast-fashion-the-depeche-mode-experience-the-vault",
+        "name": "The Vault",
+        "displayName": "The Vault",
+        "city": "Saginaw",
+        "state": "MI",
+        "category": "Live Music",
+        "region": "Other Michigan",
+        "privateEvent": false,
+        "featured": false,
+        "website": "",
+        "latitude": 43.417678,
+        "longitude": -83.954716,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Opening for Fast Fashion: The Depeche Mode Experience"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2023-12-09-181"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "trapper-joe-s-feat-rev-right-time",
-        "name": "Trapper Joe's | feat. Rev. Right-Time",
-        "displayName": "Trapper Joe's | feat. Rev. Right-Time",
+        "name": "Trapper Joe's",
+        "displayName": "Trapper Joe's",
         "city": "Burton",
         "state": "MI",
         "category": "Live Music",
@@ -1995,7 +2626,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "tunes-by-the-tridge",
@@ -2020,7 +2652,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "turtle-lake-resort",
@@ -2046,7 +2679,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "vestal-inn",
@@ -2072,7 +2706,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "warner-vineyards",
@@ -2101,7 +2736,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "warwick-hills-country-club",
@@ -2130,7 +2766,148 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
+    },
+    {
+        "id": "wedding-ann-arbor-mi-2025-05-20-show-2025-05-20-089",
+        "name": "Wedding",
+        "displayName": "Wedding",
+        "city": "Ann Arbor",
+        "state": "MI",
+        "category": "Weddings",
+        "region": "Other Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.276147,
+        "longitude": -83.73086,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Event - Wedding"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2025-05-20-089"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Weddings"
+    },
+    {
+        "id": "wedding-gaylord-mi-2026-10-03-show-2026-10-03-009",
+        "name": "Wedding",
+        "displayName": "Wedding",
+        "city": "Gaylord",
+        "state": "MI",
+        "category": "Weddings",
+        "region": "Northern Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 45.018978,
+        "longitude": -84.680907,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Wedding at Treetops Resort"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2026-10-03-009"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Weddings"
+    },
+    {
+        "id": "wedding-howell-mi-2022-10-08-show-2022-10-08-241",
+        "name": "Wedding",
+        "displayName": "Wedding",
+        "city": "Howell",
+        "state": "MI",
+        "category": "Weddings",
+        "region": "Mid-Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.608129,
+        "longitude": -83.934339,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Wedding Reception"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2022-10-08-241"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Weddings"
+    },
+    {
+        "id": "wedding-st-joseph-mi-2022-09-23-show-2022-09-23-244",
+        "name": "Wedding",
+        "displayName": "Wedding",
+        "city": "St. Joseph",
+        "state": "MI",
+        "category": "Weddings",
+        "region": "Other Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 42.09971,
+        "longitude": -86.488756,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Wedding"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2022-09-23-244"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Weddings"
+    },
+    {
+        "id": "wedding-wolverine-mi-2023-08-18-show-2023-08-18-200",
+        "name": "Wedding",
+        "displayName": "Wedding",
+        "city": "Wolverine",
+        "state": "MI",
+        "category": "Weddings",
+        "region": "Northern Michigan",
+        "privateEvent": true,
+        "featured": false,
+        "website": "",
+        "latitude": 45.273593,
+        "longitude": -84.605544,
+        "logo": "",
+        "image": "",
+        "alternateNames": [
+            "Private Event - Wedding"
+        ],
+        "eventSeries": [],
+        "sourceShowIds": [
+            "show-2023-08-18-200"
+        ],
+        "notes": "",
+        "featuredOrder": null,
+        "logoFile": "",
+        "coordinatePrecision": "city",
+        "privateGroup": "Weddings"
     },
     {
         "id": "wednesday-night-live-concert-series",
@@ -2155,7 +2932,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "wicks-park-bar-and-grille",
@@ -2185,7 +2963,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "winners-bar-and-grill",
@@ -2212,7 +2991,8 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     },
     {
         "id": "zeigler-motorsports",
@@ -2241,704 +3021,7 @@ window.EFC_VENUES = [
         "notes": "",
         "featuredOrder": null,
         "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "anniversary-petoskey-mi-2025-09-12-show-2025-09-12-054",
-        "name": "Anniversary",
-        "displayName": "Anniversary",
-        "city": "Petoskey",
-        "state": "MI",
-        "category": "Anniversary",
-        "region": "Northern Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 45.36485,
-        "longitude": -85.010701,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Event - 50th Anniversary Party"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2025-09-12-054"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "anniversary-stevenville-mi-2025-08-07-show-2025-08-07-064",
-        "name": "Anniversary",
-        "displayName": "Anniversary",
-        "city": "Stevenville",
-        "state": "MI",
-        "category": "Anniversary",
-        "region": "Other Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 42.0131,
-        "longitude": -86.5195,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Event - Freedom Boat Club 10th Anniversary Party"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2025-08-07-064"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "association-event-delton-mi-2024-07-13-show-2024-07-13-137",
-        "name": "Association Event",
-        "displayName": "Association Event",
-        "city": "Delton",
-        "state": "MI",
-        "category": "Association Event",
-        "region": "Other Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 42.494554,
-        "longitude": -85.413167,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Party | Long Lake Cloverdale Association"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2024-07-13-137"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "association-event-delton-mi-2025-07-12-show-2025-07-12-074",
-        "name": "Association Event",
-        "displayName": "Association Event",
-        "city": "Delton",
-        "state": "MI",
-        "category": "Association Event",
-        "region": "Other Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 42.494554,
-        "longitude": -85.413167,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Event - Long Lake Cloverdale Association Annual Party"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2025-07-12-074"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "birthday-grand-rapids-mi-2025-10-10-show-2025-10-10-049",
-        "name": "Birthday",
-        "displayName": "Birthday",
-        "city": "Grand Rapids",
-        "state": "MI",
-        "category": "Birthday",
-        "region": "West Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 42.961156,
-        "longitude": -85.65557,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Event - Birthday Party"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2025-10-10-049"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "birthday-lansing-mi-2023-03-11-show-2023-03-11-226",
-        "name": "Birthday",
-        "displayName": "Birthday",
-        "city": "Lansing",
-        "state": "MI",
-        "category": "Birthday",
-        "region": "Mid-Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 42.714341,
-        "longitude": -84.560889,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Birthday Party"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2023-03-11-226"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "birthday-pinckney-mi-2025-07-19-show-2025-07-19-072",
-        "name": "Birthday",
-        "displayName": "Birthday",
-        "city": "Pinckney",
-        "state": "MI",
-        "category": "Birthday",
-        "region": "Mid-Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 42.455397,
-        "longitude": -83.941075,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Event - Birthday"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2025-07-19-072"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "block-party-grand-rapids-mi-2025-10-11-show-2025-10-11-048",
-        "name": "Block Party",
-        "displayName": "Block Party",
-        "city": "Grand Rapids",
-        "state": "MI",
-        "category": "Block Party",
-        "region": "West Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 42.961156,
-        "longitude": -85.65557,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Event - Block Party"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2025-10-11-048"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "corporate-event-detroit-mi-2023-05-09-show-2023-05-09-218",
-        "name": "Corporate Event",
-        "displayName": "Corporate Event",
-        "city": "Detroit",
-        "state": "MI",
-        "category": "Corporate",
-        "region": "Detroit Metro",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 42.383037,
-        "longitude": -83.102237,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Corporate Party"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2023-05-09-218"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "corporate-event-east-lansing-mi-2025-10-17-show-2025-10-17-047",
-        "name": "Corporate Event",
-        "displayName": "Corporate Event",
-        "city": "East Lansing",
-        "state": "MI",
-        "category": "Corporate",
-        "region": "Mid-Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 42.748913,
-        "longitude": -84.482442,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Event - Halloween Party for Willingham & Cote PC"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2025-10-17-047"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "graduation-party-pinckney-mi-2024-06-07-show-2024-06-07-148",
-        "name": "Graduation Party",
-        "displayName": "Graduation Party",
-        "city": "Pinckney",
-        "state": "MI",
-        "category": "Graduation",
-        "region": "Mid-Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 42.455397,
-        "longitude": -83.941075,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Event - Graduation Party"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2024-06-07-148"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "private-club-event-au-gres-mi-2025-06-28-show-2025-06-28-080",
-        "name": "Private Club Event",
-        "displayName": "Private Club Event",
-        "city": "Au Gres",
-        "state": "MI",
-        "category": "Private Club Event",
-        "region": "Other Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 44.044186,
-        "longitude": -83.693409,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Event at Au Gres Yacht Club"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2025-06-28-080"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "private-event-ann-arbor-mi-2026-06-19-show-2026-06-19-022",
-        "name": "Private Event",
-        "displayName": "Private Event",
-        "city": "Ann Arbor",
-        "state": "MI",
-        "category": "Private Event",
-        "region": "Other Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 42.276147,
-        "longitude": -83.73086,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Party"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2026-06-19-022"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "private-event-east-lansing-mi-2023-11-12-show-2023-11-12-184",
-        "name": "Private Event",
-        "displayName": "Private Event",
-        "city": "East Lansing",
-        "state": "MI",
-        "category": "Private Event",
-        "region": "Mid-Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 42.748913,
-        "longitude": -84.482442,
-        "logo": "",
-        "image": "",
-        "alternateNames": [],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2023-11-12-184"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "private-event-fowler-mi-2024-11-02-show-2024-11-02-112",
-        "name": "Private Event",
-        "displayName": "Private Event",
-        "city": "Fowler",
-        "state": "MI",
-        "category": "Private Event",
-        "region": "Other Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 43.003991,
-        "longitude": -84.741698,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Party"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2024-11-02-112"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "private-event-howell-mi-2023-06-16-show-2023-06-16-212",
-        "name": "Private Event",
-        "displayName": "Private Event",
-        "city": "Howell",
-        "state": "MI",
-        "category": "Private Event",
-        "region": "Mid-Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 42.608129,
-        "longitude": -83.934339,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Party"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2023-06-16-212"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "private-event-pinckney-mi-2023-06-24-show-2023-06-24-210",
-        "name": "Private Event",
-        "displayName": "Private Event",
-        "city": "Pinckney",
-        "state": "MI",
-        "category": "Private Event",
-        "region": "Mid-Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 42.455397,
-        "longitude": -83.941075,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Party"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2023-06-24-210"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "private-event-southfield-mi-2026-09-04-show-2026-09-04-006",
-        "name": "Private Event",
-        "displayName": "Private Event",
-        "city": "Southfield",
-        "state": "MI",
-        "category": "Private Event",
-        "region": "Detroit Metro",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 42.47464,
-        "longitude": -83.259509,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Event at Congregation Shaarey Zedek"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2026-09-04-006"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "private-event-wolverine-mi-2024-05-25-show-2024-05-25-152",
-        "name": "Private Event",
-        "displayName": "Private Event",
-        "city": "Wolverine",
-        "state": "MI",
-        "category": "Private Event",
-        "region": "Northern Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 45.273593,
-        "longitude": -84.605544,
-        "logo": "",
-        "image": "",
-        "alternateNames": [],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2024-05-25-152"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "private-event-wolverine-mi-2025-07-04-show-2025-07-04-078",
-        "name": "Private Event",
-        "displayName": "Private Event",
-        "city": "Wolverine",
-        "state": "MI",
-        "category": "Private Event",
-        "region": "Northern Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 45.273593,
-        "longitude": -84.605544,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Party"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2025-07-04-078"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "reunion-pinckney-mi-2024-08-03-show-2024-08-03-133",
-        "name": "Reunion",
-        "displayName": "Reunion",
-        "city": "Pinckney",
-        "state": "MI",
-        "category": "Reunion",
-        "region": "Mid-Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 42.455397,
-        "longitude": -83.941075,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Party | Pinckney 35th Class Reunion"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2024-08-03-133"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "wedding-ann-arbor-mi-2025-05-20-show-2025-05-20-089",
-        "name": "Wedding",
-        "displayName": "Wedding",
-        "city": "Ann Arbor",
-        "state": "MI",
-        "category": "Wedding",
-        "region": "Other Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 42.276147,
-        "longitude": -83.73086,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Event - Wedding"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2025-05-20-089"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "wedding-gaylord-mi-2026-10-03-show-2026-10-03-009",
-        "name": "Wedding",
-        "displayName": "Wedding",
-        "city": "Gaylord",
-        "state": "MI",
-        "category": "Wedding",
-        "region": "Northern Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 45.018978,
-        "longitude": -84.680907,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Wedding at Treetops Resort"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2026-10-03-009"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "wedding-howell-mi-2022-10-08-show-2022-10-08-241",
-        "name": "Wedding",
-        "displayName": "Wedding",
-        "city": "Howell",
-        "state": "MI",
-        "category": "Wedding",
-        "region": "Mid-Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 42.608129,
-        "longitude": -83.934339,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Wedding Reception"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2022-10-08-241"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "wedding-st-joseph-mi-2022-09-23-show-2022-09-23-244",
-        "name": "Wedding",
-        "displayName": "Wedding",
-        "city": "St. Joseph",
-        "state": "MI",
-        "category": "Wedding",
-        "region": "Other Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 42.09971,
-        "longitude": -86.488756,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Wedding"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2022-09-23-244"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
-    },
-    {
-        "id": "wedding-wolverine-mi-2023-08-18-show-2023-08-18-200",
-        "name": "Wedding",
-        "displayName": "Wedding",
-        "city": "Wolverine",
-        "state": "MI",
-        "category": "Wedding",
-        "region": "Northern Michigan",
-        "privateEvent": true,
-        "featured": false,
-        "website": "",
-        "latitude": 45.273593,
-        "longitude": -84.605544,
-        "logo": "",
-        "image": "",
-        "alternateNames": [
-            "Private Event - Wedding"
-        ],
-        "eventSeries": [],
-        "sourceShowIds": [
-            "show-2023-08-18-200"
-        ],
-        "notes": "",
-        "featuredOrder": null,
-        "logoFile": "",
-        "coordinatePrecision": "city"
+        "coordinatePrecision": "city",
+        "privateGroup": null
     }
 ];
