@@ -26,6 +26,22 @@ window.EFC_SHOWS = [
     "notes": ""
   },
   {
+    "id": "show-2026-10-30-015",
+    "date": "2026-10-30",
+    "venue": "Summerlands Brewing Co.",
+    "city": "Holt",
+    "state": "MI",
+    "time": "8:00p-11:00p",
+    "category": "Brewery",
+    "public": true,
+    "featured": false,
+    "ticketLink": "",
+    "website": "",
+    "image": "",
+    "tags": [],
+    "notes": ""
+  },
+  {
     "id": "show-2026-10-17-011",
     "date": "2026-10-17",
     "venue": "The Irish Pub",
@@ -90,6 +106,22 @@ window.EFC_SHOWS = [
     "notes": ""
   },
   {
+    "id": "show-2026-09-26-014",
+    "date": "2026-09-26",
+    "venue": "Stockbridge Harvest Fest",
+    "city": "Stockbridge",
+    "state": "MI",
+    "time": "6:00p-9:00p",
+    "category": "Festival",
+    "public": true,
+    "featured": false,
+    "ticketLink": "",
+    "website": "",
+    "image": "",
+    "tags": [],
+    "notes": ""
+  },
+  {
     "id": "show-2026-09-25-007",
     "date": "2026-09-25",
     "venue": "Oktoberfest @ Original Gravity Brewing Co",
@@ -129,6 +161,22 @@ window.EFC_SHOWS = [
     "state": "MI",
     "time": "8:00p-11:00p",
     "category": "Club Event",
+    "public": true,
+    "featured": false,
+    "ticketLink": "",
+    "website": "",
+    "image": "",
+    "tags": [],
+    "notes": ""
+  },
+  {
+    "id": "show-2026-08-28-013",
+    "date": "2026-08-28",
+    "venue": "The Beach Bar",
+    "city": "Clarklake",
+    "state": "MI",
+    "time": "6:00p-9:00p",
+    "category": "Bar / Pub",
     "public": true,
     "featured": false,
     "ticketLink": "",
