@@ -28,7 +28,7 @@ window.EFC_SHOWS = [
   {
     "id": "show-2026-10-30-015",
     "date": "2026-10-30",
-    "venue": "Summerlands Brewing Co.",
+    "venue": "Summerlands Brewing Co",
     "city": "Holt",
     "state": "MI",
     "time": "8:00p-11:00p",
@@ -58,6 +58,21 @@ window.EFC_SHOWS = [
     "notes": ""
   },
   {
+    "id": "show-2026-10-16-016",
+    "date": "2026-10-16",
+    "venue": "The Beach Bar",
+    "city": "Clarklake",
+    "state": "MI",
+    "time": "6:00p-9:00p",
+    "category": "Bar / Pub",
+    "public": true,
+    "featured": false,
+    "ticketLink": "",
+    "website": "",
+    "image": "",
+    "tags": [],
+    "notes": ""
+  }{
     "id": "show-2026-10-09-010",
     "date": "2026-10-09",
     "venue": "Hell Saloon",
