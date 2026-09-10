@@ -72,7 +72,8 @@ window.EFC_SHOWS = [
     "image": "",
     "tags": [],
     "notes": ""
-  }{
+  },
+  {
     "id": "show-2026-10-09-010",
     "date": "2026-10-09",
     "venue": "Hell Saloon",
