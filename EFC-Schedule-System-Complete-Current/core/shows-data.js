@@ -2,13 +2,61 @@
 Electric Flower Co. Master Show Data
 
 Generated automatically from schedule.html.
-Total shows: 254
+Total shows: 262
 
 Edit individual show records here after conversion.
 All website widgets can read from window.EFC_SHOWS.
 */
 
 window.EFC_SHOWS = [
+  {
+    "id": "show-2026-12-11-255",
+    "date": "2026-12-11",
+    "venue": "Hell Saloon",
+    "city": "Pinckney",
+    "state": "MI",
+    "time": "8:30p-12:00a",
+    "category": "Bar / Pub",
+    "public": true,
+    "featured": false,
+    "ticketLink": "",
+    "website": "",
+    "image": "",
+    "tags": [],
+    "notes": ""
+  },
+  {
+    "id": "show-2026-11-13-256",
+    "date": "2026-11-13",
+    "venue": "The Side Pocket",
+    "city": "Holland",
+    "state": "MI",
+    "time": "9:00p-1:00a",
+    "category": "Live Music",
+    "public": true,
+    "featured": false,
+    "ticketLink": "",
+    "website": "",
+    "image": "",
+    "tags": [],
+    "notes": ""
+  },
+  {
+    "id": "show-2026-11-08-257",
+    "date": "2026-11-08",
+    "venue": "The Green Door: Y2K Party wsg. Smokey Bear",
+    "city": "Lansing",
+    "state": "MI",
+    "time": "6:00p-9:00p",
+    "category": "Live Music",
+    "public": true,
+    "featured": false,
+    "ticketLink": "https://www.prekindle.com/promo/id/-2852527949011901987",
+    "website": "",
+    "image": "",
+    "tags": [],
+    "notes": ""
+  },
   {
     "id": "show-2026-11-07-012",
     "date": "2026-11-07",
@@ -66,6 +114,22 @@ window.EFC_SHOWS = [
     "time": "6:00p-9:00p",
     "category": "Bar / Pub",
     "public": true,
+    "featured": false,
+    "ticketLink": "",
+    "website": "",
+    "image": "",
+    "tags": [],
+    "notes": ""
+  },
+  {
+    "id": "show-2026-10-10-258",
+    "date": "2026-10-10",
+    "venue": "Private Blocktoberfest Party",
+    "city": "East Grand Rapids",
+    "state": "MI",
+    "time": "5:30p-10:00p",
+    "category": "Private Event",
+    "public": false,
     "featured": false,
     "ticketLink": "",
     "website": "",
@@ -828,7 +892,7 @@ window.EFC_SHOWS = [
   {
     "id": "show-2025-10-11-048",
     "date": "2025-10-11",
-    "venue": "Private Event - Block Party",
+    "venue": "Private Blocktoberfest Party",
     "city": "Grand Rapids",
     "state": "MI",
     "time": "",
